@@ -1,0 +1,1370 @@
+<div class="ibizaConatiner" fxLayout="column" fxLayoutAlign="start center">
+  <div class="cover mb40" fxLayout="column" fxLayoutAlign="center center">
+    <h1>ibiza vacations</h1>
+  </div>
+  <div fxHide.xs fxShow.gt-xs fxLayout="column" fxLayoutAlign="start center">
+    <div class="w100 mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start end">
+          <div class="hoverTag" (click)="openHover = openHover === 0 ? 1 : 0" (mouseover)="openHover = 1"
+            (clickOutside)="ClickOutside(1)">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/11_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/11_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/11.jpg" alt="">
+          </picture>
+          <div class="hoverProducts" *ngIf="openHover === 1">
+            <img *ngFor="let item of imageData[1]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+              [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+          </div>
+          <div class="h50 image2 mb40" fxLayout="column" fxLayoutAlign="start end">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 2 : 0" (mouseover)="openHover = 2"
+              (clickOutside)="ClickOutside(2)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/12_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/12_350.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/12.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 2">
+              <img *ngFor="let item of imageData[2]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="start center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="start start">
+            <div class="hoverTag2" (click)="openHover = openHover === 0 ? 3 : 0" (mouseover)="openHover = 3"
+              (clickOutside)="ClickOutside(3)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/13_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/13_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/13.jpg" alt="">
+            </picture>
+            <div class="hoverProducts2" *ngIf="openHover === 3">
+              <img *ngFor="let item of imageData[3]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/14.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="end center">
+          <div class="h41 image3" fxLayout="row" fxLayoutAlign="end start">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 4 : 0" (mouseover)="openHover = 4"
+              (clickOutside)="ClickOutside(4)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/15_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/15_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/15.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 4">
+              <img *ngFor="let item of imageData[4]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start start" (deferLoad)="videoDefferArr[0] = true">
+          <video *ngIf="appService.isBrowser &&videoDefferArr[0]"  class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-1')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-1">
+            <source src="https://files.y.jewelry/assets/img/lookbook/16_VP8.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/16.mp4" type="video/mp4">
+          </video>
+          <a class="watermark mb40" href="https://www.instagram.com/p/B4zl0_DpkOZ/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta1_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta1_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta1.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w100 mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start end">
+          <div class="hoverTag" (click)="openHover = openHover === 0 ? 5 : 0" (mouseover)="openHover = 5"
+            (clickOutside)="ClickOutside(5)">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/21_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/21_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/21.jpg" alt="">
+          </picture>
+          <div class="hoverProducts" *ngIf="openHover === 5">
+            <img *ngFor="let item of imageData[5]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+              [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+          </div>
+          <div class="h50 image2 mb40" fxLayout="column" fxLayoutAlign="start end">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 6 : 0" (mouseover)="openHover = 6"
+              (clickOutside)="ClickOutside(6)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/22_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/22_350.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/22.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 6">
+              <img *ngFor="let item of imageData[6]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="start center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="start start">
+            <div class="hoverTag2" (click)="openHover = openHover === 0 ? 7 : 0" (mouseover)="openHover = 7"
+              (clickOutside)="ClickOutside(7)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/23_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/23_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/23.jpg" alt="">
+            </picture>
+            <div class="hoverProducts2" *ngIf="openHover === 7">
+              <img *ngFor="let item of imageData[7]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/24.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="end center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="end start">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 8 : 0" (mouseover)="openHover = 8"
+              (clickOutside)="ClickOutside(8)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/25_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/25_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/25.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 8">
+              <img *ngFor="let item of imageData[8]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start start" (deferLoad)="videoDefferArr[1] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[1]"    class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-2')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-2">
+            <source src="https://files.y.jewelry/assets/img/lookbook/26_VP8.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/26.mp4" type="video/mp4">
+          </video>
+          <a class="watermark mb40" href="https://www.instagram.com/p/B4kRxDXJ7c4/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta2_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta2_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta2.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w100 mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start end">
+          <div class="hoverTag" (click)="openHover = openHover === 0 ? 9 : 0" (mouseover)="openHover = 9"
+            (clickOutside)="ClickOutside(9)">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/31_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/31_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/31.jpg" alt="">
+          </picture>
+          <div class="hoverProducts" *ngIf="openHover === 9">
+            <img *ngFor="let item of imageData[9]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+              [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+          </div>
+          <div class="h50 image2 mb40" fxLayout="column" fxLayoutAlign="start end">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 10 : 0" (mouseover)="openHover = 10"
+              (clickOutside)="ClickOutside(10)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/32_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/32_350.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/32.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 10">
+              <img *ngFor="let item of imageData[10]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="start center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="start start">
+            <div class="hoverTag2" (click)="openHover = openHover === 0 ? 11 : 0" (mouseover)="openHover = 11"
+              (clickOutside)="ClickOutside(11)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/33_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/33_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/33.jpg" alt="">
+            </picture>
+            <div class="hoverProducts2" *ngIf="openHover === 11">
+              <img *ngFor="let item of imageData[11]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/34.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="end center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="end start">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 12 : 0" (mouseover)="openHover = 12"
+              (clickOutside)="ClickOutside(12)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/35_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/35_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/35.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 12">
+              <img *ngFor="let item of imageData[12]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start start" (deferLoad)="videoDefferArr[2] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[2]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-3')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-3">
+            <source src="https://files.y.jewelry/assets/img/lookbook/36_VP8.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/36.mp4" type="video/mp4">
+          </video>
+          <a class="watermark mb40" href="https://www.instagram.com/p/B2_MXksldXi/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta3_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta3_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta3.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w100 mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start end">
+          <div class="hoverTag" (click)="openHover = openHover === 0 ? 13 : 0" (mouseover)="openHover = 13"
+            (clickOutside)="ClickOutside(13)">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/41_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/41_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/41.jpg" alt="">
+          </picture>
+          <div class="hoverProducts" *ngIf="openHover === 13">
+            <img *ngFor="let item of imageData[13]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+              [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+          </div>
+          <div class="h50 image2 mb40" fxLayout="column" fxLayoutAlign="start end">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 14 : 0" (mouseover)="openHover = 14"
+              (clickOutside)="ClickOutside(14)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/42_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/42_350.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/42.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 14">
+              <img *ngFor="let item of imageData[14]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="start center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="start start">
+            <div class="hoverTag2" (click)="openHover = openHover === 0 ? 15 : 0" (mouseover)="openHover = 15"
+              (clickOutside)="ClickOutside(15)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/43_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/43_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/43.jpg" alt="">
+            </picture>
+            <div class="hoverProducts2" *ngIf="openHover === 15">
+              <img *ngFor="let item of imageData[15]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/44.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="end center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="end start">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 16 : 0" (mouseover)="openHover = 16"
+              (clickOutside)="ClickOutside(16)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/45_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/45_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/45.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 16">
+              <img *ngFor="let item of imageData[16]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start start" (deferLoad)="videoDefferArr[3] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[3]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-4')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-4">
+            <source src="https://files.y.jewelry/assets/img/lookbook/46_VP8.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/46.mp4" type="video/mp4">
+          </video>
+          <a class="watermark mb40" href="https://www.instagram.com/p/B4pTLLSpEdH/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta4_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta4_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta4.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w100 mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start end">
+          <div class="hoverTag" (click)="openHover = openHover === 0 ? 17 : 0" (mouseover)="openHover = 17"
+            (clickOutside)="ClickOutside(17)">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/51_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/51_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/51.jpg" alt="">
+          </picture>
+          <div class="hoverProducts" *ngIf="openHover === 17">
+            <img *ngFor="let item of imageData[17]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+              [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+          </div>
+          <div class="h50 image2 mb40" fxLayout="column" fxLayoutAlign="start end">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 18 : 0" (mouseover)="openHover = 18"
+              (clickOutside)="ClickOutside(18)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/52_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/52_350.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/52.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 18">
+              <img *ngFor="let item of imageData[18]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="start center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="start start">
+            <div class="hoverTag2" (click)="openHover = openHover === 0 ? 19 : 0" (mouseover)="openHover = 19"
+              (clickOutside)="ClickOutside(19)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/53_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/53_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/53.jpg" alt="">
+            </picture>
+            <div class="hoverProducts2" *ngIf="openHover === 19">
+              <img *ngFor="let item of imageData[19]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/54.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="end center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="end start">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 20 : 0" (mouseover)="openHover = 20"
+              (clickOutside)="ClickOutside(20)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/55_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/55_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/55.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 20">
+              <img *ngFor="let item of imageData[20]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start start" (deferLoad)="videoDefferArr[4] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[4]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-5')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-5">
+            <source src="https://files.y.jewelry/assets/img/lookbook/56_VP8.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/56.mp4" type="video/mp4">
+          </video>
+          <a class="watermark mb40" href="https://www.instagram.com/p/B4fBi_xpfSM/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta5_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta5_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta5.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w100 mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start end">
+          <div class="hoverTag" (click)="openHover = openHover === 0 ? 21 : 0" (mouseover)="openHover = 21"
+            (clickOutside)="ClickOutside(21)">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/61_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/61_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/61.jpg" alt="">
+          </picture>
+          <div class="hoverProducts" *ngIf="openHover === 21">
+            <img *ngFor="let item of imageData[21]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+              [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+          </div>
+          <div class="h50 image2 mb40" fxLayout="column" fxLayoutAlign="start end">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 22 : 0" (mouseover)="openHover = 22"
+              (clickOutside)="ClickOutside(22)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/62_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/62_350.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/62.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 22">
+              <img *ngFor="let item of imageData[22]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="start center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="start start">
+            <div class="hoverTag2" (click)="openHover = openHover === 0 ? 23 : 0" (mouseover)="openHover = 23"
+              (clickOutside)="ClickOutside(23)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/63_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/63_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/63.jpg" alt="">
+            </picture>
+            <div class="hoverProducts2" *ngIf="openHover === 23">
+              <img *ngFor="let item of imageData[23]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/64.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="end center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="end start">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 24 : 0" (mouseover)="openHover = 24"
+              (clickOutside)="ClickOutside(24)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/65_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/65_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/65.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 24">
+              <img *ngFor="let item of imageData[24]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start start" (deferLoad)="videoDefferArr[5] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[5]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-6')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-6">
+            <source src="https://files.y.jewelry/assets/img/lookbook/66_VP8.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/66.mp4" type="video/mp4">
+          </video>
+          <a class="watermark mb40" href="https://www.instagram.com/p/B4PdbtLJClL/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta6_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta6_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta6.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w100 mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start end">
+          <div class="hoverTag" (click)="openHover = openHover === 0 ? 25 : 0" (mouseover)="openHover = 25"
+            (clickOutside)="ClickOutside(25)">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/71_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/71_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/71.jpg" alt="">
+          </picture>
+          <div class="hoverProducts" *ngIf="openHover === 25">
+            <img *ngFor="let item of imageData[25]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+              [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+          </div>
+          <div class="h50 image2 mb40" fxLayout="column" fxLayoutAlign="start end">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 26 : 0" (mouseover)="openHover = 26"
+              (clickOutside)="ClickOutside(26)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/72_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/72_350.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/72.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 26">
+              <img *ngFor="let item of imageData[26]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="start center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="start start">
+            <div class="hoverTag2" (click)="openHover = openHover === 0 ? 27 : 0" (mouseover)="openHover = 27"
+              (clickOutside)="ClickOutside(27)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/73_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/73_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/73.jpg" alt="">
+            </picture>
+            <div class="hoverProducts2" *ngIf="openHover === 27">
+              <img *ngFor="let item of imageData[27]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/74.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="end center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="end start">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 28 : 0" (mouseover)="openHover = 28"
+              (clickOutside)="ClickOutside(28)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/75_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/75_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/75.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 28">
+              <img *ngFor="let item of imageData[28]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start start" (deferLoad)="videoDefferArr[6] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[6]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-7')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-7">
+            <source src="https://files.y.jewelry/assets/img/lookbook/76_VP8.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/76.mp4" type="video/mp4">
+          </video>
+          <a class="watermark mb40" href="https://www.instagram.com/p/B3PGUztpVPb/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta7_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta7_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta7.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w100 mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start end">
+          <div class="hoverTag" (click)="openHover = openHover === 0 ? 29 : 0" (mouseover)="openHover = 29"
+            (clickOutside)="ClickOutside(29)">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/81_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/81_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/81.jpg" alt="">
+          </picture>
+          <div class="hoverProducts" *ngIf="openHover === 29">
+            <img *ngFor="let item of imageData[29]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+              [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+          </div>
+          <div class="h50 image2 mb40" fxLayout="column" fxLayoutAlign="start end">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 30 : 0" (mouseover)="openHover = 30"
+              (clickOutside)="ClickOutside(30)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/82_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/82_350.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/82.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 30">
+              <img *ngFor="let item of imageData[30]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="start center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="start start">
+            <div class="hoverTag2" (click)="openHover = openHover === 0 ? 31 : 0" (mouseover)="openHover = 31"
+              (clickOutside)="ClickOutside(31)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/83_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/83_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/83.jpg" alt="">
+            </picture>
+            <div class="hoverProducts2" *ngIf="openHover === 31">
+              <img *ngFor="let item of imageData[31]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/84.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40" fxLayout="row" fxLayoutAlign="start center">
+        <div class="min50 mr40" fxLayout="row" fxLayoutAlign="end center">
+          <div class="h61 image3" fxLayout="row" fxLayoutAlign="end start">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 32 : 0" (mouseover)="openHover = 32"
+              (clickOutside)="ClickOutside(32)">
+              <img [src]="hoverDot">
+            </div>
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/85_450.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/85_450.jpg" type="image/jpg">
+              <img src="https://files.y.jewelry/assets/img/lookbook/85.jpg" alt="">
+            </picture>
+            <div class="hoverProducts" *ngIf="openHover === 32">
+              <img *ngFor="let item of imageData[32]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+          </div>
+        </div>
+        <div class="min50 mr40" fxLayout="column" fxLayoutAlign="start start" (deferLoad)="videoDefferArr[7] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[7]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-8')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-8">
+            <source src="https://files.y.jewelry/assets/img/lookbook/86_VP8.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/86.mp4" type="video/mp4">
+          </video>
+          <a class="watermark mb40" href="https://www.instagram.com/p/B3J2cWNFvBI/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta8_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta8_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta8.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div fxShow.xs fxHide.gt-xs fxLayout="column" fxLayoutAlign="start center">      
+    <div class="mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" >
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/11_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/11_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/11.jpg" alt="" (click)="openHover = 1"
+              (clickOutside)="ClickOutside(1)">
+          </picture>
+          <ng-container *ngIf="openHover === 1">
+            <app-product-list [products]="imageData[1]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/13_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/13_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/13.jpg" alt="" (click)="openHover = 3"
+            (clickOutside)="ClickOutside(3)">
+          </picture>
+          <ng-container *ngIf="openHover === 3">
+            <app-product-list [products]="imageData[3]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/12_350.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/12_350.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/12.jpg" alt="" (click)="openHover = 2"
+            (clickOutside)="ClickOutside(2)">
+          </picture>
+          <ng-container *ngIf="openHover === 2">
+            <app-product-list [products]="imageData[2]"></app-product-list>
+          </ng-container>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/14.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40"  >
+        <div class="floatRight" (deferLoad)="videoDefferArr[8] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[8]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-1')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-1">
+            <source src="https://files.y.jewelry/assets/img/lookbook/16_VP8_mobile.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/16_mobile.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/15_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/15_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/15.jpg" alt="" (click)="openHover = 4"
+            (clickOutside)="ClickOutside(4)">
+          </picture>
+          <ng-container *ngIf="openHover === 4">
+            <app-product-list [products]="imageData[4]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <a class="watermark mb40" href="https://www.instagram.com/p/B4zl0_DpkOZ/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta1_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta1_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta1.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" >
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/21_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/21_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/21.jpg" alt="" (click)="openHover = 5"
+              (clickOutside)="ClickOutside(5)">
+          </picture>
+          <ng-container *ngIf="openHover === 5">
+            <app-product-list [products]="imageData[5]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/23_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/23_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/23.jpg" alt="" (click)="openHover = 7"
+            (clickOutside)="ClickOutside(7)">
+          </picture>
+          <ng-container *ngIf="openHover === 7">
+            <app-product-list [products]="imageData[7]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/22_350.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/22_350.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/22.jpg" alt="" (click)="openHover = 6"
+            (clickOutside)="ClickOutside(6)">
+          </picture>
+          <ng-container *ngIf="openHover === 6">
+            <app-product-list [products]="imageData[6]"></app-product-list>
+          </ng-container>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/24.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40"  >
+        <div class="floatRight" (deferLoad)="videoDefferArr[9] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[9]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-2')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-2">
+            <source src="https://files.y.jewelry/assets/img/lookbook/26_VP8_mobile.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/26_mobile.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/25_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/25_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/25.jpg" alt="" (click)="openHover = 8"
+            (clickOutside)="ClickOutside(8)">
+          </picture>
+          <ng-container *ngIf="openHover === 8">
+            <app-product-list [products]="imageData[8]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <a class="watermark mb40" href="https://www.instagram.com/p/B4kRxDXJ7c4/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta2_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta2_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta2.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" >
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/31_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/31_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/31.jpg" alt="" (click)="openHover = 9"
+              (clickOutside)="ClickOutside(9)">
+          </picture>
+          <ng-container *ngIf="openHover === 9">
+            <app-product-list [products]="imageData[9]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/33_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/33_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/33.jpg" alt="" (click)="openHover = 11"
+            (clickOutside)="ClickOutside(11)">
+          </picture>
+          <ng-container *ngIf="openHover === 11">
+            <app-product-list [products]="imageData[11]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/32_350.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/32_350.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/32.jpg" alt="" (click)="openHover = 10"
+            (clickOutside)="ClickOutside(10)">
+          </picture>
+          <ng-container *ngIf="openHover === 10">
+            <app-product-list [products]="imageData[10]"></app-product-list>
+          </ng-container>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/34.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40"  >
+        <div class="floatRight" (deferLoad)="videoDefferArr[10] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[10]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-3')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-3">
+            <source src="https://files.y.jewelry/assets/img/lookbook/36_VP8_mobile.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/36_mobile.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/35_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/35_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/35.jpg" alt="" (click)="openHover = 12"
+            (clickOutside)="ClickOutside(12)">
+          </picture>
+          <ng-container *ngIf="openHover === 12">
+            <app-product-list [products]="imageData[12]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <a class="watermark mb40" href="https://www.instagram.com/p/B2_MXksldXi/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta3_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta3_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta3.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" >
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/41_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/41_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/41.jpg" alt="" (click)="openHover = 13"
+              (clickOutside)="ClickOutside(13)">
+          </picture>
+          <ng-container *ngIf="openHover === 13">
+            <app-product-list [products]="imageData[13]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/43_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/43_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/43.jpg" alt="" (click)="openHover = 15"
+            (clickOutside)="ClickOutside(15)">
+          </picture>
+          <ng-container *ngIf="openHover === 15">
+            <app-product-list [products]="imageData[15]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/42_350.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/42_350.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/42.jpg" alt="" (click)="openHover = 14"
+            (clickOutside)="ClickOutside(14)">
+          </picture>
+          <ng-container *ngIf="openHover === 14">
+            <app-product-list [products]="imageData[14]"></app-product-list>
+          </ng-container>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/44.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40"  >
+        <div class="floatRight" (deferLoad)="videoDefferArr[11] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[11]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-4')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-4">
+            <source src="https://files.y.jewelry/assets/img/lookbook/46_VP8_mobile.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/46_mobile.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/45_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/45_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/45.jpg" alt="" (click)="openHover = 16"
+            (clickOutside)="ClickOutside(16)">
+          </picture>
+          <ng-container *ngIf="openHover === 16">
+            <app-product-list [products]="imageData[16]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <a class="watermark mb40" href="https://www.instagram.com/p/B4pTLLSpEdH/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta4_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta4_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta4.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" >
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/51_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/51_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/51.jpg" alt="" (click)="openHover = 17"
+              (clickOutside)="ClickOutside(17)">
+          </picture>
+          <ng-container *ngIf="openHover === 17">
+            <app-product-list [products]="imageData[17]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/53_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/53_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/53.jpg" alt="" (click)="openHover = 19"
+            (clickOutside)="ClickOutside(19)">
+          </picture>
+          <ng-container *ngIf="openHover === 19">
+            <app-product-list [products]="imageData[19]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/52_350.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/52_350.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/52.jpg" alt="" (click)="openHover = 18"
+            (clickOutside)="ClickOutside(18)">
+          </picture>
+          <ng-container *ngIf="openHover === 18">
+            <app-product-list [products]="imageData[18]"></app-product-list>
+          </ng-container>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/54.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40"  >
+        <div class="floatRight" (deferLoad)="videoDefferArr[12] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[12]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-5')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-5">
+            <source src="https://files.y.jewelry/assets/img/lookbook/56_VP8_mobile.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/56_mobile.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/55_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/55_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/55.jpg" alt="" (click)="openHover = 20"
+            (clickOutside)="ClickOutside(20)">
+          </picture>
+          <ng-container *ngIf="openHover === 20">
+            <app-product-list [products]="imageData[20]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <a class="watermark mb40" href="https://www.instagram.com/p/B4fBi_xpfSM/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta5_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta5_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta5.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" >
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/61_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/61_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/61.jpg" alt="" (click)="openHover = 21"
+              (clickOutside)="ClickOutside(21)">
+          </picture>
+          <ng-container *ngIf="openHover === 21">
+            <app-product-list [products]="imageData[21]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/63_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/63_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/63.jpg" alt="" (click)="openHover = 23"
+            (clickOutside)="ClickOutside(23)">
+          </picture>
+          <ng-container *ngIf="openHover === 23">
+            <app-product-list [products]="imageData[23]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/62_350.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/62_350.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/62.jpg" alt="" (click)="openHover = 22"
+            (clickOutside)="ClickOutside(22)">
+          </picture>
+          <ng-container *ngIf="openHover === 22">
+            <app-product-list [products]="imageData[22]"></app-product-list>
+          </ng-container>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/64.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40"  >
+        <div class="floatRight" (deferLoad)="videoDefferArr[13] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[13]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-6')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-6">
+            <source src="https://files.y.jewelry/assets/img/lookbook/66_VP8_mobile.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/66_mobile.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/65_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/65_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/65.jpg" alt="" (click)="openHover = 24"
+            (clickOutside)="ClickOutside(24)">
+          </picture>
+          <ng-container *ngIf="openHover === 24">
+            <app-product-list [products]="imageData[24]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <a class="watermark mb40" href="https://www.instagram.com/p/B4PdbtLJClL/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta6_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta6_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta6.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" >
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/71_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/71_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/71.jpg" alt="" (click)="openHover = 25"
+              (clickOutside)="ClickOutside(25)">
+          </picture>
+          <ng-container *ngIf="openHover === 25">
+            <app-product-list [products]="imageData[25]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/73_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/73_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/73.jpg" alt="" (click)="openHover = 27"
+            (clickOutside)="ClickOutside(27)">
+          </picture>
+          <ng-container *ngIf="openHover === 27">
+            <app-product-list [products]="imageData[27]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/72_350.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/72_350.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/72.jpg" alt="" (click)="openHover = 26"
+            (clickOutside)="ClickOutside(26)">
+          </picture>
+          <ng-container *ngIf="openHover === 26">
+            <app-product-list [products]="imageData[26]"></app-product-list>
+          </ng-container>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/74.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40"  >
+        <div class="floatRight" (deferLoad)="videoDefferArr[14] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[14]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-7')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-7">
+            <source src="https://files.y.jewelry/assets/img/lookbook/76_VP8_mobile.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/76_mobile.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/75_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/75_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/75.jpg" alt="" (click)="openHover = 28"
+            (clickOutside)="ClickOutside(28)">
+          </picture>
+          <ng-container *ngIf="openHover === 28">
+            <app-product-list [products]="imageData[28]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <a class="watermark mb40" href="https://www.instagram.com/p/B3PGUztpVPb/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta7_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta7_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta7.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mb40" fxLayout="column" fxLayoutAlign="start center">
+      <div class="w100 mb40" >
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/81_550.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/81_550.jpg" type="image/jpg">
+            <img class="h41 image1 mb40" src="https://files.y.jewelry/assets/img/lookbook/81.jpg" alt="" (click)="openHover = 29"
+              (clickOutside)="ClickOutside(29)">
+          </picture>
+          <ng-container *ngIf="openHover === 29">
+            <app-product-list [products]="imageData[29]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/83_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/83_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/83.jpg" alt="" (click)="openHover = 31"
+            (clickOutside)="ClickOutside(31)">
+          </picture>
+          <ng-container *ngIf="openHover === 31">
+            <app-product-list [products]="imageData[31]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/82_350.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/82_350.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/82.jpg" alt="" (click)="openHover = 30"
+            (clickOutside)="ClickOutside(30)">
+          </picture>
+          <ng-container *ngIf="openHover === 30">
+            <app-product-list [products]="imageData[30]"></app-product-list>
+          </ng-container>
+        </div>
+      </div>
+      <div class="parallax h61 mb40"
+        style="background: url('https://files.y.jewelry/assets/img/lookbook/84.jpg');  background-position: center; background-repeat: no-repeat; background-size: cover;-webkit-background-size: cover;">
+      </div>
+      <div class="w100 mb40"  >
+        <div class="floatRight" (deferLoad)="videoDefferArr[15] = true">
+        <video *ngIf="appService.isBrowser &&videoDefferArr[15]"   class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-8')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-8">
+             <source src="https://files.y.jewelry/assets/img/lookbook/86_VP8_mobile.webm" type="video/webm">
+            <source src="https://files.y.jewelry/assets/img/lookbook/86_mobile.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="floatLeft">
+          <div class="hoverTag2">
+            <img [src]="hoverDot">
+          </div>
+          <picture>
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/85_450.webp" type="image/webp">
+            <source srcset="https://files.y.jewelry/assets/img/lookbook/85_450.jpg" type="image/jpg">
+            <img src="https://files.y.jewelry/assets/img/lookbook/85.jpg" alt="" (click)="openHover = 32"
+            (clickOutside)="ClickOutside(32)">
+          </picture>
+          <ng-container *ngIf="openHover === 32">
+            <app-product-list [products]="imageData[32]"></app-product-list>
+          </ng-container>
+        </div>
+        <div class="floatRight">
+          <a class="watermark mb40" href="https://www.instagram.com/p/B3J2cWNFvBI/?utm_source=ig_web_copy_link">
+            <picture>
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta8_350.webp" type="image/webp">
+              <source srcset="https://files.y.jewelry/assets/img/lookbook/insta8_350.jpg" type="image/jpg">
+              <img class="h41 image2 insta" src="https://files.y.jewelry/assets/img/lookbook/insta8.jpg" alt="">
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

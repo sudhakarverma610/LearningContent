@@ -1,0 +1,13 @@
+<div class="lookbookSection">
+    <div>
+      <img src="https://files.y.jewelry/assets/img/Speaker_Icon.svg" class="speaker" *ngIf="unmute"
+        (click)="changeVideoAudio('media-1')">
+      <video class="video-background" poster="https://files.y.jewelry/assets/video/loadlookbook.png" tappable inViewport
+        [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+        (tap)="changeVideoAudio('media-1')" playsinline loop [muted]="'muted'" preload="auto" muted="muted" id="media-1">
+        <source src="https://files.y.jewelry/assets/video/lookbook_2.webm" type="video/webm">
+        <source src="https://files.y.jewelry/assets/video/lookbook.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  

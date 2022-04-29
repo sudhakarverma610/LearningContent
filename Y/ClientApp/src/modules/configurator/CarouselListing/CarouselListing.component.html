@@ -1,0 +1,31 @@
+<!-- <owl-carousel-o [ngClass]="{pad: padInit}" [options]="customOptions" #owlCar>
+  <ng-container *ngFor="let slide of slidesStore;index as slideindex">
+    <ng-template carouselSlide>       
+      <ng-container>         
+            <app-product-configurator (OnProductClick)='ONProductClickChanged($event)' [products]="slide"
+            >
+          </app-product-configurator> 
+      </ng-container>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o> -->
+<ng-container *ngIf="!displayNoProducts&&Vslide">
+<div class="mobileImg" (swipeleft)="rightSlide(slideChecker)" (swiperight)="leftSlide(slideChecker)">  
+  <app-product-configurator (OnProductClick)='ONProductClickChanged($event)' [products]="Vslide.products"
+  >
+</app-product-configurator> 
+</div>
+<div class="dotNav-1" fxLayout="row" fxLayoutAlign="start center">
+  <div class="dotContainer" #slideChecker>    
+    <ng-container *ngFor="let slide of slidesStore;index as slideIndex">
+      <div class="dot" [style.background]="(slide.id===Vslide.id)?'#090954':'#BFD1E8'"
+        [style.opacity]="!(slide.id <= Vslide.id)?'0.5':'1'"  (click)="Vslide = slide;ScollWidthDotWidthIndex(slideIndex,slideChecker);">
+        
+      </div>         
+    </ng-container>
+  </div>
+</div>
+</ng-container>
+<ng-container *ngIf="displayNoProducts||!Vslide">
+  <h6>No products Found</h6>
+</ng-container>

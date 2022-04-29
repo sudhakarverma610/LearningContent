@@ -1,0 +1,471 @@
+@import '../../../stylesConstants.scss';
+
+.tellmeYContainer {
+  font-family: Apercu;
+  text-align: center;
+  min-height: 80vh;
+  margin-bottom: -25px;
+  
+
+  .div1 {
+    background: url("https://files.y.jewelry/assets/img/tellmey/cover.jpg");
+    background-size: cover;
+    width: 100%;
+    min-height: 65vh;
+  }
+
+  .max450 {
+    max-width: 450px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  h1 {
+    font-family: Belvue;
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  p {
+    font-family: ApercuLight;
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .btn {
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 236px;
+    margin: auto;
+    text-transform: uppercase;
+    font-family: BelweSansLight;
+
+    img {
+      width: 36px;
+      height: 35px;
+      float: left;
+      margin: 2px -3px;
+      background: #ffffff;
+      border-radius: 50%;
+    }
+  }
+
+  .mb-11 {
+    margin-bottom: 11px;
+  }
+
+  .btn-blue {
+    background-color: #090945;
+    color: $background-color-main;
+  }
+
+  .functions {
+    margin: 20px 0px;
+    width: 365px;
+    max-width: 90vw;
+
+    div {
+      font-family: Apercu;
+      font-size: 14px;
+      line-height: 20px;
+      cursor: pointer;
+
+      img {
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .bg-white {
+    background: #ffffff;
+  }
+
+  .mainDiv {
+    padding: 0px 10px 0 10px;
+    width: 365px;
+    max-width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 652px) {
+
+  .tellmeYContainer {
+    margin-bottom: -25px !important;
+  }
+}
+.end-sreenconatiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  height: calc(100vh - 80px); 
+  background:url('https://files.y.jewelry/assets/newUI/tellmey/tellmedone.jpg');  		   	 	 
+  background-size: cover;
+  -o-object-fit: fill;
+  object-fit: fill;
+  background-position: center;
+  width: 100%;
+  .inner-div{
+      width: 299px;
+      height: 230px;
+      background: #FBF4F1; 
+      opacity: 0.8;
+      border-radius: 10px;
+      font-family: Apercu;
+      font-style: normal;
+      font-weight: normal;    
+      text-align: center;
+      color: #090954;    
+       .heading{
+      font-size: 12px;
+      line-height: 10px;  
+      text-transform: uppercase;
+      margin-top:22px
+      
+      }
+       .sub-heading{
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 20px;  
+      width: 200px;
+      margin:auto;
+      margin-top:24px
+      }
+       .content{
+      font-size: 14px;
+      line-height: 20px; 
+      width:80%;
+      margin:auto;
+      margin-top:21px;
+      }
+       button{
+        font-size: 12px;
+        line-height: 12px;  
+        letter-spacing: 0.1em;
+        text-transform: uppercase; 
+        margin-top:21px;
+        width: 129.13px;
+        height: 40px;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.75); 
+        border: 1px solid #BFD1E8;
+        box-sizing: border-box;
+        border-radius: 20px;          
+      }
+    
+  } 
+  .inner-div-tell-login{
+    width: 299px;
+    height: 230px;
+    background: #FBF4F1; 
+    opacity: 0.8;
+    border-radius: 10px;
+    font-family: Apercu;
+    font-style: normal;
+    font-weight: normal;    
+    text-align: center;
+    color: #090954;    
+    .heading{
+      font-family: Apercu;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 20px; 
+      text-align: center;  
+      color: #090954;
+      margin-top: 26px;
+      margin-left: 17px;
+      margin-right: 17px;
+    }
+    .content{
+      width: calc(100% - 20px);
+      .line{
+        height: 1px;
+        background: #BFD1E8;
+        transform: matrix(1, 0, 0, -1, 0, 0);
+      }
+      .or{
+        font-family: Apercu;
+        font-size: 12px;
+        line-height: 20px;
+        text-align: center;
+        color: #BFD1E8;
+        opacity: 0.9;
+      }
+      .btn {
+        background: #090954;
+        border-radius: 20px;
+      }
+      .btn-login{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 12px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.1em;
+        text-transform: uppercase; 
+        color: #BFD1E8;
+      }
+      .login-text-footer{
+        font-family: Apercu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;  
+        text-align: center;  
+        color: #090954;
+      }
+    }
+  }
+}
+.progress-bar-div{
+  width: calc(100% - 20px); 
+  position: absolute;
+  top: 92px;
+  text-align: center;
+}
+.btn-back{
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  width: 40px;
+  height: 40px;
+  z-index: 999;
+}
+.result-container{     
+  background: url('https://files.y.jewelry/assets/newUI/tellmey/tellmeresult-container.jpg'); 
+  position: relative;
+  width: 100vw;    
+  height: calc(100vh - 80px);
+  background-size: cover;
+  overflow-y: auto;
+  .img-result{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 590px;
+    width: 100vw;
+    top: 0px;
+    margin: auto;
+    display: none;
+  }
+  .your-profile{ 
+    font-family: ApercuLight;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 10px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-top: 38px;
+    z-index: 99;    
+    }
+    .dreamer{
+      margin-top: 20px;
+      z-index: 99;
+      font-family: BelweSansLight;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 36px;
+      line-height: 40px;  
+      text-align: center;
+      color: #FFFFFF;
+      }
+      .tellmemore{
+        position: absolute; 
+        top: 348px;
+      button{
+        font-family: Apercu;
+        font-size: 12px;
+        line-height: 12px; 
+        letter-spacing: 0.1em;
+        text-transform: uppercase; 
+         color: #090954;
+         background: rgba(255, 255, 255, 0.75); 
+         width: 129.13px;
+         border: 1px solid #BFD1E8;
+         box-sizing: border-box;
+         height: 40px;
+         border-radius: 20px;
+         
+     }
+      }
+  .result-container-div{
+    margin-top:300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    color: #090954;
+    border-radius: 10px;
+    width: calc(100% - 20px);
+    margin-bottom: 30px;
+    z-index: 999;
+    background: rgba(251,244,241,0.8);
+    mix-blend-mode: normal;
+    .heading{
+      font-family: ApercuLight;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 20px; 
+      text-align: center;
+      margin-top:22px;
+      margin:17px;      
+      }  
+    .sub-heading{
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 20px;  
+      width: 200px;
+      margin:auto;
+      margin-top:24px ;
+       width: 321px;
+      }   
+      .mainDiv{ 
+        text-align:center; 
+        width:300px;
+        margin:auto;
+        background: #FBF4F1;
+        padding-bottom:40px;
+        opacity: 1;
+        button{
+          font-family: Apercu;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 12px; 
+          letter-spacing: 0.1em;
+          text-transform: uppercase; 
+          color: #FEFCFB;
+          background: #090954;
+          border-radius: 20px;
+          width: 102px;
+          height: 40px; 
+          border: none;
+          }
+         
+          
+      }
+      .content{
+        display: flex;
+        width: 321px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: auto;         
+      }
+      .inner-div-tell-meMore{  
+        background: #FBF4F1; 
+        opacity: 0.8;
+        border-radius: 10px;
+        font-family: Apercu;
+        font-style: normal;
+        font-weight: normal;    
+        text-align: center;
+        color: #090954;    
+        .heading{
+          font-family: ApercuMedium;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 10px;
+          text-align: center;
+          text-transform: uppercase;
+          margin:auto;
+          margin-top: 27px;
+          margin-bottom: 8px;
+        }
+        .content{
+          width: calc(100% - 25px);
+          p{
+            font-family: Apercu;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 20px;
+            margin-bottom: 20px;
+          }
+          .footer{
+            font-family: Apercu;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 10px;
+            color: #090954;
+            .text{              
+            opacity: 0.75;
+            }
+            .icons{
+              margin: auto;
+              margin-top: 13px;
+              margin-bottom: 30px;
+              display: flex;
+              justify-content:center;
+              .skype-icon{
+                margin-left: 20px;
+              }
+            }
+          }
+        }
+      } 
+  }
+} 
+.btn-back-result{
+  position: absolute;
+  top: 23px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  z-index: 999;
+}
+.savecreationbtn{  
+  cursor: pointer;
+  position: relative;
+  width: 265px;
+  height: 40px; 
+  background: #FFFFFF; 
+  border: 1px solid #BFD1E8;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  svg{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    bottom: 10px;
+  }
+  span{
+    font-family: Apercu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #090954;
+    margin-left: 13px;
+  }
+}
+@media (min-width:960px) {
+  .result-container{
+     .img-result{
+      display: block;
+      width:unset !important;
+    }
+    .result-container-div{
+      width: unset !important;      
+    .inner-div-tell-meMore{
+      max-width: 500px !important;
+    }
+    }
+  }
+  
+}

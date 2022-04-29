@@ -1,0 +1,86 @@
+.CategoryLoaderDiv {
+  width: 100%;
+  height: 60px;
+}
+
+.CategoryLoader {
+  margin: 10px auto;
+  animation: playloader 1.96s infinite;
+}
+
+@keyframes playloader {
+  to {
+    transform: rotateY(1turn);
+  }
+}
+
+.headerImage {
+  width: 100vw;
+  height: 350px;
+  max-height: 50vh;
+  background-size: cover !important;
+  background-position: bottom !important;
+
+  h1 {
+    font-family: Belvue;
+    font-size: 72px;
+    line-height: 60px;
+  }
+}
+
+.catTitle {
+  font-size: 1em;
+
+  span {
+    color: #BFD1E8;
+    padding: 0 0.5em;
+  }
+}
+
+.productsListing {
+  padding: 1em;
+}
+
+.empty {
+  padding: 2em 1em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.paddingX1em {
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+.Belvue {
+  font-family: Belvue;
+}
+
+.w-100 {
+  min-width: 100%;
+}
+
+.marginTop {
+  margin-top: 60px !important;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.heading {
+  h1 {
+    color: #090954;
+    font-size: 72px;
+    line-height: 60px;
+    text-align: center;
+    font-family: Belvue;
+  }
+}
+
+.searchListingContainer {
+  width: 100vw;
+  min-height: 80vh;
+}

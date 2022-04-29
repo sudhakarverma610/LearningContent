@@ -1,0 +1,28 @@
+<!-- Billing address view -->
+<div class="billingAddressSetupContainer" fxLayout="column" fxLayoutAlign="start start">
+  <div fxFill class="Belvue lineTitle">
+    Billing address
+  </div>
+  <div class="billingAddressRadioDiv" fxFill *ngIf="!giftCardInCart">
+    <mat-radio-group class="example-radio-group1" [(ngModel)]="useSameAddress" (change)="useSameSelected()">
+      <mat-radio-button color="primary" class="example-radio-button" [value]="true">
+        Use same address
+      </mat-radio-button>
+      <mat-radio-button color="primary" class="example-radio-button" [value]="false">
+        Use different address
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div fxFill class="addressSetupDiv" *ngIf="!useSameAddress || giftCardInCart">
+    <div *ngIf="addresses.length > 0">
+      <app-current-address [addresses]="addresses" [addressSelected]="billingAddress"
+        (addressSelectedEvent)="selectedBillingAddress($event)" (editAddressEvent)="editAddress($event)">
+      </app-current-address>
+    </div>
+    <div class="text-center" *ngIf="addresses.length === 0">
+      <span>No addresses found</span>
+    </div>
+    <span class="btn-link cursorPointer" (click)="openAddressFrom()"><button mat-mini-fab>+</button> Add new billing
+      address</span>
+  </div>
+</div>

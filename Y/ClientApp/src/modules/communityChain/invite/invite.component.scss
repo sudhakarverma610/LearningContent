@@ -1,0 +1,247 @@
+@import '../_colors';
+
+@mixin rounded-btn($bgcolor, $txtcolor) {
+  background-color: $bgcolor;
+  color: $txtcolor;
+  height: 38px;
+  line-height: 38px;
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    color: $bgcolor;
+    background-color: $txtcolor;
+    text-decoration: none;
+  }
+}
+
+/* *** Placeholder Color *** */
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: $color;
+    opacity: 1;
+  }
+
+  &::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: $color;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $color;
+  }
+
+  &:placeholder-shown {
+    /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+    color: $color;
+  }
+}
+
+.form_item {
+  margin-bottom: 15px;
+  min-width: 100%;
+  border-bottom: 5px solid white;
+
+  .form_email,
+  .form_first_name,
+  .form_last_name {
+    display: block;
+    background: none;
+    border: none;
+    border-bottom: 5px solid $border-color3;
+    height: 40px;
+    line-height: 40px;
+    color: $txt-color1;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: Univ;
+  }
+
+  .form_email,
+  .form_first_name,
+  .form_last_name {
+    font-size: 14px;
+    text-transform: initial;
+  }
+
+  .form_email,
+  .form_first_name,
+  .form_last_name {
+    @include placeholder-color($txt-color1);
+
+    &::-webkit-input-placeholder,
+    &:-ms-input-placeholder,
+    &:-moz-placeholder {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.form_links {
+  a {
+    color: $txt-color1;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &+.form_item {
+    margin-top: 30px;
+  }
+}
+
+.form_intro,
+.form_footer {
+  color: $txt-color1;
+  margin-bottom: 15px;
+  text-align: center;
+
+  a {
+    color: $txt-color1;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.form_intro {
+  margin: 8em 2em 0 0 !important;
+}
+
+.form_legend {
+  color: $txt-color1;
+  margin-top: 20px;
+  min-width: 100%;
+}
+
+.form_actions {
+  margin: 35px auto 0 auto;
+  max-width: 200px;
+  text-align: center;
+
+  .rounded_btn {
+    margin-bottom: 20px;
+
+    &.send_invite_btn,
+    &.resetpass_btn,
+    &.signup_btn {
+      text-transform: uppercase;
+    }
+
+    &.fb_signin_btn,
+    &.gg_signin_btn {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 10px;
+
+      .fa {
+        display: inline-block;
+      }
+
+      .btn_txt {
+        /* display: inline-block; */
+        display: none;
+      }
+    }
+
+    &.back_btn {
+      @include rounded-btn($bg-color2, $txt-color1);
+      text-transform: uppercase;
+      font-family: Belvue;
+    }
+  }
+}
+
+.form_submit {
+  width: 200px;
+  font-family: Belvue;
+}
+
+.error_message {
+  color: #b54747;
+}
+
+.invite {
+  font-family: Apercu;
+  min-height: calc(100vh - 60px);
+
+  .categoryName {
+    background-position: center;
+    background-size: cover;
+    color: white;
+    font-family: Belvue;
+    line-height: 2em;
+    font-size: 2.5em;
+  }
+}
+
+.popup_account_content {
+  background-color: $bg-color3;
+}
+
+@media only screen and (min-width: 560px) {
+  .popup_account_content {
+    padding: 3em 3em 0 3em;
+  }
+
+  .categoryName {
+    background-position: 70%;
+  }
+}
+
+@media only screen and (max-width: 559px) {
+  .popup_account_content {
+    padding: 3em 3em 0 3em
+  }
+
+  .categoryName {
+    background-position: top;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+  font-family: Belvue !important;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.leftAlign {
+  text-align: left;
+}
+
+.widthFull {
+  width: 100%;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.communityChainDashboard {
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+
+.inviteSent {
+  text-align: center;
+}
+
+.padding1em {
+  padding: 1em;
+}

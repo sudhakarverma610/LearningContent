@@ -1,0 +1,67 @@
+<div class="lookbookConatiner" fxLayout="column" fxLayoutAlign="start center">
+  <div class="cover" fxLayout="column" fxLayoutAlign="center center">
+    <h1>lookbooks</h1>
+  </div>
+  <!-- <div fxHide.xs fxShow.gt-xs fxLayout="column" fxLayoutAlign="start center">
+    <div class="w100 mb40" fxLayout="column" fxLayoutAlign="start center"> 
+      <div class="lookcontainer">
+        <ng-container *ngFor="let item of lookbooks">
+          <div *ngIf="item.display===1" class="floatLeft mb40">
+            <picture> 
+              <img class="img1" [src]="item.desktopSrc" alt="item.alt">
+            </picture>
+            <div [routerLink]="[item.url]">{{item.alt}}</div>
+          </div>
+          <div *ngIf="item.display===2" class="floatCenter mb40">
+            <picture> 
+              <img class="img1" [src]="item.desktopSrc" alt="item.alt">
+            </picture>
+            <div [routerLink]="[item.url]">{{item.alt}}</div>
+          </div>
+          <div *ngIf="item.display===3" class="floatRight mb40">
+            <picture> 
+              <img class="img1" [src]="item.desktopSrc" alt="item.alt">
+            </picture>
+            <div [routerLink]="[item.url]">{{item.alt}}</div>
+          </div>
+          
+        </ng-container>
+        <div class="flex-center"><button style="display: none;">load more</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+   -->
+  <!-------------------------Mobile Div-----------------------fxShow.xs fxHide.gt-xs ----------------->
+  <div fxLayout="column" fxLayoutAlign="start center">      
+      <div class="w100 mb40" fxLayout="column" fxLayoutAlign="start center"> 
+        <div class="lookcontainer">
+          <ng-container *ngFor="let item of lookbooks">
+            <div  [routerLink]="[item.url]" *ngIf="item.display===1" class="floatLeft mb40">
+              <picture> 
+                <img class="img1" [src]="item.mobileSrc" alt="item.alt">
+              </picture>
+              <div class="looktext" [routerLink]="[item.url]">{{item.alt}}</div>
+            </div>
+            <div  [routerLink]="[item.url]" *ngIf="item.display===2" class="floatCenter mb40">
+              <picture> 
+                <img class="img1" [src]="item.mobileSrc" alt="item.alt">
+              </picture>
+              <div  class="looktext" [routerLink]="[item.url]">{{item.alt}}</div>
+            </div>
+            <div  [routerLink]="[item.url]" *ngIf="item.display===3" class="floatRight mb40">
+              <picture> 
+                <img class="img1" [src]="item.mobileSrc" alt="item.alt">
+              </picture>
+              <div  class="looktext" [routerLink]="[item.url]">{{item.alt}}</div>
+            </div>
+            
+          </ng-container>
+          <div class="flex-center"><button class="btnload" style="display: none;">load more</button>
+          </div>
+        </div>    
+      </div>    
+  </div>
+
+</div>

@@ -1,0 +1,82 @@
+<div fxLayout="column" fxHide.gt-sm class="polling" *ngIf="poll">
+  <div fxShow fxHide.md class="progress-bar-div">
+    <mat-progress-bar 
+    style="width:80%"
+    [color]="'color'"
+    [mode]="'determinate'"
+    [value]="progressValue" >
+</mat-progress-bar>  
+  </div>
+  <img *ngIf="pollState!==0" alt="back" (click)="BackButtonClicked()" class="cursorPointer btn-back" 
+  src="https://files.y.jewelry/assets/img/icons/back.svg">
+
+   <div *ngIf="IsBlur" fxFlex='50'  fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'background-image':  'url('+poll.poll_answers[0].image_path+')', 'background-position': 'center', 'background-size': 'cover','filter': 'blur(10px)'  }"
+    (click)="selectAnswer(poll.poll_answers[0])">
+    <!-- <div class="answer_tag">{{poll.poll_answers[0].name}}</div> -->
+  </div> 
+   <div *ngIf="!IsBlur" fxFlex='50'   fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'background-image':  'url('+poll.poll_answers[0].image_path+')', 'background-position': 'center', 'background-size': 'cover' }"
+    (click)="selectAnswer(poll.poll_answers[0])">
+    <!-- <div class="answer_tag">{{poll.poll_answers[0].name}}</div> -->
+  </div> 
+  <div fxShow fxHide.md class="line-divider"></div><!--show only mobile-->
+  <!-- <div fxHide fxShow.gt-sm class="btn" id="polling_btn" fxFlexAlign="center">show only Desktop
+    <a class="create_your_own_btn" title="Create Your Own">{{poll.name}}</a>
+  </div> -->
+  <div *ngIf="IsBlur" fxFlex='50'   fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'background-image':  'url('+poll.poll_answers[1].image_path+')', 'background-position': 'center', 'background-size': 'cover','filter': 'blur(10px)' }"
+    (click)="selectAnswer(poll.poll_answers[1])">
+   </div>
+  <div *ngIf="!IsBlur" fxFlex='50'   fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'background-image':  'url('+poll.poll_answers[1].image_path+')', 'background-position': 'center', 'background-size': 'cover' }"
+    (click)="selectAnswer(poll.poll_answers[1])">
+   </div>
+</div>
+<!----Desktop Screen-->
+<div fxLayout="row"  fxHide fxShow.gt-sm>
+  <div fxLayout="column"  class="polling previousscreen" style="filter: blur(10px);" *ngIf="PreviousPoll">   
+     <div  fxFlex='50'  fxLayout="row" fxLayoutAlign="center center"
+      [ngStyle]="{'background-image':  'url('+PreviousPoll.poll_answers[0].image_path+')', 'background-position': 'center', 'background-size': 'cover'}"
+      >
+     </div>  
+    <div fxShow fxHide.md class="line-divider"></div><!--show only mobile-->    
+    <div   fxFlex='50'   fxLayout="row" fxLayoutAlign="center center" 
+    [ngStyle]="{'background-image':  'url('+PreviousPoll.poll_answers[1].image_path+')', 'background-position': 'center', 'background-size': 'cover' }"
+       >
+     </div> 
+  </div>
+  <div fxLayout="column" class="polling currentScreen" *ngIf="poll">
+    <div class="progress-bar-div">
+      <mat-progress-bar       
+      style="width:80%"
+      [color]="'color'"
+      [mode]="'determinate'"
+      [value]="progressValue" >
+      </mat-progress-bar>  
+    </div>
+    <img *ngIf="pollState!==0" alt="back" (click)="BackButtonClicked()" class="cursorPointer btn-back" 
+    src="https://files.y.jewelry/assets/img/icons/back.svg">
+  
+     <div *ngIf="IsBlur" fxFlex='50'  fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'background-image':  'url('+poll.poll_answers[0].image_path+')', 'background-position': 'center', 'background-size': 'cover','filter': 'blur(10px)'  }"
+      (click)="selectAnswer(poll.poll_answers[0])">
+      <!-- <div class="answer_tag">{{poll.poll_answers[0].name}}</div> -->
+    </div> 
+     <div *ngIf="!IsBlur" fxFlex='50'   fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'background-image':  'url('+poll.poll_answers[0].image_path+')', 'background-position': 'center', 'background-size': 'cover' }"
+      (click)="selectAnswer(poll.poll_answers[0])">
+      <!-- <div class="answer_tag">{{poll.poll_answers[0].name}}</div> -->
+    </div> 
+    <div class="line-divider"></div><!--show only mobile-->    
+    <div *ngIf="IsBlur" fxFlex='50'   fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'background-image':  'url('+poll.poll_answers[1].image_path+')', 'background-position': 'center', 'background-size': 'cover','filter': 'blur(10px)' }"
+      (click)="selectAnswer(poll.poll_answers[1])">
+     </div>
+    <div *ngIf="!IsBlur" fxFlex='50'   fxLayout="row" fxLayoutAlign="center center" [ngStyle]="{'background-image':  'url('+poll.poll_answers[1].image_path+')', 'background-position': 'center', 'background-size': 'cover' }"
+      (click)="selectAnswer(poll.poll_answers[1])">
+     </div>
+  </div>
+  <div fxLayout="column"  class="polling nextScreen" style="filter: blur(10px);" *ngIf="NextPoll">     
+     <div fxFlex='50'  fxLayout="row" fxLayoutAlign="center center" 
+     [ngStyle]="{'background-image':  'url('+NextPoll.poll_answers[0].image_path+')', 'background-position': 'center', 'background-size': 'cover'}">
+     </div>  
+    <div fxShow fxHide.md class="line-divider"></div><!--show only mobile-->    
+    <div fxFlex='50' fxLayout="row" fxLayoutAlign="center center" 
+    [ngStyle]="{'background-image':  'url('+NextPoll.poll_answers[1].image_path+')', 'background-position': 'center','background-size': 'cover' }">
+     </div>
+  </div> 
+</div> 

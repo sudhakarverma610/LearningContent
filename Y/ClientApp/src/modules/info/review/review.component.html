@@ -1,0 +1,51 @@
+<div class="container" fxLayout="column" fxLayoutALign="center center">
+    <h1>
+        {{mauticForm.form.name}}
+    </h1>
+    <h5 class="description">
+        {{mauticForm.form.description}}
+    </h5>
+    <form action="https://crm.y.jewelry/form/submit?formId=10" fxLayout="column" fxLayoutALign="center center">
+        <ng-container *ngFor="let item of mauticForm.form.fields">
+            <ng-container *ngIf="item.type === 'text' || item.type === 'email' || item.type === 'tel'">            
+                <mat-form-field fxFlex="100">
+                    <input matInput type="text" [placeholder]="item.label + (item.isRequired ? ' *' : '')" name="'mauticformvalue[' +item.alias + ']''" />
+                </mat-form-field>
+            </ng-container>
+            <ng-container *ngIf="item.type === 'textarea'">            
+                <mat-form-field fxFlex="100">
+                    <textarea matInput type="text" [placeholder]="item.label + (item.isRequired ? ' *' : '')" name="'mauticformvalue[' +item.alias + ']'"></textarea>
+                </mat-form-field>
+            </ng-container>
+            <ng-container *ngIf="item.type === 'datetime'">            
+                <mat-form-field fxFlex="100">
+                    <input matInput [matDatepicker]="picker" [placeholder]="item.label + (item.isRequired ? ' *' : '')" name="'mauticformvalue[' +item.alias + ']'" />
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </ng-container>
+            <ng-container *ngIf="item.type === 'radiogrp'"> 
+                <label class="example-radio-group-label">{{item.label + (item.isRequired ? ' *' : '')}}</label>
+                <mat-radio-group
+                  aria-labelledby="example-radio-group-label"
+                  class="example-radio-group"
+                  name="'mauticformvalue[' +item.alias + ']'">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of item.properties.properties.list" [value]="season.value">
+                    {{season.label}}
+                  </mat-radio-button>
+                </mat-radio-group>
+            </ng-container>
+            <ng-container *ngIf="item.type === 'select'"> 
+                <mat-label>{{item.label + (item.isRequired ? ' *' : '')}}</mat-label>
+                <mat-select name="'mauticformvalue[' +item.alias + ']'">
+                  <mat-option *ngFor="let season of item.properties.properties.list" [value]="season.value">
+                    {{season.label}}
+                  </mat-option>
+                </mat-select>
+            </ng-container>
+            <ng-container *ngIf="item.type === 'button'"> 
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+            </ng-container>
+        </ng-container>
+    </form>
+</div>

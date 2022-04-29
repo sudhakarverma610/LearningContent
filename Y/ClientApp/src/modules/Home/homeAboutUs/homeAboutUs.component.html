@@ -1,0 +1,8 @@
+<div class="aboutUsDivContainer" fxFill>
+  <div class="paddingX1em" fxLayout="column" fxLayoutAlign="center center">
+    <div class="w100" *ngIf="!desktop">
+      <app-carousel-holder [slidesStore]="contents" [carouselType]="'IMG'" [responsive]="false">
+      </app-carousel-holder>
+    </div>      
+  </div>
+</div>

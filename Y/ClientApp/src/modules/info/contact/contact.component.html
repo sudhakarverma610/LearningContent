@@ -1,0 +1,133 @@
+<div class="contactContainer" fxLayout="column" fxLayoutAlign="start start">
+  <div class="w100 min50vh" fxLayout="column" fxLayoutAlign="center center"
+    style="background-image: url(https://files.y.jewelry/assets/newUI/contact1.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;  min-height: 65vh;">
+    <h1 class="text-white Belvue">contact us</h1>
+  </div>
+  <div class="w100 min50vh" fxLayout="row" fxLayoutWrap fxLayoutAlign="start start">
+    <div class="p24em" fxFill fxFlex.gt-sm="50" fxFlex="100">
+      <input id="post-1" class="read-more-state" type="checkbox" />
+      <div class="read-more-wrap">
+          <div class="text-center" style="margin-top: 20px;">
+            <p>
+            We will gladly respond to all you queries and advice you on your purchases. Please feel free to write to us.
+          </p>
+        </div>
+          <div class="read-more-target">              
+              <p *ngIf="successMessage&&allowContactForm" class="success" id="emailSent">Your message has been sent</p>
+              <div class="contactForm" *ngIf="allowContactForm">
+                <div fxLayout="row" fxLayoutAlign="start start">
+                  <mat-form-field fxFlex="100" fxFlex.gt-sm="40">
+                    <input matInput type="text" placeholder="family name *" [(ngModel)]="nameFormContact">
+                    <mat-hint class="error" *ngIf="nameFormContactError==true">This field is required</mat-hint>
+                  </mat-form-field>
+                  <mat-form-field fxFlex="100" fxFlex.gt-sm="40">
+                    <input matInput type="text" placeholder="email *" [(ngModel)]="emailFormContact">
+                    <mat-hint class="error" *ngIf="emailInvalidFormContactError==true">This field is not valid</mat-hint>
+                    <mat-hint class="error" *ngIf="emailFormContactRequiredError==true">This field is required</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start start">
+                  <mat-form-field fxFlex="100" fxFlex.gt-sm="40">
+                    <input matInput type="text" placeholder="first name *" [(ngModel)]="firstnameFormContact">
+                    <mat-hint class="error" *ngIf="firstnameFormContactError==true">This field is required</mat-hint>
+                  </mat-form-field>
+                  <mat-form-field fxFlex="100" fxFlex.gt-sm="40" class="customdropDownList">
+                    <mat-select placeholder="Select" [(ngModel)]="required">
+                      <mat-option value="">You would like to contact&nbsp;: *</mat-option>
+                      <mat-option value="SERVICE_CLIENT">Customer service</mat-option>
+                      <mat-option value="SERVICE_MARKETING">Marketing and communication service</mat-option>
+                      <mat-option value="SERVICE_COMMERCIAL">Sales service</mat-option>
+                      <mat-option value="RESOURCES_HUMAINES">Human ressources</mat-option>
+                      <mat-option value="OTHERS">Others</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div id="textArea" fxLayout="row" fxLayoutAlign="start start">
+                  <mat-form-field class="w100">
+                    <textarea matInput placeholder="Subject:" [(ngModel)]="subject"></textarea>
+                  </mat-form-field>
+                </div>
+                <button class="button-continue rounded_btn" (click)="submitContact()">Send Message</button>
+              </div>
+              <!-- <p>You also can reach us by mail, phone, Whatsapp or email by using the following informations.</p> -->
+              <p>
+                {{companyName | uppercase}}<br />        
+              </p>      
+              <p>Tel.: {{telphone}}</p><br/>
+              <a href="https://wa.me/?phone=91{{whatsApp}}&text=%20"
+              target="_blank" rel="noopener" onclick="open(this.href, 'social_share', 'height=400,width=600');return false">
+              WhatsApp: {{whatsApp}} <br />(Message Only)
+              </a> <br/>
+              <a href="mailto:{{email}}">{{email}}</a> <br/>
+        </div> 
+      </div>    
+      <label class="read-more-trigger" for="post-1"></label> 
+    
+      <!-- <p>Email: {{telphone}}</p> -->
+    </div>
+    <div class="p24em" fxFill fxFlex.gt-sm="50" fxFlex="100"
+      style="background-image: url(https://files.y.jewelry/assets/newUI/contact2.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;  min-height: 65vh;">
+      <div style="opacity: 0; pointer-events: none; touch-action: none">
+        <input id="post-2" class="read-more-state" type="checkbox" />
+        <div class="read-more-wrap" >
+          <div class="text-center" style="margin-top: 20px;">
+            <p>
+              We will gladly respond to all you queries and advice you on your purchases. Please feel free to write to us.
+            </p>
+        </div>
+          <div class="read-more-target">              
+              
+        <p *ngIf="successMessage&&allowContactForm" class="success" id="emailSent">Your message has been sent</p>
+        <div class="contactForm">
+          <div fxLayout="row" fxLayoutAlign="start start">
+            <mat-form-field fxFlex="100" fxFlex.gt-sm="40">
+              <input matInput type="text" placeholder="family name *" [(ngModel)]="nameFormContact">
+              <mat-hint class="error" *ngIf="nameFormContactError==true">This field is required</mat-hint>
+            </mat-form-field>
+            <mat-form-field fxFlex="100" fxFlex.gt-sm="40">
+              <input matInput type="text" placeholder="email *" [(ngModel)]="emailFormContact">
+              <mat-hint class="error" *ngIf="emailInvalidFormContactError==true">This field is not valid</mat-hint>
+              <mat-hint class="error" *ngIf="emailFormContactRequiredError==true">This field is required</mat-hint>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start start">
+            <mat-form-field fxFlex="100" fxFlex.gt-sm="40">
+              <input matInput type="text" placeholder="first name *" [(ngModel)]="firstnameFormContact">
+              <mat-hint class="error" *ngIf="firstnameFormContactError==true">This field is required</mat-hint>
+            </mat-form-field>
+            <mat-form-field fxFlex="100" fxFlex.gt-sm="40">
+              <mat-select placeholder="Select" [(ngModel)]="required">
+                <mat-option value="">You would like to contact&nbsp;: *</mat-option>
+                <mat-option value="SERVICE_CLIENT">Customer service</mat-option>
+                <mat-option value="SERVICE_MARKETING">Marketing and communication service</mat-option>
+                <mat-option value="SERVICE_COMMERCIAL">Sales service</mat-option>
+                <mat-option value="RESOURCES_HUMAINES">Human ressources</mat-option>
+                <mat-option value="OTHERS">Others</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div id="textArea" fxLayout="row" fxLayoutAlign="start start">
+            <mat-form-field>
+              <textarea matInput placeholder="Subject:" [(ngModel)]="subject"></textarea>
+            </mat-form-field>
+          </div>
+          <button class="button-continue rounded_btn" (click)="submitContact()">Send Message</button>
+        </div>
+        <!-- <p>You also can reach us by mail, phone, Whatsapp or email by using the following informations.</p> -->
+        <p>
+          {{companyName | uppercase}}<br />
+           
+        </p>
+        <p>Tel.: {{telphone}}</p><br>
+        <a href="https://wa.me/?phone=91{{whatsApp}}&text=%20"
+        target="_blank" rel="noopener" onclick="open(this.href, 'social_share', 'height=400,width=600');return false">
+        WhatsApp: {{whatsApp}} <br />(Message Only)
+        </a> <br>
+        <a href="mailto:{{email}}">{{email}}</a> <br>
+        </div> 
+      </div>    
+      <label class="read-more-trigger" for="post-2"></label>        
+      </div>
+    </div>
+  </div>
+</div>

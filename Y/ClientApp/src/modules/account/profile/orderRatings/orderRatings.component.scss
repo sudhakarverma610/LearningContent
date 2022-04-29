@@ -1,0 +1,412 @@
+.profileContainer {
+  width: 100vw;
+ /* min-height: 90vh;*/
+}
+.errordiv{
+  width: calc(100% - 40px); 
+  margin: auto;
+  margin-bottom: 20px;
+}
+.loaderY {
+  position: fixed; 
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+  margin: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: playloader 1.96s infinite;
+}
+
+@keyframes playloader {
+  to {
+    transform: rotateY(1turn);
+  }
+}
+
+.profileImage {
+  background-image: url("https://files.y.jewelry/assets/img/profile/profileCover.jpg");
+  background-position: center;
+  background-size: cover;
+  min-height: 50vh;
+
+  h1 {
+    padding: 0px;
+    margin: 0px;
+    font-family: Belvue;
+    font-size: 72px;
+    line-height: 60px;
+    color: #ffffff;
+  }
+}
+.profileImage1{
+  position: relative;
+  h1{ 
+    position: absolute;
+    font-style: 'BelweSansLight';
+    font-size: 36px;
+    line-height: 60px; 
+    display: flex;
+    align-items: center;
+    text-align: center; 
+    color: #FFFFFF;
+  }
+ }
+
+.cardDiv {
+    margin-top: 20px;
+  }
+  .card { 
+      background: #FFFFFF;
+      border-radius: 16px 10px 10px 10px;
+      color: #090954;
+      width: 100%; 
+      margin: auto;
+      padding: 10px;
+      margin-bottom: 20px;
+      >div {
+        width: calc(100% - 20px);
+      }
+    
+      &.newCard {
+        background: transparent;
+        border: 2px solid #ffffff;
+      }
+    
+      .card-heading {
+        font-family: Apercu;
+        font-size: 12px;
+        line-height: 10px;
+        text-transform: uppercase; 
+        margin-bottom: 15px;
+        font-style: normal;
+        font-weight: normal;
+        margin-top: 5px;
+    
+        span {
+          margin-right: 10px;
+        }
+    
+        &.link:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    
+      .card-image {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    
+      .card-body {
+        font-family: Apercu;
+        font-size: 14px;
+        line-height: 20px;
+        margin-right: 10px;
+    
+        img {
+          width: 14px;
+        }
+    
+        .order-image {
+          overflow-x: auto;
+          width: 100%;
+    
+          img {
+            width: 60px;
+            height: 60px;
+            display: inline-block;
+            margin-right: 1px;
+          }
+        }
+      }
+    }
+    
+    .error_message {
+      color: #b54747;
+    }
+    
+    .orderDetailsContainer {
+      max-width: 600px;
+      margin-top: 20px;
+      padding: 0 10px;
+      margin: auto;
+    }
+    
+    .w-100 {
+      width: 100%;
+    }
+    
+    .w-100-20 {
+      width: calc(100% - 20px);
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    .normal {
+      font-family: Apercu;
+      font-size: 14px !important;
+      line-height: 20px !important;
+      color: #090954 !important;
+    }
+    
+    .mat-mini-fab {
+      width: 20px !important;
+      height: 20px !important;
+      background: white;
+      color: #090954;
+      border: 2px solid #BFD1E8;
+      font-size: 20px;
+      line-height: 0px;
+      box-shadow: none !important;
+    }
+    
+    .w-48 {
+      width: 48%;
+      max-width: 48%;
+    }
+    
+    .m-b-20 {
+      margin-bottom: 20px;
+    }
+    
+    .headings {
+      font-family: Apercu;
+      font-size: 8px;
+      line-height: 10px;
+      text-transform: uppercase;
+      color: #BFD1E8;     
+      .col2 {
+        text-align: right;
+        color: #BFD1E8;
+      }
+    }  
+    .data {
+      font-family: ApercuLight;
+      font-size: 14px;
+      line-height: 18px;
+      color: #090954; 
+      padding-bottom: 10px;
+      padding-left: 8px;
+      display: flex;
+      justify-content: space-between;
+      div{
+        text-transform: capitalize;
+      }
+      .col2 {
+        text-align: right;
+    
+      }   
+    .date-text{
+      font-family: Apercu;
+      color: #BFD1E8;
+      font-size: 14px;
+      line-height: 20px;
+    }
+      .col3 {
+        max-width: 250px;
+      }
+    
+    }
+    
+    a {
+      text-decoration: underline;
+    }
+    
+    .mr20 {
+      >div {
+        margin-right: 20px;
+      }
+    }
+    .border-left-true{
+      border-left: 3px solid #090954;
+    }
+    
+    .border-left-false{
+      border-left: 3px solid #BFD1E8;
+    }
+    .color-true{
+      color: #090954 !important; 
+    }
+    .color-false{
+        color: #BFD1E8;
+    }
+    .underline{
+        text-decoration: underline; 
+    }
+    .light-blue {
+      color: #BFD1E8;
+    }
+    
+    .btn {
+      display: block;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-family: Apercu;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 12px;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #BFD1E8;
+    }
+  
+    .btn-blue {
+      background-color: #090945; 
+      height: 40px;
+      width: 100%;
+    }
+    
+  
+    table {
+      background: none !important;
+      border-spacing: 0px 10px;
+     
+      .mat-tr {
+        background: white !important;
+        border-radius: 5px;
+      }
+      td.mat-cell {
+        padding: 0px 0 0px 0;
+      }
+      td.mat-cell:first-of-type {
+        padding: 0px !important;
+        width: 100px;
+      }
+  
+      td.mat-cell:last-of-type {
+        padding: 0px !important;
+      }
+  
+      .productNameDiv {
+        padding-left: 10px;
+      }
+  
+      .productName {
+        font-family: BelweSansLight;
+        font-size: 18px;
+        text-transform: lowercase; 
+        line-height: 20px;
+      }
+  
+      td.mat-cell {
+        color: #090954 !important;
+        font-size: 14px;
+        line-height: 20px;
+        font-family: Apercu;
+        border: none;
+        min-height: 100px;
+      }
+  
+      tr.mat-header-row {
+        height: unset;
+      }
+  
+      .mat-header-cell,
+      .cardTitle {
+        color: #BFD1E8 !important;
+        font-family: Apercu;
+        font-size: 10px;
+        line-height: 10px;
+        border: none;
+      }
+  
+      .mat-mini-fab {
+        width: 20px !important;
+        height: 20px !important;
+        background: #BFD1E8;
+        color: white;
+        font-weight: 800;
+        line-height: 6px;
+        font-size: 14px;
+      }
+  
+      .mat-mini-fab .mat-button-wrapper {
+        line-height: 6px !important;
+      }
+  
+      .borderNone,
+      th.mat-header-cell:last-of-type,
+      th.mat-header-cell:first-of-type {
+        border: none !important;
+      }
+  
+      .priceWithoutDiscount {
+        text-decoration-line: line-through;
+        color: #BFD1E8;
+      }
+    }
+    .d-flex{
+      display: flex;
+    }
+    .justify-content-center{
+      justify-content: center;
+    }
+    .h-100{
+      min-height: 100px;
+      border: 1px solid #FBF4F1;
+      box-sizing: border-box;
+    } 
+    .pricediv{
+      border-bottom-right-radius: 5px; 
+      border-left: none;
+      border-top-right-radius: 5px;
+      padding: 16px 10px 14px 0px;
+      position: relative;
+      min-width: 80px;
+      .originalPrice{
+        font-family: Apercu;
+        font-style: normal;
+        font-weight: normal; 
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        text-decoration-line: line-through; 
+        color: #BFD1E8;
+        position: absolute;
+        top: 0px;
+      }
+    }
+    .product-info{
+      padding: 5px 0px 4px 10px;
+    }
+    .br-none{
+      border-right: none;
+    }
+    .tablecellCustom{
+      margin-top: 10px;
+    }
+    .mr-l-10{
+        margin-right: 10px;
+    }
+    .mr-t-20{
+        margin-top: 20px;
+    }
+      
+    ::ng-deep .order{
+        background-color: #BFD1E8 !important;
+        border-radius: 50px;
+     }
+    .float-l{
+      float: left;
+    }
+    .order-info{
+      margin-top: 16px;
+      font-family: ApercuLight;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px; 
+      color: #090954;
+      span{
+        font-family: Apercu !important;
+      }
+    }
+    .mtr-2010{
+      margin-top: 20px;
+      margin-right: 10px;
+    }

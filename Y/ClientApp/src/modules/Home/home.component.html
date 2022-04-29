@@ -1,0 +1,39 @@
+<div class="homeContainer" fxLayout="column" fxLayoutAlign="space-around center">
+  <app-discount-popup></app-discount-popup>
+  <h1 class="mainH1">Y Jewelry</h1>
+  <div class="bannerContainer homeDivContainers" fxFill>
+    <!-- Banners -->
+    <ng-container *ngIf="banners&&banners.IsShowBanner">
+      <app-banners [banners]="banners"></app-banners>
+    </ng-container>
+  </div>
+  <div class="featuredBestsellersContainer homeDivContainers"> 
+    <div class="hr-line" fxHide.gt-sm></div>
+    <app-featured-and-bestsellers [products]="featuredBestSellers" [ItemsToShow]="4"  fxHide.gt-sm></app-featured-and-bestsellers>
+    <app-featured-and-bestsellers [products]="featuredBestSellers" [ItemsToShow]="6" fxHide fxShow.gt-sm></app-featured-and-bestsellers>
+  </div>
+  <div class="homeDivContainers"
+    fxLayout="row"  
+    fxLayoutAlign="center center" fxHide fxShow.gt-sm
+      fxFill> 
+     <!-- lookbook  -->
+     <app-homeLookBook fxFlex></app-homeLookBook>
+     <!-- Testimonials -->
+     <ng-container *ngIf="testimonials&&testimonials.length>0">
+      <app-testimonials  fxFlex [testimonials]="testimonials"></app-testimonials>
+     </ng-container>
+      <!-- Page Banners -->
+    <app-pagesHomeSlider fxFlex></app-pagesHomeSlider> 
+  </div>  
+  <div class="homeDivContainers" fxHide.gt-sm fxFill>
+    <app-homeLookBook></app-homeLookBook>
+  </div>
+  <div class="homeDivContainers" fxHide.gt-sm fxFill *ngIf="testimonials&&testimonials.length>0">
+    <app-testimonials [testimonials]="testimonials"></app-testimonials>
+  </div>
+  <div class="homeDivContainers" fxHide.gt-sm fxFill>
+    <app-pagesHomeSlider></app-pagesHomeSlider> 
+  </div>
+
+</div> 
+<ngx-json-ld [json]="schema"></ngx-json-ld>

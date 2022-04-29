@@ -1,0 +1,36 @@
+@import "./../../../../stylesConstants";
+
+.productName {
+    font-family: BelweSansLight;
+    font-size: 18px;
+    text-transform: lowercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+
+img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    display: inline-block;
+    border-radius: 50%;
+    background: $background-color-main;
+    margin: 0px 5px;
+    cursor: pointer;
+    border: 1px solid #bbd1ea;
+}
+
+.details {
+    padding: 10px 0 0 20px;
+}
+
+.w100 {
+    width: 100%;
+}

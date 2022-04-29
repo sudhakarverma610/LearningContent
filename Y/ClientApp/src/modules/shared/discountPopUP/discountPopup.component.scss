@@ -1,0 +1,38 @@
+.font-12 {
+  font-size: 1.2em;
+}
+
+.Belvue {
+  font-family: Belvue;
+}
+
+.error {
+  color: #ca2853 !important;
+}
+
+.p-1 {
+  padding: 10px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.background {
+  background-color: #fcf4f0;
+}
+
+.close {
+  background-image: url(https://files.y.jewelry/assets/img/Close.svg);
+  -webkit-mask-image: url(https://files.y.jewelry/assets/img/Close.svg);
+  mask-image: url(https://files.y.jewelry/assets/img/Close.svg);
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin: 0 20px 0 0;
+}
+
+.w100 {
+  width: 100vw;
+}

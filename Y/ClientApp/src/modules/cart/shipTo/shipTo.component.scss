@@ -1,0 +1,92 @@
+@import '../../../stylesConstants.scss';
+
+.Apercu {
+  font-family: Apercu;
+}
+
+.w-100 {
+  min-width: 100%;
+}
+
+.CheckOutContainer {
+  padding: 0 0 1em 0;
+  min-height: 50vh;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.cardTitle {
+  color: #BFD1E8 !important;
+  font-family: Apercu;
+  font-size: 8px;
+  line-height: 30px;
+}
+
+.mx1em {
+  margin-right: .5em;
+  margin-left: .5em;
+}
+
+.btn {
+  height: 38px;
+  line-height: 38px;
+  display: block;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  width: 300px;
+  text-transform: uppercase;
+  font-family: BelweSansLight;
+}
+
+.btn-blue {
+  background-color: #090945;
+  color: $background-color-main;
+  margin: 2em 1em;
+}
+
+.hr {
+  border-bottom: 1px solid #BFD1E8;
+  width: 100%;
+}
+
+.totalNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 999;
+
+  .total {
+    font-family: Apercu;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    background: white;
+    color: #090954;
+  }
+}
+
+.btn-square-blue {
+  background-color: #090945;
+  color: $background-color-main;
+  font-family: Belvue;
+  font-size: 20px;
+  border-radius: 0px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: 100vw;
+}
+
+
+@media only screen and (min-width: 660px) {
+  .CheckOutContainer {
+    padding: 1em 0;
+  }
+}
+
+.mbr20 {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}

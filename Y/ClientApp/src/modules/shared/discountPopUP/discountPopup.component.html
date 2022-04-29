@@ -1,0 +1,6 @@
+<div fxLayout="row" class="w100" fxLayoutAlign="space-between center" *ngIf="showDiscount">
+  <div class="text-center p-1 Belvue w100 background" fxFlex="100">
+    <span class="error font-12" [innerHTML]="banner"></span><br />
+  </div>
+  <div class="close" (click)="removeDailog()"></div>
+</div>

@@ -1,0 +1,57 @@
+<div class="postContainer" fxLayout="column" fxLayoutAlign="start center">
+    <!-- <h1>{{post.title}}</h1>
+    <div class="headerimage">
+        <h1>find your unique charm</h1>
+    </div> -->
+    <div [ngStyle]="{'background':'url('+post.pictureUrl+')'}" class="headerimage">
+        <svg (click)="back()"  width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute;left: 10px;top: 22px;">
+            <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.95431 31.0457 0 20 0C8.95431 0 0 8.95431 0 20C0 31.0457 8.95431 40 20 40Z" fill="#FDF4F1"></path>
+            <path d="M20 1.33333C30.2667 1.33333 38.6667 9.73333 38.6667 20C38.6667 30.2667 30.2667 38.6667 20 38.6667C9.73333 38.6667 1.33333 30.2667 1.33333 20C1.33333 9.73333 9.73333 1.33333 20 1.33333ZM20 0C8.93333 0 0 8.93333 0 20C0 31.0667 8.93333 40 20 40C31.0667 40 40 31.0667 40 20C40 8.93333 31.0667 0 20 0Z" fill="#BBD1EA"></path>
+            <g clip-path="url(#clip0)">
+            <path d="M22.4 12C22.7 12 22.9 12.1 23.1 12.3C23.5 12.7 23.5 13.3 23.1 13.7L16.8 20L23.1 26.3C23.5 26.7 23.5 27.3 23.1 27.7C22.7 28.1 22.1 28.1 21.7 27.7L14 20L21.7 12.3C21.9 12.1 22.1 12 22.4 12Z" fill="#090954"></path>
+            </g>
+            <defs>
+            <clipPath id="clip0">
+            <rect width="9.4" height="16" fill="white" transform="translate(23.4 28) rotate(-180)"></rect>
+            </clipPath>
+            </defs>
+        </svg>
+    <h1>{{post.title}}</h1>
+    </div>
+    <div class="details">published on {{post.start_date | date: 'MMMM d, y'}}</div>
+    <div class="overview" [innerHTML]="innerhtml"></div>
+    <div class="share-icon-heading">share this article</div>
+    <div class="share-icon-heading">
+        <div>    
+            <a onclick="open(this.href, 'social_share', 'height=400,width=600');return false" rel="noopener" target="_blank"
+            href="https://wa.me/?text={{shareUrl}}" 
+           >             
+            <svg style="cursor: pointer;width: 20px;height: 20px;margin-right: 23px;" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0)">
+                <path d="M5.5 0.5C2.7 0.5 0.5 2.7 0.5 5.5C0.5 6.6 0.9 7.6 1.5 8.4L0.9 10.3L2.8 9.7C3.6 10.2 4.5 10.5 5.6 10.5C8.4 10.5 10.6 8.3 10.6 5.5C10.6 2.7 8.3 0.5 5.5 0.5Z" stroke="#090954" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.39998 7.60005C8.29998 7.90005 7.79998 8.20005 7.39998 8.30005C7.19998 8.30005 6.79998 8.40005 5.69998 7.90005C4.19998 7.30005 3.29998 5.80005 3.19998 5.70005C3.09998 5.60005 2.59998 4.90005 2.59998 4.20005C2.59998 3.50005 2.99998 3.10005 3.09998 3.00005C3.19998 2.90005 3.39998 2.80005 3.59998 2.80005C3.69998 2.80005 3.69998 2.80005 3.79998 2.80005C3.89998 2.80005 3.99998 2.80005 4.09998 3.00005C4.19998 3.30005 4.49998 4.00005 4.49998 4.10005C4.49998 4.20005 4.59998 4.30005 4.49998 4.40005C4.49998 4.50005 4.39998 4.50005 4.29998 4.60005C4.29998 4.70005 4.29998 4.80005 4.19998 4.90005C4.09998 4.90005 4.09998 5.00005 4.09998 5.20005C4.19998 5.30005 4.49998 5.80005 4.89998 6.20005C5.49998 6.70005 5.89998 6.90005 6.09998 6.90005C6.19998 6.90005 6.39998 6.90005 6.49998 6.80005C6.59998 6.70005 6.69998 6.50005 6.89998 6.30005C6.99998 6.20005 7.09998 6.20005 7.19998 6.20005C7.29998 6.20005 7.99998 6.60005 8.19998 6.70005C8.29998 6.80005 8.39998 6.80005 8.49998 6.90005C8.49998 6.90005 8.49998 7.20005 8.39998 7.60005Z" fill="#090954"></path>
+                </g>
+                <defs>
+                <clipPath id="clip0">
+                <rect width="11" height="11" fill="white"></rect>
+                </clipPath>
+                </defs>
+                </svg>  
+            </a>
+           <a  class="fb_icon" onclick="open(this.href, 'social_share', 'height=400,width=600');return false" rel="noopener" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u={{shareUrl}}&amp;display=popup">
+                <svg style="cursor: pointer;width: 20px;height: 20px;" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 4.6H5.9V3.8C5.9 3.6 6.1 3.4 6.3 3.4H6.7V2.5H5.9C5.3 2.5 4.8 3 4.8 3.6V4.5H4V5.4H4.8V8.4H5.9V5.4H6.7L7 4.6Z" fill="#090954"></path>
+                    <path d="M5.5 10.5C8.26142 10.5 10.5 8.26142 10.5 5.5C10.5 2.73858 8.26142 0.5 5.5 0.5C2.73858 0.5 0.5 2.73858 0.5 5.5C0.5 8.26142 2.73858 10.5 5.5 10.5Z" stroke="#090954" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>   
+            </a>  
+        </div>
+    </div>
+    <ng-container *ngIf="nextPost&&nextPost.se_name&&nextPost.pictureUrl">        
+        <div class="share-icon-heading" [routerLink]="['/', 'blog', nextPost.se_name]"  style="cursor: pointer;">next article</div>
+        <div [ngStyle]="{'cursor': 'pointer','background':'url('+nextPost.pictureUrl+')'}" class="headerimage" 
+        [routerLink]="['/', 'blog', nextPost.se_name]" routerLinkActive="router-link-active" >        
+        <h1>{{nextPost.title}}</h1>
+        </div>
+    </ng-container>
+   
+</div>

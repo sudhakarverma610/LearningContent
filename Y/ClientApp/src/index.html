@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>@Html.Raw(ViewData["title"])</title>
+  <base href="@Html.Raw(ViewData["base"])" />
+  <meta id="baseApiUrl" name="@Html.Raw(ViewData["baseApiUrl"])" />
+  <meta id="abtestingVariable" name="@Html.Raw(ViewData["abTestingVariable"])" />
+  <style>
+    [hidden] {
+      display: none !important;
+    }
+
+    .testimony {
+      width: unset !important;
+    }
+  </style>  
+  
+ <link rel="preconnect" href="https://app.y.jewelry">
+ <link rel="dns-prefetch" href="https://app.y.jewelry">
+ <link rel="preconnect" href="https://static.dev.y.jewelry"> 
+ <link rel="dns-prefetch" href="https://static.dev.y.jewelry">
+ <link rel="preconnect" href="https://files.y.jewelry">
+ <link rel="dns-prefetch" href="https://files.y.jewelry">
+ <link rel="preconnect" href="https://crm.y.jewelry">
+ <link rel="dns-prefetch" href="https://crm.y.jewelry">
+ <link rel="preconnect" href="https://cdn.onesignal.com">
+ <link rel="dns-prefetch" href="https://cdn.onesignal.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image:alt" content="Y Jewelry" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1800" />
+  <meta property="og:image:height" content="1125" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#090954">
+  <meta name="facebook-domain-verification" content="x8til21llduiyhw8t8ti68sy8osd33" />
+  <link rel="preload" href="https://files.y.jewelry/assets/fonts/BelweSans-Light.otf" as="font" crossorigin="anonymous">
+  <link rel="preload" href="https://files.y.jewelry/assets/fonts/Apercu.otf" as="font" crossorigin="anonymous">
+  <link rel="preload" href="https://files.y.jewelry/assets/fonts/Apercu-Light.otf" as="font" crossorigin="anonymous">
+  <link rel="preload" href="https://files.y.jewelry/assets/fonts/Apercu-Medium.otf" as="font" crossorigin="anonymous">   
+    @Html.Raw(ViewData["Meta"])
+    @Html.Raw(ViewData["Links"])
+    @Html.Raw(ViewData["Styles"])   
+   </head>
+  <body>
+  
+      <!-- Google Tag Manager (noscript) -->
+      <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPV84HQ"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+      <!-- End Google Tag Manager (noscript) -->
+
+    @Html.Raw(ViewData["SpaHtml"])
+    @Html.Raw(ViewData["Scripts"])
+    
+    <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WPV84HQ');</script>
+  <!-- End Google Tag Manager -->
+  <script>
+		(function(w,d,t,u,n,a,m){w['MauticTrackingObject']=n;
+			w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)},a=d.createElement(t),
+			m=d.getElementsByTagName(t)[0];a.defer=1;a.src=u;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://crm.y.jewelry/mtc.js','mt');
+	</script>
+</body>
+</html>

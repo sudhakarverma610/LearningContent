@@ -1,0 +1,30 @@
+<div fxLayout="column" fxLayout.gt-sm="row" class="invite">
+  <div fxFlex='30' fxLayout="row" fxLayoutAlign="center center" class="tellmey">
+    <h1>tell me y</h1>
+  </div>
+  <div fxFlex='70' fxLayout="column" fxLayoutAlign="space-around center" class="popup_account_content">
+    <div class="form_intro">INVITE A FRIEND</div>
+    <div class="form_item form_item_first_name">
+      <input id="form_item_first_name" class="form_first_name" type="text" placeholder="First Name*" name="first_name"
+        [(ngModel)]="first_name" />
+    </div>
+    <div class="form_item form_item_last_name">
+      <input id="form_item_last_name" class="form_last_name" type="text" placeholder="Last Name*" name="last_name"
+        [(ngModel)]="last_name" />
+    </div>
+    <div class="form_item form_item_email">
+      <input id="form_item_logid" class="form_email" type="email" placeholder="email *" name="Password" [(ngModel)]="email" />
+    </div>
+    <div class="form_messages">
+      <p class="error_message" *ngIf="requiredFieldLogin">{{fieldsRequiredMissing}}</p>
+      <p class="error_message" *ngIf="EmailNotValid">{{EmailNotValidMsg}}</p>
+      <p class="error_message" *ngIf="inviteSent">{{InviteSentMsg}}</p>
+    </div>
+    <div class="form_legend">*Required fields</div>
+
+    <div class="form_actions">
+      <button class="form_submit rounded_btn send_invite_btn" (click)="sendInvitation()">Send Invitation</button>
+      <button class="rounded_btn back_btn"><a [routerLink]="['/tellmey', 'result']">Back</a></button>
+    </div>
+  </div>
+</div>

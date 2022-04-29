@@ -1,0 +1,190 @@
+<div class="paymentMethodsContainer Apercu" fxLayout="column" fxLayoutAlign="start start">
+  <div class="heading" fxFill>
+    <div class="title m-none">Payment Methods</div>
+  </div>
+  <div class="radioButtonsDiv" fxFill>
+    <mat-radio-group class="example-radio-group" [(ngModel)]="selectedMethod">
+      <mat-radio-button color="primary" class="example-radio-button" [value]="1" *ngIf="!giftCardInCart">
+        Cash on Delivery fee: ₹ 50 <br />
+        <span class="error" *ngIf="!CODAvailable">{{paymentMethodNotAvailableMsg}}</span>
+      </mat-radio-button>
+      <div class="cardInfo" *ngIf="selectedMethod === 1 && !customer.isActive && !giftCardInCart">
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start start" *ngIf="verificationStep == 1">
+          <label class="mr20" fxFlex="100">Please verify your mobile phone number:</label>
+          <mat-form-field class="mr20">
+            <input matInput type="text" placeholder="Phone Number" [(ngModel)]="mobile_number">
+            <button mat-button *ngIf="mobile_number && mobile_number.length === 10" matSuffix mat-icon-button
+              aria-label="Clear">
+              <mat-icon>check_circle</mat-icon>
+            </button>
+            <mat-hint class="error" *ngIf="showVerificationError">
+              {{verificationError}}
+            </mat-hint>
+          </mat-form-field>
+          <button class="btn btn-light-blue mr20" (click)="sendOtp()">SEND
+            OTP</button>
+        </div>
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start start" *ngIf="verificationStep == 2">
+          <label class="mr20" fxFlex="100">For COD you need to verify your mobile phone</label>
+          <mat-form-field class="mr20">
+            <input matInput type="text" placeholder="OTP" [(ngModel)]="otp">
+            <mat-hint class="error" *ngIf="showVerificationError">
+              {{verificationError}}
+            </mat-hint>
+          </mat-form-field>
+          <button class="btn btn-light-blue mr20" (click)="verifyOtp()">Verify</button>
+        </div>
+      </div>
+      <mat-radio-button color="primary" class="example-radio-button" [value]="2">
+        Debit Card <br />
+      </mat-radio-button>
+      <div class="cardInfo" *ngIf="selectedMethod === 2">
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+          <mat-form-field fxFlexOrder="1" fxFlex="100">
+            <input matInput type="number" placeholder="Card Number" [(ngModel)]="debitCard.cardNumber"
+              (input)="maxLength(1, 17)">
+            <mat-hint class="error" *ngIf="validation.cardNumber">
+              Card Number is <strong>required</strong>
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field fxFlexOrder="3" fxFlex="45">
+            <input matInput type="text" placeholder="Expiry Date (MM/YY)" [(ngModel)]="debitCard.expiry"
+              (input)="induceSlash(1)" maxlength="5">
+            <mat-hint class="error" *ngIf="validation.expiry">
+              Expiry Date is <strong>required</strong> in MM/YY format.
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field fxFlexOrder="2" fxFlex="100">
+            <input matInput type="text" placeholder="Card Holder Name" [(ngModel)]="debitCard.cardHolderName">
+            <mat-hint class="error" *ngIf="validation.cardHolderName">
+              Card Holder Name is <strong>required</strong>
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field fxFlexOrder="4" fxFlex="45">
+            <input matInput type="number" placeholder="CVV" [(ngModel)]="debitCard.cvvNumber">
+            <mat-hint class="error" *ngIf="validation.cvvNumber">
+              CVV is <strong>required</strong>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-radio-button color="primary" class="example-radio-button" [value]="3">
+        Credit Card <br />
+      </mat-radio-button>
+      <div class="cardInfo" *ngIf="selectedMethod === 3">
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+          <mat-form-field fxFlexOrder="1" fxFlex="100">
+            <input matInput type="number" placeholder="Card Number" [(ngModel)]="creditCard.cardNumber"
+              (input)="maxLength(2, 17)">
+            <mat-hint class="error" *ngIf="validation.cardNumber">
+              Card Number is <strong>required</strong>
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field fxFlexOrder="3" fxFlex="45">
+            <input matInput type="text" maxlength="5" placeholder="Expiry Date (MM/YY)" [(ngModel)]="creditCard.expiry"
+              (input)="induceSlash(2)">
+            <mat-hint class="error" *ngIf="validation.expiry">
+              Expiry Date is <strong>required</strong> in MM/YY format.
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field fxFlexOrder="2" fxFlex="100">
+            <input matInput type="text" placeholder="Card Holder Name" [(ngModel)]="creditCard.cardHolderName">
+            <mat-hint class="error" *ngIf="validation.cardHolderName">
+              Card Holder Name is <strong>required</strong>
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field fxFlexOrder="4" fxFlex="45">
+            <input matInput type="number" placeholder="CVV" [(ngModel)]="creditCard.cvvNumber">
+            <mat-hint class="error" *ngIf="validation.cvvNumber">
+              CVV is <strong>required</strong>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-radio-button color="primary" class="example-radio-button" [value]="4">
+        Net Banking <br />
+      </mat-radio-button>
+      <div class="cardInfo" *ngIf="selectedMethod === 4">
+        <div class="w-260" fxLayout="row" fxLayoutAlign="space-between start">
+          <mat-form-field fxFlex="100">
+            <mat-select placeholder="Select one of the popular banks:" [(ngModel)]="netBanking">
+              <mat-optgroup *ngFor="let items of banks" [label]="items.title">
+                <mat-option *ngFor="let item of items.value" [value]="item.value">{{item.name}}</mat-option>
+              </mat-optgroup>
+            </mat-select>
+            <mat-hint class="error" *ngIf="validation.netBanking">
+              Bank is <strong>required</strong>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-radio-button color="primary" class="example-radio-button" [value]="5">
+        UPI <br />
+      </mat-radio-button>
+      <div class="cardInfo" *ngIf="selectedMethod === 5">
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+          <mat-form-field fxFlex="100">
+            <input matInput type="text" placeholder="VPA" [(ngModel)]="vpa">
+            <mat-hint class="error" *ngIf="validation.vpa">
+              VPA is <strong>required</strong>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-radio-button color="primary" class="example-radio-button" [value]="6">
+        Google Pay <br />
+      </mat-radio-button>
+      <div class="cardInfo" *ngIf="selectedMethod === 6 && !isGpayMobileWorks">
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+          <mat-form-field fxFlex="100">
+            <input matInput type="text" placeholder="VPA" [(ngModel)]="vpa">
+            <mat-hint class="error" *ngIf="validation.vpa">
+              VPA is <strong>required</strong>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-radio-button color="primary" class="example-radio-button" [value]="7">
+        Amazon Pay <br />
+      </mat-radio-button>
+      <div class="cardInfo" *ngIf="selectedMethod === 7">
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+          <mat-form-field fxFlex="100">
+            <input matInput type="text" placeholder="VPA" [(ngModel)]="vpa">
+            <mat-hint class="error" *ngIf="validation.vpa">
+              VPA is <strong>required</strong>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-radio-button color="primary" class="example-radio-button" [value]="8">
+        Phonepe <br />
+      </mat-radio-button>
+      <div class="cardInfo" *ngIf="selectedMethod === 8">
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+          <mat-form-field fxFlex="100">
+            <input matInput type="text" placeholder="VPA" [(ngModel)]="vpa">
+            <mat-hint class="error" *ngIf="validation.vpa">
+              VPA is <strong>required</strong>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-radio-group>
+  </div>
+  <div *ngIf="errorMsg" class="error">
+    {{paymentMethodNotAvailableMsg}}
+  </div>
+  <div class="loaderY bg-logo" *ngIf="paymentViewLoading">
+    
+  </div>
+  <div class="pciDiv" fxLayout="row" fxLayoutAlign="start start">
+    <img class="pci" src="https://files.y.jewelry/assets/img/pci.svg">
+    <button class="btn btn-blue" fxShow.gt-sm fxHide (click)="selectPaymentMethod()">Place Order</button>
+  </div>
+  <div class="totalNav" fxHide.gt-sm fxShow.sm>
+    <div class="total">TOTAL {{orderTotal.orderTotals.OrderTotal}}</div>
+    <button class="btn btn-square-blue" (click)="selectPaymentMethod()">Place
+      Order</button>
+  </div>
+</div>

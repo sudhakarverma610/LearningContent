@@ -1,0 +1,38 @@
+.addressSetupDiv {
+  margin: 2em 1em;
+}
+
+.lineTitle {
+  color: #090954;
+  font-family: Apercu;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.mat-mini-fab {
+  width: 20px !important;
+  height: 20px !important;
+  background: white;
+  color: #090954;
+  border: 2px solid #BFD1E8;
+  font-size: 20px;
+  line-height: 0px;
+  box-shadow: none !important;
+}
+
+.btn_link {
+  all: unset;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: #090954;
+    text-decoration: underline;
+  }
+}
+
+.text-center {
+  text-align: center;
+}

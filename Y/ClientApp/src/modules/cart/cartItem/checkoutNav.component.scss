@@ -1,0 +1,62 @@
+.checkoutIcon {
+  color: #090954 !important;
+  font-size: 15px !important;
+  line-height: 25px !important;
+}
+
+.checkoutNavContainer {
+  margin-bottom: 1em;
+
+  .mat-mini-fab {
+    width: 15px !important;
+    height: 15px !important;
+    background: #090954;
+    color: white;
+    font-size: 10px;
+    line-height: 0px;
+    box-shadow: none !important;
+  }
+
+  .mat-mini-fab .mat-button-wrapper {
+    line-height: 6px !important;
+  }
+
+  .navText {
+    font-size: 14px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: Belvue;
+  }
+
+  .mat-button-toggle-standalone.mat-button-toggle-appearance-standard,
+  .mat-button-toggle-group-appearance-standard {
+    border: 1px solid #BFD1E8;
+  }
+
+  .active {
+    background: #BFD1E8 !important;
+    color: #fff !important;
+
+    .mat-mini-fab {
+      background: #fff;
+      color: #090954;
+    }
+  }
+}
+
+.navToggle {
+  background: #BFD1E8;
+}
+
+.bg-white {
+  background: #ffffff !important;
+}
+
+@media only screen and (min-width: 300px) {
+  .navToggle {
+    max-width: 100%;
+    width: 100%;
+  }
+}

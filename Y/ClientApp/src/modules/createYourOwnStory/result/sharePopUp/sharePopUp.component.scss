@@ -1,0 +1,33 @@
+.w-100 {
+  width: 100%;
+
+}
+
+.icon {
+  img {
+    width: 68px;
+    height: 68px;
+  }
+}
+
+
+.btn {
+  height: 38px;
+  line-height: 38px;
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  width: 200px;
+  text-transform: uppercase;
+  font-family: BelweSansLight;
+  cursor: pointer;
+}
+
+.btn-light-blue {
+  color: #090954;
+  background: #BFD1E8;
+  width: 100px;
+}

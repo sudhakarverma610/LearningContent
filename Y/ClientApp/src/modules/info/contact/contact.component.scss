@@ -1,0 +1,124 @@
+.contactContainer {
+  color: #090954;
+  font-family: Apercu;
+
+  .Belvue {
+    font-family: BelweSansLight;
+  }
+
+  .p24em {
+    padding: 2em 4em;
+  }
+
+  .error {
+    border-color: #b54747 !important;
+  }
+
+  .button-continue {
+    background-color: #090945;
+    color: #fff;
+    height: 38px;
+    line-height: 38px;
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 200px;
+    margin: 0px 5%;
+    font-family: BelweSansLight;
+  }
+}
+
+#version-desktop {
+  display: block !important;
+  margin-top: 50px;
+}
+
+#emailSent {
+  color: #090954;
+}
+
+#emailSubject {
+  padding-top: 40px;
+  clear: both;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.min50vh {
+  min-height: 50vh;
+}
+
+.text-white {
+  color: #fff;
+  font-size: 72px;
+}
+
+.read-more-state {
+  display: none;
+}
+
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: .25s ease;
+  display: none;
+}
+.read-more-state:checked ~ .read-more-wrap .read-more-target{
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+  display: flex;
+  flex-direction: column;
+} 
+.read-more-state ~ .read-more-trigger:before {
+  content: url('https://files.y.jewelry/assets/img/2020/readmore.svg');
+  margin-left: 20px;
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+   content: 'Read less';  
+   margin-left: 20px;
+
+}
+ 
+.read-more-trigger {
+    cursor: pointer;
+    display: inline-block; 
+    font-family: Apercu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px; 
+    color: #BFD1E8;
+    margin-bottom: 20px;
+}
+.heading{
+  font-family: ApercuLight;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 30px;
+  color: #090954;
+}
+.read-more-wrap{
+  font-family: ApercuLight;  
+  color: #090954;
+  opacity: 0.9;
+}
+@media only screen and (min-width: 300px) {
+  #textArea {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 970px) {
+  #textArea {
+    width: calc(80% + 20px);
+  }
+}

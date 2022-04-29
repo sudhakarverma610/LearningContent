@@ -1,0 +1,229 @@
+<div class="mainCartViewContainer" fxLayout="column" fxLayoutAlign="start center">
+  <div class="heading text-primary Belvue text-center w-100">
+    <h1 *ngIf="(total != 0)">{{total}} beautiful items in your cart</h1>
+    <h1 *ngIf="(total === 0)">your cart is empty</h1>
+  </div>
+  <div class="loaderY bg-logo" *ngIf="cartLoading">
+    
+  </div>
+  <div class="emptyCart" *ngIf="total === 0">
+    <img src="https://files.y.jewelry/assets/img/emptyCart.png" alt="Empty Cart">
+    <a [routerLink]="['/charms']"><button class="btn btn-blue cursorPointer mb-20">Go Shopping</button></a>
+  </div>
+  <div class="mainCartDiv w-100 maxW800" fxFill fxLayout.gt-sm="row" fxLayout="column"
+    fxLayoutAlign="center center" fxLayoutAlign.gt-sm="start start" *ngIf="total !== 0">
+    <div class="cartList" fxFlex.gt-sm="70" fxFlex="100">
+      <!-- Desktop View -->
+      <table mat-table [dataSource]="dataSource" class="w-100 px1em" fxHide fxShow.gt-sm>
+
+        <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="image" class="borderNone">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell class="cursorPointer" *matCellDef="let element">
+            <a [routerLink]="['/', 'new-in', element.product.se_name]"><img
+                [src]="(element.image || default).src | changeSrcExtension: '_100.jpeg'"
+                [alt]="(element.image || default).alt"
+                [title]="(element.image || default).title" width="200" height="200" class="lazy mb-6"></a>
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="product">
+          <th mat-header-cell *matHeaderCellDef class="borderNone"> PRODUCT </th>
+          <td mat-cell *matCellDef="let element" class="productNameDiv" fxLayout="column"
+            fxLayoutAlign="space-around start">
+            <div class="productName cursorPointer">
+              <a [routerLink]="['/', 'new-in', element.product.se_name]">{{element.product.name}}</a></div>
+            <div class="light-blue">Ref. {{element.product.sku}}</div>
+            <div *ngIf="element.customizationAttributes && element.customizationAttributes.length > 0"
+              class="customizationAttributes">
+              <div *ngFor="let attr of element.customizationAttributes; index as custAttrIndex">
+                <div class="product_price product_price_smallsize input-text"
+                  *ngIf="attr.attribute_control_type_name === 'DropdownList'">
+                  <div>{{ attr.text_prompt || attr.product_attribute_name }}: {{ attr.attributeInputSelected.name }}
+                  </div>
+                </div>
+                <div class="product_price product_price_smallsize input-text"
+                  *ngIf="attr.attribute_control_type_name === 'TextBox'">
+                  <div>{{ attr.product_attribute_name }}: {{attr.text_prompt}}</div>
+                </div>
+              </div>
+            </div>
+            <div *ngFor="let attr of element.attributes; index as attrIndex" style="overflow:hidden;">
+              <div class="product_price product_price_smallsize input-text"
+                *ngIf="attr.attribute_control_type_name === 'DropdownList'">
+                <div class="w-260 h50" fxLayout="row" fxLayoutAlign="space-between start">
+                  <mat-form-field fxFlex="100" class="min50">
+                    <mat-select [placeholder]="attr.text_prompt || attr.product_attribute_name"
+                      [(ngModel)]="attr.attributeInputSelected"
+                      (selectionChange)="changeProductAttribute(attr, element)">
+                      <mat-option *ngFor="let item of attr.attribute_values" [value]="item">{{item.name}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="product_price product_price_smallsize input-text"
+                *ngIf="attr.attribute_control_type_name === 'TextBox'">
+                <div>{{ attr.product_attribute_name }}: {{attr.textBoxInput}}</div>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef class="borderNone"> PRICE </th>
+          <td mat-cell *matCellDef="let element">
+            <div class="product_price" *ngIf="element.product && element.product.available_for_pre_order">
+              {{element.product.price_model.price}}</div>
+            <div class="product_price" *ngIf="element.product && !element.product.available_for_pre_order"><span
+                [ngClass]="{'priceWithoutDiscount': element.product.price_model.price_with_discount}">{{element.product.price_model.price}}</span><br />
+              {{element.product.price_model.price_with_discount}}</div>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef class="borderNone"> QUANTITY </th>
+          <td mat-cell *matCellDef="let element">
+            <img src="https://files.y.jewelry/assets/img/minus.png" class="qty-btn cursorPointer" alt="minus"
+              (click)="decreaseQuantity(element)" />
+            <span class="quantityNumber">{{element.quantity}}</span>
+            <img src="https://files.y.jewelry/assets/img/plus.png" class="qty-btn cursorPointer" alt="plus"
+              (click)="increaseQuantity(element)" />
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="subTotal" class="borderNone">
+          <th mat-header-cell *matHeaderCellDef> SUBTOTAL </th>
+          <td mat-cell *matCellDef="let element"> {{element.subtotal}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="delete" class="borderNone">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon *ngIf="element.product.sku!=='30001ERSW'" (click)="removeItem(element.id)" class="cursorPointer lh-24">close</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row class="mat-elevation-z0 mat-tr" *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <a class="backLink" [routerLink]="['/charms']" fxShow.gt-sm fxHide><button class="btn btn-link">
+          <span>&lt;&lt;</span> Continue Shopping</button></a>
+
+      <!-- Mobile View -->
+      <table mat-table [dataSource]="dataSource" class="w-100 px1em" fxHide.gt-sm fxShow.sm>
+
+        <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="image" class="borderNone">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let element">
+            <a [routerLink]="['/', element.product.se_name]"><img class="cursorPointer lazy mb-6"
+                [src]="(element.image || default).src | changeSrcExtension: '_100.jpeg'"
+                [alt]="(element.image || default).alt"
+                [title]="(element.image || default).title" width="200" height="200" /></a>
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="product">
+          <th mat-header-cell *matHeaderCellDef class="borderNone"> </th>
+          <td mat-cell *matCellDef="let element" class="productNameDiv" fxLayout="column"
+            fxLayoutAlign="space-around start">
+            <div class="productName cursorPointer">
+              <a [routerLink]="['/', element.product.se_name]">{{element.product.name}}</a></div>
+            <div class="light-blue">Ref. {{element.product.sku}}</div>
+            <div *ngIf="element.customizationAttributes && element.customizationAttributes.length > 0"
+              class="customizationAttributes">
+              <div *ngFor="let attr of element.customizationAttributes; index as custAttrIndex">
+                <div class="product_price product_price_smallsize input-text"
+                  *ngIf="attr.attribute_control_type_name === 'DropdownList'">
+                  <div>{{ attr.text_prompt || attr.product_attribute_name }}: {{ attr.attributeInputSelected.name }}
+                  </div>
+                </div>
+                <div class="product_price product_price_smallsize input-text"
+                  *ngIf="attr.attribute_control_type_name === 'TextBox'">
+                  <div>{{ attr.product_attribute_name }}: {{attr.text_prompt}}</div>
+                </div>
+              </div>
+            </div>
+            <div *ngFor="let attr of element.attributes; index as attrIndex">
+              <div class="product_price product_price_smallsize input-text"
+                *ngIf="attr.attribute_control_type_name === 'DropdownList'">
+                <div class="w-260 h50" fxLayout="row" fxLayoutAlign="space-between start">
+                  <mat-form-field fxFlex="100" class="min50 overflow-hidden">
+                    <mat-select [placeholder]="attr.text_prompt || attr.product_attribute_name"
+                      [(ngModel)]="attr.attributeInputSelected"
+                      (selectionChange)="changeProductAttribute(attr, element)">
+                      <mat-option *ngFor="let item of attr.attribute_values" [value]="item">{{item.name}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="product_price product_price_smallsize input-text"
+                *ngIf="attr.attribute_control_type_name === 'TextBox'">
+                <div>{{ attr.product_attribute_name }}: {{attr.textBoxInput}}</div>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- 3 Column -->
+        <ng-container matColumnDef="three">
+          <th mat-header-cell *matHeaderCellDef class="borderNone"> </th>
+          <td mat-cell class="displayTableCell" *matCellDef="let element" fxLayout="column"
+            fxLayoutAlign="space-around center">
+            <div class="product_price nowrap text-center"
+              *ngIf="element.product && element.product.available_for_pre_order">
+              {{element.product.price_model.price}}</div>
+            <div class="product_price nowrap text-center"
+              *ngIf="element.product && !element.product.available_for_pre_order"><span
+                [ngClass]="{'priceWithoutDiscount': element.product.price_model.price_with_discount}">{{element.product.price_model.price}}</span><br />
+              {{element.product.price_model.price_with_discount}}</div>
+            <div class="min80">
+              <img src="https://files.y.jewelry/assets/img/minus.png" class="qty-btn cursorPointer" alt="minus"
+                (click)="decreaseQuantity(element)" />
+              <span class="quantityNumber">{{element.quantity}}</span>
+              <img src="https://files.y.jewelry/assets/img/plus.png" class="qty-btn cursorPointer" height="33"
+                alt="plus" (click)="increaseQuantity(element)" />
+            </div>
+            <div class="nowrap text-center">{{element.subtotal}}</div>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="delete" class="borderNone">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon *ngIf="element.product.sku!=='30001ERSW'" (click)="removeItem(element.id)" class="cursorPointer lh-24">close</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnstwo"></tr>
+        <tr mat-row class="mat-elevation-z0 mat-tr" *matRowDef="let row; columns: displayedColumnstwo;"></tr>
+      </table>
+    </div>
+    <div class="orderSummary" fxFlex.gt-sm="30" fxFlex="100">
+      <div class="mx1em">
+        <div class="cardTitle">Order Summary</div>
+        <app-order-summary></app-order-summary>
+      </div>
+    </div>
+  </div>
+  <div class="Apercu maxW800 py1em" fxLayout.gt-xs="row" fxLayout="column"
+    fxLayoutAlign="start start" *ngIf="total !== 0 && !cartLoading">
+    <div class="totalNav" fxHide.gt-sm fxShow-sm>
+      <div class="total">TOTAL {{orderTotal.orderTotals.OrderTotal}}</div>
+      <button class="btn btn-square-blue" (click)="checkoutAnalytics()">Proceed to checkout</button>
+    </div>
+  </div>
+</div>

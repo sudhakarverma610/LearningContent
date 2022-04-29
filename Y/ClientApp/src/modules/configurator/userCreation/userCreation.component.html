@@ -1,0 +1,51 @@
+<div fxLayout="column" fxLayoutAlign="start start"
+  class="usercreation">
+    <div class="img-creation" (click)="imageClick()">
+      <img [src]="userCreation.image_url" [alt]="userCreation.Id">
+    </div>
+     <div class="fb-wa-icon" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="IsShareAble">
+      <a class="wp_icon" onclick="open(this.href, 'social_share', 'height=400,width=600');return false" rel="noopener" target="_blank"
+       href="https://wa.me/?text={{userCreation.image_url}}%20Check%20out%20this%20product%20I%20found%20on%20y.jewelry." 
+      >
+      <img  width="12" height="12"   alt="whatappIcon" (click)="IsShareAble=false;" class="cursorPointer"  
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAaVBMVEUAAAAQEFAICFQJCVQJ CVUJCVMJCVQKClQJCVQKClUJCVUGBlMICFAICFMJCVMICFUFBVUKClMKClQICFMICFQICFIICFML C1UICFQJCVQJCVQJCVQKClMICFILC1MICFUHB1UJCVT///+LrE6BAAAAIXRSTlMAEECPr9/vz7+f 31Ag35BgMFB/oL9gnzCAsM9wnx9fn696bdLuAAAAAWJLR0QiXWVcrAAAAAlwSFlzAAAsSwAALEsB pT2WqQAAAAd0SU1FB+MLFAYAOjYul1UAAAHhSURBVDjLfZXrYoMgDIURlaKjgFW7znYX3/8lZ8JF kNj8acGPcOAEYCyPitdNK9ZVXGTN2dvg3cbtIbpznsu1iP6DRBWBQnSKSOsFXLVR1abdDrr1yYcj e/NpMpF2dL03ip2KGdVY0siKmVqKEQd6QGmKkaFQOs+aZ6z/LMLne9qgaFAiExGoV3VSUoPmXQjM 0sX5NJVbhtQchqnQtYqKEhJS30PiT+cAWQyjh0C9hY6HgyUFczcn/PRxNASlg11Rh46L0u9gh8ko 0zh2oFj8+MWWIJlVyF5OjEG1Yp94jO6UAZkEAyC1ta9oGrkEZk9ovN7AIl1/A13Pcxmwgd+xC2v3 JzTtDoO9CybbF2XTc/Fa+/gFSnNKTIm+bpZDYeFZC7jDTLTbxeyPuam9oQ12t2h3lZ0wUNLml4wI kuFPLOxoVk5P0BfqeDim3oo1xTVLir8ifFMm4lPlE7uFYdHXRxeGEZKIZyg5X43oxEK4Zrnda6YL EpP/ROR3kCxWWG5OOBLKq7fkgB8sgEdogvxmgNdkKa9c9xxE1tWlD5mdQH5fDyzLHqi172YLz4Qy td9rkcgbYhGsZGTPgbuIhOZMTQSar3qrYDFxZzcf80fzt9ggZdLC4I9pgef4+qf58aD/A6rIU95I IkT1AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTExLTIwVDA1OjU3OjUzKzAwOjAwRQcmBwAAACV0 RVh0ZGF0ZTptb2RpZnkAMjAxOS0xMC0xOFQxMjo0MDoxNCswMDowMEHyycsAAAAASUVORK5CYII=">
+      </a>
+      <a  class="fb_icon" onclick="open(this.href, 'social_share', 'height=400,width=600');return false" rel="noopener" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}/api/getshareableimage?url={{userCreation.image_url}}&amp;display=popup">
+      <img width="12" height="12"  (click)="IsShareAble=false;" alt="facebookIcon" class="cursorPointer" src="https://files.y.jewelry/assets/img/configurator/facebookIcon.svg">
+      </a>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" class="usercreation-footer">
+      <div fxFlex="50" fxLayout="row" fxLayoutAlign="space-around center">
+        <div  class="icon icon-share" (click)="IsShareAble=!IsShareAble;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11" fill="none">
+            <g clip-path="url(#clip0)">
+            <path d="M8.19995 1.5L1.19995 5.5L8.19995 9.5" stroke="#090954" stroke-miterlimit="10" stroke-linejoin="round"/>
+            <path d="M8.19995 3C9.02838 3 9.69995 2.32843 9.69995 1.5C9.69995 0.671573 9.02838 0 8.19995 0C7.37152 0 6.69995 0.671573 6.69995 1.5C6.69995 2.32843 7.37152 3 8.19995 3Z" fill="#090954"/>
+            <path d="M8.19995 11C9.02838 11 9.69995 10.3284 9.69995 9.5C9.69995 8.67157 9.02838 8 8.19995 8C7.37152 8 6.69995 8.67157 6.69995 9.5C6.69995 10.3284 7.37152 11 8.19995 11Z" fill="#090954"/>
+            <path d="M1.5 7C2.32843 7 3 6.32843 3 5.5C3 4.67157 2.32843 4 1.5 4C0.671573 4 0 4.67157 0 5.5C0 6.32843 0.671573 7 1.5 7Z" fill="#090954"/>
+            <path d="M1.5 7C2.32843 7 3 6.32843 3 5.5C3 4.67157 2.32843 4 1.5 4C0.671573 4 0 4.67157 0 5.5C0 6.32843 0.671573 7 1.5 7Z" fill="#090954"/>
+            </g>
+            <defs>
+            <clipPath id="clip0">
+            <rect width="9.7" height="11" fill="white"/>
+            </clipPath>
+            </defs>
+          </svg> 
+        </div>
+        <div> 
+          <a *ngIf="userCreation.image_url" [href]="'/api/getshareableimage?url=' + userCreation.image_url"  download>        
+            <img class="cursorPointer" src="https://files.y.jewelry/assets/img/configurator/downloadIcon.svg" width="10"
+              height="auto" alt="downloadIcon">          
+         </a>
+        </div>
+      </div>   
+      <div fxFlex="50" fxLayout="row" fxLayoutAlign="space-around center">
+        <div> </div>
+        <div class="icon icon-remove" (click)="RemoveUserCreation()">
+         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
+         <path d="M5.71547 4.975L9.81547 0.875C10.0155 0.675 10.0155 0.375 9.81547 0.175C9.61547 -0.025 9.31547 -0.025 9.11547 0.075L5.01547 4.275L0.91547 0.075C0.71547 -0.025 0.31547 -0.025 0.11547 0.075C-0.0845299 0.175 0.0154701 0.675 0.11547 0.875L4.31547 4.975L0.11547 9.075C0.0154701 9.275 0.0154701 9.675 0.11547 9.875C0.21547 9.975 0.41547 9.975 0.51547 9.975C0.61547 9.975 0.81547 9.975 0.91547 9.875L5.01547 5.675L9.11547 9.775C9.21547 9.975 9.41547 9.975 9.51547 9.975C9.61547 9.975 9.81547 9.975 9.91547 9.875C10.1155 9.675 10.1155 9.375 9.91547 9.175L5.71547 4.975Z" fill="#090954"/>
+         </svg>
+       </div>          
+       </div>
+    </div>    
+</div>

@@ -1,0 +1,35 @@
+.breadcrum {
+  margin: 1em 10px;
+
+  ul {
+    padding: 0px !important;
+
+    li {
+      display: inline-block;
+      text-transform: uppercase;
+      padding-right: 10px;
+    }
+
+    li+li {
+      a {
+        padding-left: 10px;
+      }
+    }
+
+    li+li::before {
+      content: '\276F';
+      display: inline-block;
+      color: #090954;
+      font-size: 12px;
+      line-height: 0;
+    }
+  }
+}
+
+.Belvue {
+  font-family: Belvue;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}

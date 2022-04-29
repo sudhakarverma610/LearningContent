@@ -1,0 +1,61 @@
+<div fxLayout="column" fxLayout.gt-sm="row" class="invite">
+  <div fxFlex.gt-sm="30%" fxLayout="row" fxLayoutAlign="center center" class="categoryName"
+    [ngStyle]="{'background-image':  'url('+category.image.src+')'}">
+    <h1 class="lowercase padding1em">{{ category.name }}</h1>
+  </div>
+  <div fxFlex.gt-sm="70" class="communityChainDashboard" *ngIf="!InviteSentToAll">
+    <div class="form_intro uppercase" id="form_first_name">INVITE A FRIEND</div>
+    <div fxLayout="column" fxLayoutAlign="space-around center" class="popup_account_content"
+      *ngFor="let invite of invites; index as inviteIndex">
+      <div class="uppercase leftAlign widthFull">Friend Details</div>
+      <div class="form_item form_item_first_name">
+        <input class="form_first_name" type="text" placeholder="First Name*" name="first_name"
+          [(ngModel)]="invite.first_name" />
+      </div>
+      <div class="form_item form_item_last_name">
+        <input class="form_last_name" type="text" placeholder="Last Name*" name="last_name"
+          [(ngModel)]="invite.last_name" />
+      </div>
+      <div class="form_item form_item_email">
+        <input class="form_email" type="email" placeholder="email *" name="Password" [(ngModel)]="invite.email" />
+      </div>
+      <div class="form_messages">
+        <p class="error_message" *ngIf="invite.requiredFieldLogin">
+          {{ invite.fieldsRequiredMissing }}
+        </p>
+        <p class="error_message" *ngIf="invite.EmailNotValid">{{ EmailNotValidMsg }}</p>
+        <p class="error_message" *ngIf="invite.inviteSent">{{ InviteSentMsg }}</p>
+      </div>
+      <div class="form_legend">*Required fields</div>
+      <div class="form_legend cursorPointer" (click)="remove(inviteIndex)" *ngIf="inviteIndex != 0">
+        Remove this tab
+      </div>
+      <div class="form_legend cursorPointer" (click)="addAnotherInvite()">
+        <span class="add">
+          <img src="https://files.y.jewelry/assets/video/sign_01-add.svg" title="add" alt="add" width="15px"
+            height="15px">
+        </span> Add another friend
+      </div>
+    </div>
+
+    <div class="form_actions">
+      <button class="form_submit rounded_btn send_invite_btn" (click)="sendInvitation()">
+        Send Invitation
+      </button>
+      <button class="rounded_btn back_btn">
+        <a [routerLink]="['/chain-of-charms']">Back</a>
+      </button>
+    </div>
+  </div>
+  <div fxFlex="70" fxLayout="column" fxLayoutAlign="space-around center" class="popup_account_content"
+    *ngIf="InviteSentToAll">
+    <div class="inviteSent">
+      <div><img src="https://files.y.jewelry/assets/img/community-chain/ok.svg" alt="ok" title="ok" width="45"
+          height="45" /></div>
+      <div class="uppercase">Thank you!</div>
+      <div>Your chain of Care has been sent to your friends.</div>
+      <a (click)="InviteSentToAll = false" class="underlined">send more invite</a><br />
+      <a [routerLink]="['/']" class="underlined">Back to the homepage</a>
+    </div>
+  </div>
+</div>

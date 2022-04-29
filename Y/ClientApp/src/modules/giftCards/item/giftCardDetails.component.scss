@@ -1,0 +1,466 @@
+@import '../../../stylesConstants.scss';
+
+.priceSelection {
+  background: transparent !important;
+  border: none !important;
+}
+
+.addedToBag {
+  max-width: 60vw !important;
+  position: fixed !important;
+  left: 30vw !important;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+.preview-gift-card{ 
+  width: 100%;
+  text-align: center;
+  max-height: 340px;
+  width: 375px;
+  position: relative;
+  img{    
+  height: 340px;
+  width: auto;
+  min-width: 370px;
+  }
+  .text-content{ 
+    position: absolute; 
+    top: 31%;
+    text-align: left;
+    max-width: 85px;
+    right: 29%;
+    font-family: Seville;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 21px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #090954;
+  }
+}
+.btn-back-gift{
+  position: absolute;
+  top: 90px;
+  left: 12px;
+}
+.preview-gift-card-title{
+  position: absolute;
+  top: 99px;
+  left: 70px;
+  font-family: Apercu;
+  font-size: 15px;
+  line-height: 20px; 
+  display: flex;  
+  color: #090954;
+  mix-blend-mode: normal;
+
+}
+.cursorPointer{
+  cursor: pointer;
+}
+.form_item {
+  border-bottom: 3px solid #ffffff;
+}
+
+.clear {
+  margin-top: -20px;
+  border-top: 2px solid #ffffff;
+  height: 20px;
+  margin-bottom: 20px;
+}
+
+.giftCardDetailsContainer {
+  margin-top: 60px;
+  padding: 3em 0px 2em 0px;
+  min-height: calc(100vh - 80px);
+  font-family: Belvue;
+  font-size: 1.2em;
+  max-width: 400px;
+  margin: auto;
+  padding-top: 0px;
+  .giftcart-title{
+    font-family: BelweSansLight;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 30px; 
+    text-align: center; 
+    color: #090954;
+  }
+  .giftcart-subtitle{
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: Apercu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #090954;
+  }
+  .giftCardDetailsInput{
+    .form-about-friend-heading{
+      font-family: Apercu;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 10px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #090954; 
+       margin: 10px 0px 18px 0px;
+    }
+    
+  }
+
+}
+
+.giftCardDetails {
+  margin: auto;
+  // margin-top: -82px;
+  width: calc(100% - 20px);
+}
+
+.conatinedWidth {
+  margin: auto;
+  width: 70%;
+  max-width: 500px !important;
+}
+
+.giftCardDetailsTitle {
+  z-index: 999;
+  font-family: Belvue;
+
+  button {
+    margin: auto;
+    background-color: #ffffff;
+    color: #090954;
+    line-height: 38px;
+    padding: 0 1.5em;
+    display: block;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+/* *** Placeholder Color *** */
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: $color;
+    opacity: 1;
+  }
+
+  &::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: $color;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $color;
+  }
+
+  &:placeholder-shown {
+    /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+    color: $color;
+  }
+}
+
+.form_item {
+  margin-bottom: 15px;
+  min-width: 100%;
+  border-bottom: 5px solid white;
+
+  div {
+    text-transform: uppercase;
+  }
+
+  .form_item_gift_voucher,
+  .form_item_how_much,
+  .form_item_quantity,
+  .form_first_name,
+  .form_last_name,
+  .form_email {
+    display: block;
+    background: none;
+    border: none;
+    border-bottom: 5px solid $background-color-main;
+    height: 40px;
+    line-height: 40px;
+    color: #090954;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: Univ;
+  }
+
+  .form_item_gift_voucher,
+  .form_item_how_much,
+  .form_item_quantity,
+  .form_first_name,
+  .form_last_name,
+  .form_email {
+    font-size: 14px;
+    text-transform: initial;
+  }
+
+  .form_item_gift_voucher,
+  .form_item_how_much,
+  .form_item_quantity,
+  .form_first_name,
+  .form_last_name,
+  .form_email {
+    @include placeholder-color(#090954);
+
+    &::-webkit-input-placeholder,
+    &:-ms-input-placeholder,
+    &:-moz-placeholder {
+      text-transform: uppercase;
+    }
+  }
+
+  .form_gift_voucher,
+  .form_how_much,
+  .form_quantity {
+    text-align: right;
+  }
+
+  .form_first_name,
+  .form_last_name,
+  .form_email {
+    text-align: left;
+  }
+}
+
+.form_links {
+  a {
+    color: #090954;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &+.form_item {
+    margin-top: 30px;
+  }
+}
+
+.form_intro,
+.form_footer {
+  color: #090954;
+  margin-top: 4em;
+  margin-bottom: 15px;
+
+  a {
+    color: #090954;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.form_legend {
+  color: #090954;
+  margin-top: 20px;
+  min-width: 100%;
+  margin-bottom: 15px;
+}
+
+.form_item_total {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.form_item_subject {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 19px;
+}
+
+.form_subjectDiv {
+  width: 100%;
+}
+
+.form_subjectLabel {
+  margin-bottom: 15px;
+}
+
+#form_item_subject {
+  width: 100%;
+  min-height: 35px;
+  outline: none;
+  resize: none;
+  border: none;
+  border-radius: 15px;
+}
+
+.form_actions {
+  margin: 35px 0 0;
+  text-align: center;
+  font-family: Belvue;
+
+  button {
+    margin: auto;
+    background-color: #090954;
+    color: white; 
+    border-radius: 20px; 
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px; 
+    display: flex;
+    justify-content: center;
+  }
+  .img{
+    position: relative;top: 5px;
+  }
+}
+
+.form_submit {
+  width: 200px;
+  font-family: Belvue;
+}
+
+.error_message {
+  color: #b54747;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+
+input:focus {
+  border: none !important;
+  outline: none;
+}
+
+input {
+  border: none !important;
+  background: transparent;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: #ffffff;
+  margin-left: -210px;
+  margin-top: 1em;
+  width: 200px;
+  padding: .5em;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.priceSelectionUL {
+  list-style: none;
+}
+
+.back {
+  cursor: pointer;
+}
+
+
+.payNowDiv {
+  margin: 35px 0 0;
+  text-align: center;
+  font-family: Belvue;
+
+  button {
+    margin: auto;
+    background-color: #BFD1E8;
+    color: #090954;
+    line-height: 38px;
+    width: 100%;
+    padding: 0 1.5em;
+    display: block;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+}
+
+.Apercu {
+  font-family: Apercu;
+}
+
+.mb5 {
+  margin-bottom: 5px;
+}
+
+.matForm {
+  min-width: 100px;
+}
+ 
+.input-text{
+  font-family: Apercu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 30px;
+  color: #090954;
+  
+}
+.label{
+  font-family: Apercu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 10px;   
+  text-transform: uppercase; 
+  color: #BFD1E8;
+}
+.mt20{
+margin-top: 20px;
+}
+.form-price-bottom{
+  font-family: Apercu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #090954;
+}
+.prefixinput{
+  font-family: Apercu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 30px;
+  color: #090954;
+  position: absolute;
+  top: -26px;
+  z-index: 6;
+}
+.ml-13{
+  margin-left: 13px !important;
+}

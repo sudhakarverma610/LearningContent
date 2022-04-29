@@ -1,0 +1,132 @@
+<div class="container">
+    <div fxLayout="row" fxLayoutAlign="center center" class="div1" fxHide.xs fxShow.gt-xs>
+        <img src="https://files.y.jewelry/assets/img/mmxy/i1.jpg" class="img1">
+        <video fxFlex="100" *ngIf="appService.isBrowser"  class="img2" tappable (tap)="changeVideoAudio('media-1')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted"  id="media-1">
+            <source src="https://files.y.jewelry/assets/img/mmxy/i3.mp4" type="video/mp4">
+        </video>
+        <img src="https://files.y.jewelry/assets/img/mmxy/i3.jpg" class="img3">
+        <img src="https://files.y.jewelry/assets/img/mmxy/i4.svg" class="img4">
+        <div class="div10 m-y-10">
+            <img src="https://files.y.jewelry/assets/img/mmxy/11.svg" class="img11">
+            <div class="text-justify">Masoom Minawala, a front-runner in the influencer space, has remarkably been part of a chosen few who has crossed the geographic boundaries of India to represent the country on an international scale. She pioneered the art of blogging in India a decade ago, with a shift to Europe eight years into her journey.
+                <br />
+                During this journey, Masoom has mastered the art of practically everything that she sets her mind to. She understands the importance of storytelling, the unique DNA of each brand that she represents and has worked with brands like Dior, Stella McCartney, Estée Lauder etc. She is relatable yet aspirational and has a personal involvement with all the projects she undertakes. Anyone can see that Masoom Minawala puts her heart into everything that she is a part of.</div>
+            <img src="https://files.y.jewelry/assets/img/mmxy/111.svg" class="img11">
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" class="div2"  fxHide.xs fxShow.gt-xs>
+        <div class="img12">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 1 : 0" (mouseover)="openHover = 1"
+              (clickOutside)="ClickOutside(1)">
+              <img [src]="hoverDot">
+            </div>
+            <img src="https://files.y.jewelry/assets/img/mmxy/12.jpg" class="mainImg">
+            <div class="hoverProducts" *ngIf="openHover === 1">
+                <img *ngFor="let item of products[0]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+        </div>
+        <img src="https://files.y.jewelry/assets/img/mmxy/13.svg" class="img13">
+        <div class="img14">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 2 : 0" (mouseover)="openHover = 2"
+              (clickOutside)="ClickOutside(2)">
+              <img [src]="hoverDot">
+            </div>
+            <img src="https://files.y.jewelry/assets/img/mmxy/14.jpg">
+            <div class="hoverProducts" *ngIf="openHover === 2">
+                <img *ngFor="let item of products[1]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+        </div>
+        <div class="img15">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 3 : 0" (mouseover)="openHover = 3"
+              (clickOutside)="ClickOutside(3)">
+              <img [src]="hoverDot">
+            </div>
+            <img src="https://files.y.jewelry/assets/img/mmxy/15.jpg">
+            <div class="hoverProducts" *ngIf="openHover === 3">
+                <img *ngFor="let item of products[2]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+        </div>
+        <div class="div3 m-y-10">
+            <img src="https://files.y.jewelry/assets/img/mmxy/11.svg" class="img11">
+            <div class="text-justify">This collective is the confluence of Masoom Minawala’s unique style & sophistication with Y Jewelry’s ability to transform emotions into charms, and is bridged with the element of minimalism. It is like her – aspirational and rich in experience.
+<br />
+                Not allowing herself to be put in a box, each piece carefully curated by Masoom, to decipher various pieces of her heart starting with her home – her roots that are in India – and no matter where she is, her inherent Indian-ness that will drive her lifelong homing instinct.
+      <br />          
+                MM for Y Jewelry, is a journey of emotions – not just of Masoom’s but for most women. It is that journey of not knowing what lies ahead, chasing your passion, pushing yourself to achieve the limitless potential.</div>
+            <!-- <div><a [routerLink]="['/masoom-for-y-sets']" routerLinkActive="router-link-active" >Explore New Sets in this category. Click here!</a></div> -->
+            <img src="https://files.y.jewelry/assets/img/mmxy/111.svg" class="img11">
+        </div>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center" class="div4" fxShow.xs fxHide.gt-xs>
+        <div class="w100" fxLayout="row" fxLayoutAlign="start start">
+            <img fxFlex="50" src="https://files.y.jewelry/assets/img/mmxy/i1.jpg" class="img1 h250">
+            <img fxFlex="50" src="https://files.y.jewelry/assets/img/mmxy/i3.jpg" class="img3 h250">
+        </div>
+        <img src="https://files.y.jewelry/assets/img/mmxy/i4.svg" class="img2">
+        <div class="div6 m-y-10">
+            <img src="https://files.y.jewelry/assets/img/mmxy/11.svg" class="img11">
+            <div class="text-justify">Masoom Minawala, a front-runner in the influencer space, has remarkably been part of a chosen few who has crossed the geographic boundaries of India to represent the country on an international scale. She pioneered the art of blogging in India a decade ago, with a shift to Europe eight years into her journey.
+                <br />
+                During this journey, Masoom has mastered the art of practically everything that she sets her mind to. She understands the importance of storytelling, the unique DNA of each brand that she represents and has worked with brands like Dior, Stella McCartney, Estée Lauder etc. She is relatable yet aspirational and has a personal involvement with all the projects she undertakes. Anyone can see that Masoom Minawala puts her heart into everything that she is a part of.</div>
+            <img src="https://files.y.jewelry/assets/img/mmxy/111.svg" class="img11">
+        </div>
+        <video fxFlex="100" *ngIf="appService.isBrowser"  class="h61 video-media mb40" tappable (tap)="changeVideoAudio('media-1')" inViewport
+            [inViewportOptions]="{ threshold: [0, 0.65], partial: true }" (inViewportAction)="onIntersection($event)"
+            playsinline loop [muted]="'muted'" preload="auto" muted="muted"  id="media-1">
+            <source src="https://files.y.jewelry/assets/img/mmxy/i3.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center" class="div5" fxShow.xs fxHide.gt-xs>
+        <div class="w100" fxLayout="row" fxLayoutAlign="start start">
+            <div flex="50" class="img14 h250">
+                <div class="hoverTag" (click)="openHover = openHover === 0 ? 1 : 0" (mouseover)="openHover = 1"
+                  (clickOutside)="ClickOutside(1)">
+                  <img [src]="hoverDot" (click)="openHover = 1">
+                </div>
+                <img src="https://files.y.jewelry/assets/img/mmxy/14.jpg">
+                <div class="hoverProducts" *ngIf="openHover === 1">
+                    <img *ngFor="let item of products[1]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                    [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+                </div>
+            </div>
+            <div flex="50" class="h250">
+                <div class="hoverTag" (click)="openHover = openHover === 0 ? 2 : 0" (mouseover)="openHover = 2"
+                  (clickOutside)="ClickOutside(2)">
+                  <img [src]="hoverDot" (click)="openHover = 2" >
+                </div>
+                <img src="https://files.y.jewelry/assets/img/mmxy/15.jpg">
+                <div class="hoverProducts" *ngIf="openHover === 2">
+                    <img *ngFor="let item of products[2]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                    [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+                </div>
+            </div>
+        </div>
+        <img src="https://files.y.jewelry/assets/img/mmxy/13.svg" class="img13">
+        <div class="div7 m-y-10">
+            <img src="https://files.y.jewelry/assets/img/mmxy/11.svg" class="img11">
+            <div class="text-justify">This collective is the confluence of Masoom Minawala’s unique style & sophistication with Y Jewelry’s ability to transform emotions into charms, and is bridged with the element of minimalism. It is like her – aspirational and rich in experience.
+<br />
+                Not allowing herself to be put in a box, each piece carefully curated by Masoom, to decipher various pieces of her heart starting with her home – her roots that are in India – and no matter where she is, her inherent Indian-ness that will drive her lifelong homing instinct.
+      <br />          
+                MM for Y Jewelry, is a journey of emotions – not just of Masoom’s but for most women. It is that journey of not knowing what lies ahead, chasing your passion, pushing yourself to achieve the limitless potential.</div>
+            <!-- <div><a [routerLink]="['/masoom-for-y-sets']" routerLinkActive="router-link-active" >Explore New Sets in this category. Click here!</a></div> -->
+            <img src="https://files.y.jewelry/assets/img/mmxy/111.svg" class="img11">
+        </div>
+        <div class="img12">
+            <div class="hoverTag" (click)="openHover = openHover === 0 ? 3 : 0" (mouseover)="openHover = 3"
+              (clickOutside)="ClickOutside(3)">
+              <img [src]="hoverDot" (click)="openHover = 3">
+            </div>
+            <img src="https://files.y.jewelry/assets/img/mmxy/12.jpg">
+            <div class="hoverProducts" *ngIf="openHover === 3">
+                <img *ngFor="let item of products[0]" [src]="item.images[0].src | changeSrcExtension: '_100.jpeg'"
+                [alt]="item.images[0].alt" [routerLink]="['/', item.se_name]">
+            </div>
+        </div>
+    </div>
+</div>

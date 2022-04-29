@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Share your Creation</h1>
+<div mat-dialog-content>
+  <div class="w-100" fxLayout="row" fxLayoutAlign="space-between start">
+    <a class="icon" href="http://www.facebook.com/sharer/sharer.php?u={{data.url}}&amp;display=popup" target="_blank"
+      rel="noopener" onclick="open(this.href, 'social_share', 'height=400,width=600');return false">
+      <img src="https://files.y.jewelry/assets/img/Facebook.svg" alt="facebook" title="facebook" />
+    </a>
+    <a class="icon"
+      href="https://wa.me/?text={{data.url}}%20Check%20out%20the%20Charm Bracelet%20I%20created%20on%20y.jewelry."
+      target="_blank" rel="noopener" onclick="open(this.href, 'social_share', 'height=400,width=600');return false">
+      <img src="https://files.y.jewelry/assets/img/whatsapp-logo.svg" alt="whatsapp-logo" title="whatsapp-logo" />
+    </a>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="secondary" class="btn btn-light-blue" (click)="onNoClick()">close</button>
+</div>

@@ -1,0 +1,189 @@
+@import './../../stylesConstants.scss';
+
+.btn {
+  height: 30px;
+  width: 42px;
+  display: block;
+  border: none;
+  cursor: pointer;
+  margin: 11px auto;
+  font-family: Apercu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+   
+}
+.bg-netBanking {
+  width: 45px; height: 30px;
+  //background: url('https://files.y.jewelry/assets/css_sprites.png') -70px -80px !important;
+  //background: url('https://files.y.jewelry/assets/img/2020/footer/netbankingicon.svg') !important;
+}
+.btn-light-blue {
+  background-color: #BFD1E8;
+  color: #090954; 
+  border-radius: 15px;
+}
+.text-center {
+  text-align: center;
+}
+@media only screen and (max-width: 969px) {
+  .footerContainer { 
+    min-height: unset !important;
+    .mainDiv {
+      padding: 0 10px;
+      >div {
+        margin-bottom: unset !important;
+        max-width: unset !important;
+        width: 100%;
+      }
+      .mat-form {
+        color: #090945;
+        font-family: ApercuLight;
+        max-width: unset !important;
+        width: 80%;
+        text-align: center;
+      }
+
+      .infoLinks,
+      .legalLinks {
+        min-width: 140px;
+      }
+
+      .payment-icons {
+        max-width: unset !important;
+        width: 100%;
+        div {
+          margin-bottom: 5px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 970px) {
+  .footerContainer {
+    .mainDiv {
+      .infoLinks,
+      .legalLinks {
+        min-width: 180px;
+      }
+    }
+  }
+}
+
+.footerContainer {
+  min-height: 360px;
+  //margin-top: 50px;
+  max-width: 100vw;
+  color: #FBF4F1;
+  font-family: ApercuLight;
+  background: #090945;
+  padding: 40px 0px;
+
+  .mainDiv {
+    height: calc(100% - 80px);
+    max-width: 1000px;
+    margin: auto;
+
+    .links {
+      max-width: 100%;
+
+      >div {
+        max-width: 280px;
+      }
+    }
+
+    >div {
+      margin-bottom: 20px;
+      max-width: 280px;
+    }
+
+    .title {
+      font-size: 8px !important;
+      line-height: 10px !important;
+      text-transform: uppercase;
+      margin-top: 13px;
+      margin-bottom: 13px;
+    }
+
+    .details {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .mat-form {
+      color: #090945;
+      font-family: ApercuLight;
+      max-width: 130px;
+      text-align: center;
+    
+    }
+
+    .icon,
+    .infoLinks>div,
+    .legalLinks>div,
+    .infoLinks>a,
+    .legalLinks>a {
+      cursor: pointer;
+    }
+
+    .infoLinks>a,
+    .infoLinks>div,
+    .legalLinks>div,
+    .legalLinks>a {
+      font-size: 14px;
+      line-height: 30px;
+    }
+
+    .payment-icons {
+      max-width: 200px;
+      div {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.fg-white {
+  color: #ffffff;
+}
+
+.error {
+  color: #b54747;
+}
+
+
+.mbr20 {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.mr10 {
+  margin-bottom: 10px;
+}
+.fnt-13{
+  font-size: 13px !important;
+} 
+.footer-mobile-textbox{
+  background: #FFFFFF; 
+  border: 1px solid #FBF4F1;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  margin: 11px auto;
+  text-align: center;
+}

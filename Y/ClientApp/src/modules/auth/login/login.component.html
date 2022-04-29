@@ -1,0 +1,169 @@
+<div class="loginContainer" fxLayout="column" fxLayoutAlign="start center" *ngIf="step === 1">
+  <div class="title">
+    do we know each other?
+  </div>
+  <div class="mainDiv" fxLayout.gt-xs="row" fxLayout="column" fxLayoutAlign="start space-between">
+    <div class="login" fxFlex.gt-xs="25" fxFlexOrder="5">
+      <div class="subTitle">login with email</div>
+      <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+        <mat-form-field class="matForm" fxFlex="45" fxFlex.gt-xs="100">
+          <input matInput type="text" placeholder="Email" name="Password" [(ngModel)]="Email" />
+          <mat-hint class="error_message" *ngIf="requiredFieldSignUp">
+            {{ fieldsRequiredMissing }}
+          </mat-hint>
+          <mat-hint class="error_message" *ngIf="emailIncorrectFieldSignUp">
+            {{ EmailIncorrect }}
+          </mat-hint>
+          <mat-hint class="error_message" *ngIf="mdpNotEqualFieldSignUp">
+            {{ MotDePasseNotEqualMsg }}
+          </mat-hint>
+          <mat-hint class="error_message" *ngIf="errorSignUp">
+            An error occured, are you sure you don't already have an account with
+            this email address?
+          </mat-hint>
+        </mat-form-field>
+        <div fxFlex="0" fxFlex.gt-xs="100"></div>
+        <mat-form-field class="matForm" fxFlex="45" fxFlex.gt-xs="100">
+          <input matInput type="text" [type]="showPassword ? 'text' : 'password'" placeholder="Password *"
+            name="Password" [(ngModel)]="Password" />
+          <button class="allUnset" mat-button (click)="showPassword = true" (mouseleave)="showPassword = false"
+            matSuffix mat-icon-button aria-label="Clear">
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
+          <mat-hint class="error_message" *ngIf="LoginIncorrectMsgShow1">
+            {{ LoginIncorrectMsg1 }}
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <button class="btn btn-blue mb-11" [ngClass]="{'mt-2': LoginIncorrectMsgShow1}"
+        (click)="loginBtn()">login</button>
+      <div class="details matForm underlineHover" (click)="forgotPassword()">forgot password?</div>
+    </div>
+    <div class="hr" fxFlex="100" fxHide.gt-sm fxShow.sm fxFlexOrder="4"></div>
+    <div class="login" fxFlex.gt-xs="25" fxFlexOrder="3">
+      <div class="subTitle" fxHide fxShow.gt-sm>login with mobile</div>
+      <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+        <mat-form-field class="matForm" fxFlex="45" fxFlex.gt-xs="100" [fxHide.gt-xs]="mobileLoginOtp" [fxShow.gt-xs]="!mobileLoginOtp">
+          <input matInput type="text" placeholder="Mobile" name="mobileNumber" [(ngModel)]="mobile_number" />
+          <mat-hint class="error_message" *ngIf="requiredFieldLogin">
+            {{ fieldsRequiredMissing }}
+          </mat-hint>
+          <mat-hint class="error_message" *ngIf="AccountRegisteredShow">
+            {{ AccountRegisteredMsg }}
+          </mat-hint>
+        </mat-form-field>
+        <div fxFlex="0" fxFlex.gt-xs="100"></div>
+        <mat-form-field class="matForm" fxFlex="45" fxFlex.gt-xs="100" [fxHide.gt-xs]="!mobileLoginOtp" [fxShow.gt-xs]="mobileLoginOtp">
+          <input matInput type="text" placeholder="Enter OTP *" [(ngModel)]="otp" />
+          <mat-hint class="error_message" *ngIf="LoginIncorrectMsgShow">
+            {{ LoginIncorrectMsg }}
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <button class="btn btn-blue mb-11" [ngClass]="{'mt-2': LoginIncorrectMsgShow}"
+        *ngIf="mobileLoginOtp" (click)="verifyOtp()">Login</button>
+      <button class="btn btn-blue mb-11" [ngClass]="{'mt-2': LoginIncorrectMsgShow}"
+        *ngIf="!mobileLoginOtp" (click)="mobileLoginBtn()">Send
+        OTP</button>
+    </div>
+    <div class="hr" fxFlex="100" fxHide.gt-sm fxShow.sm fxFlexOrder="6"></div>
+    <div class="socialLogin" fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start" fxFlex.gt-xs="25"
+      fxFlexOrder="1">
+      <div class="subTitle" fxFlex="100">social sign in</div>
+      <button class="btn btn-blue mb-11" fxFlex.gt-xs="100" fxFlex="45"
+        (click)="handleNavigationClick('facebookauthentication/login?returnUrl=')"><img
+          src="https://files.y.jewelry/assets/img/fbicon.png" alt="fb"> facebook</button>
+      <div fxFlex="100" fxHide fxShow.gt-xs></div>
+      <button class="btn btn-blue mb-11" fxFlex.gt-xs="100" fxFlex="45"
+        (click)="handleNavigationClick('googleauthentication/login?returnUrl=')"><img
+          src="https://files.y.jewelry/assets/img/gicon.png" alt="google">google</button>
+    </div>
+    <div class="hr" fxFlex="100" fxHide.gt-sm fxShow.sm fxFlexOrder="2"></div>
+    <div class="createAccount" fxLayout="column" fxLayoutAlign="space-between start" fxFlex.gt-xs="25"
+      fxFlexOrder="7">
+      <div class="subTitle">create an account</div>
+      <div class="details matForm">Create an account today. By registering, you get cash back on your order, COD payment
+        option
+        and discount offers.</div>
+      <button class="btn btn-blue mb-10 mt-10" (click)="step = 2">create account</button>
+      <div class="subTitle" fxFlex="100" *ngIf="isCheckout">guest checkout</div>
+      <a class="btn btn-blue mb-11" *ngIf="isCheckout" fxFlex="100" (click)="removeIsCheckout()"
+        [routerLink]="['/checkout']">guest
+        checkout</a>
+        
+      <div class="hr" fxFlex="100" fxHide.gt-sm fxShow.sm></div>
+    </div>
+  </div>
+</div>
+<div class="loginContainer" fxLayout="column" fxLayoutAlign="start center" *ngIf="step === 2">
+  <div class="title">
+    create an account
+  </div>
+  <div class="mainDiv" fxLayout.gt-xs="row" fxLayout="column" fxLayoutAlign="center center">
+    <div class="login" fxFlex.gt-xs="50" [formGroup]="form">
+      <p class="error_message" *ngIf="requiredFieldSignUp">{{ fieldsRequiredMissing }}</p>
+      <p class="error_message" *ngIf="mdpNotEqualFieldSignUp">{{ MotDePasseNotEqualMsg }}</p>
+      <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+        <mat-radio-group aria-labelledby="gender" class="gender" formControlName="gender" fxFlex="100">
+          <mat-radio-button class="example-radio-button" value="G">
+            Ms
+          </mat-radio-button>
+          <mat-radio-button class="example-radio-button" value="M">
+            Mr
+          </mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field fxFlex="100">
+          <input matInput type="text" placeholder="First name *" formControlName="first_name" />
+          <mat-hint class="error">
+            <span *ngIf="!form.get('first_name').valid && form.get('first_name').touched">First Name is
+              <strong>required</strong></span>
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <input matInput type="text" placeholder="Family name *" formControlName="last_name" />
+          <mat-hint class="error">
+            <span *ngIf="!form.get('last_name').valid && form.get('last_name').touched">Last Name is
+              <strong>required</strong></span>
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <input matInput type="text" placeholder="Email *" formControlName="email" />
+          <mat-hint class="error">
+            <span *ngIf="!form.get('email').valid && form.get('email').touched">Please enter valid Email</span>
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <input matInput type="text" placeholder="Mobile *" formControlName="mobile" />
+          <mat-hint class="error">
+            <span *ngIf="!form.get('mobile').valid && form.get('mobile').touched">Please enter mobile number in correct
+              format.</span>
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <input matInput type="text"  [type]="showPassword1 ? 'text' : 'password'" placeholder="Password *" formControlName="password" />
+          <button mat-button (click)="showPassword1 = true" (mouseleave)="showPassword1 = false" matSuffix
+            mat-icon-button aria-label="Clear">
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
+          <mat-hint class="error">
+            <span *ngIf="!form.get('cPassword').valid && form.get('cPassword').touched">Please re-enter the
+              password</span>
+            <span *ngIf="form.errors?.password && form.get('cPassword').touched">{{form.errors.password.message}}</span>
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <input matInput type="text"  [type]="showPassword2 ? 'text' : 'password'" placeholder="Confirm password *"
+            formControlName="cPassword" />
+          <button mat-button (click)="showPassword2 = true" (mouseleave)="showPassword2 = false" matSuffix
+            mat-icon-button aria-label="Clear">
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
+        </mat-form-field>
+        <div class="w-100 mb-10">*Required fields</div>
+        <button class="btn btn-blue mb-11 mxAuto" (click)="signUpBtn()">create account</button>
+        <div class="subTitle text-center mt-10" fxFlex="100">Already have an account ?</div>
+        <button class="btn btn-blue mb-11 mxAuto" fxFlex="100" (click)="step = 1">login</button>
+      </div>
+    </div>
+  </div>
+</div>

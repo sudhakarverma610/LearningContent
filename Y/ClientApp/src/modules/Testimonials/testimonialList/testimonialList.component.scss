@@ -1,0 +1,125 @@
+.testiminialContainer {
+    width: 100vw;
+    min-height: 90vh;
+    margin-bottom: 20px;
+    .heading{
+      font-family: ApercuLight;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 30px;
+      text-align: center;
+      color: #090954;
+      padding: 20px;
+      max-width: 548px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .testiminialImage{
+    width: 100%;
+    position: relative;
+    background-image:  url('https://files.y.jewelry/assets/img/testimonials/cover.png');
+    background-position: center;
+    background-size: cover;
+    min-height: 60vh;  
+    h1 {
+      font-family: BelweSansLight;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 36px;
+      line-height: 60px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #FFFFFF;
+    } 
+   
+  }
+  .testiminialImage1{ 
+    width: 100%; 
+    position: relative;
+    min-height: 220px; 
+    h1 {
+      font-family: BelweSansLight;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 36px;
+      line-height: 60px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #FFFFFF;
+      position: absolute;
+    }
+   .start1{     
+    width: 89px;
+    height: 93px;
+    position: absolute;
+    background: url('https://files.y.jewelry/assets/img/2020/testimonials/Frame1.svg');
+    background-repeat: no-repeat;
+    top: 3.8%;
+    right: 2.6%;
+   }
+   .start2{
+    width: 59px;
+    height: 60px;
+    position: absolute;
+    background: url('https://files.y.jewelry/assets/img/2020/testimonials/Frame2.svg');
+    background-repeat: no-repeat;    
+    left: 5.6%;
+    bottom: 20%;
+   }
+   .start3{
+    width: 36px;
+    height: 38px;
+    position: absolute;
+    background: url('https://files.y.jewelry/assets/img/2020/testimonials/Group3.svg');
+    background-repeat: no-repeat; 
+    left: 24%;
+    bottom: 8%;
+   }
+  }
+  .loadMore{
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Apercu;
+    font-style: normal;
+    font-weight: 500; 
+    font-size: 14px;
+    height: 19px;    
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;  
+    margin-bottom: 20px;
+  }
+  .btn {
+    height: 38px;
+    line-height: 38px; 
+    display: block;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center; 
+    margin: auto;
+    text-transform: uppercase;
+    font-family: BelweSansLight;  
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .btn-blue {
+    background: #090954;
+    border-radius: 20px;
+    font-family: Apercu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #BFD1E8;
+    padding: 0px 15px 0px 15px;
+  } 

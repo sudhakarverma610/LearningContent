@@ -1,0 +1,114 @@
+.circleBorder {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    padding: 2px;
+    float: right;
+    z-index: 999;
+    cursor: pointer;
+  }  
+  .previewContainer {
+    text-align: center;
+    overflow: hidden;
+    min-height: 90px;  
+    :before {
+      content: "";
+      width: 0px;
+      height: 0px;
+      position: absolute;
+      border-right: 10px solid transparent;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid #ffffff;
+      left: 70px;
+      top: 60px;
+    }
+  }  
+  .w100 {
+    width: 100%;
+  }  
+  .heading {
+    font-family: Apercu;
+    font-size: 14px;
+    line-height: 20px;
+    color: #090954;
+  }  
+  .cartItem {
+    height: 80px;
+    box-sizing: border-box;
+    border-radius: 0px 5px 5px 0px;
+    color: #090954;
+    width: 100%;
+  
+    .lazy {
+      height: 100%;
+      width: auto;
+    }
+  
+    >div {
+      height: 100%;
+    }
+  
+    .productName {
+      font-family: BelweSansLight;
+      font-size: 18px;
+      line-height: 40px;
+      text-transform: lowercase;
+    }
+  
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .nowrap {
+    white-space: nowrap;
+  }
+  
+  @media only screen and (min-width: 300px) {
+  
+    .quantityNumber {
+      margin: 0px 10px;
+    }
+  }
+  
+  @media only screen and (min-width: 660px) {
+  
+    .quantityNumber {
+      margin: 0px 30px;
+    }
+  }
+  
+  .btn {
+    height: 38px;
+    line-height: 38px;
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 200px;
+    text-transform: uppercase;
+    font-family: BelweSansLight;
+    cursor: pointer;
+  }
+   .btn-link {
+    color: #bbd1ea;
+    border: none !important;
+    background: transparent !important;
+    width: 100px;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }  
+  .btn-light-blue {
+    color: #090954;
+    background: #BFD1E8;
+    width: 100px;
+  }  
+  .qty-btn {
+    width: 20px !important;
+    transform: translateY(-3px);
+  }
+  

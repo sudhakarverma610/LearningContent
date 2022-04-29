@@ -1,0 +1,77 @@
+.postContainer {
+    width: 100%;
+    max-width: 100vw;
+    color: #090954;
+    background: #FEFCFB;
+    .headerimage{
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        min-height: 340px;
+        background-position: center !important;
+        display: flex;
+        justify-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        position: relative;
+        h1 {            
+        font-style: normal;
+        font-weight: 300;
+        font-size: 36px;
+        line-height: 30px;  
+        text-align: center; 
+        color: #FFFFFF;
+        width: calc(100% - 50px);
+        margin: auto;
+        }
+    }
+    .details { 
+        font-family: Apercu;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center; 
+        margin-top: 16px;
+        height: 40px;
+    }
+    .overview {                
+        width: 100%; 
+        width: calc(100% - 40px);
+        max-width: 478px;       
+        font-family: ApercuMedium;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        color: #090954;
+        margin-bottom: 40px;
+        p{
+            text-align: left;
+        }
+        .texthigh{
+            font-family: ApercuLight !important;
+            font-weight: 300 !important;
+            font-size: 18px !important;
+            line-height: 30px !important;
+        }
+        .img-blog{
+            width: 100%;
+            text-align: center;
+            img{                
+            border-radius: 10px;
+            }
+        }
+    }
+    .share-icon-heading{
+        font-family: Apercu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #090954;
+        margin-bottom: 18px;
+    }
+}

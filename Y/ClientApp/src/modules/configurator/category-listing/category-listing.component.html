@@ -1,0 +1,53 @@
+<div class="productConatiner">
+  <div *ngIf="products&&isShowProducts"  fxLayout="row" class="navs" id="nav" #navCategory> 
+    <div  class="left" *ngIf="ishowleft &&(categoryName==='chains'?panelCat.chains:panelCat.charms).length>3" (click)="scrollLeft(navCategory);">
+      <svg style="transform: rotate(180deg);" xmlns="http://www.w3.org/2000/svg" width="26" height="30" viewBox="0 0 26 30" fill="none">
+        <path d="M1 0H11C19.2843 0 26 6.71573 26 15C26 23.2843 19.2843 30 11 30H1V0Z" fill="white"></path>
+        <rect width="1" height="30" fill="#BFD1E8"></rect>
+        <path d="M10.625 20C10.4375 20 10.3125 19.9375 10.1875 19.8125C9.9375 19.5625 9.9375 19.1875 10.1875 18.9375L14.125 15L10.1875 11.0625C9.9375 10.8125 9.9375 10.4375 10.1875 10.1875C10.4375 9.9375 10.8125 9.9375 11.0625 10.1875L15.875 15L11.0625 19.8125C10.9375 19.9375 10.8125 20 10.625 20Z" fill="#BFD1E8">          
+        </path>
+      </svg>
+    </div>
+    <ng-container *ngFor="let subcategory of (categoryName==='chains'?panelCat.chains:panelCat.charms);index as categoryIndex;">
+      <div class="{{categoryIndex===activeIndex?'active':'inactive'}}" >
+        <button class="btn" (click)="CategoryTabChanged(categoryName,subcategory,categoryIndex)">
+          {{subcategory.name}} </button>
+      </div> 
+    </ng-container>    
+  <div  class="rigth" *ngIf="isshowright &&(categoryName==='chains'?panelCat.chains:panelCat.charms).length>3" (click)="scrollRigth(navCategory)">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="30" viewBox="0 0 26 30" fill="none">
+      <path d="M1 0H11C19.2843 0 26 6.71573 26 15C26 23.2843 19.2843 30 11 30H1V0Z" fill="white"></path>
+      <rect width="1" height="30" fill="#BFD1E8"></rect>
+      <path d="M10.625 20C10.4375 20 10.3125 19.9375 10.1875 19.8125C9.9375 19.5625 9.9375 19.1875 10.1875 18.9375L14.125 15L10.1875 11.0625C9.9375 10.8125 9.9375 10.4375 10.1875 10.1875C10.4375 9.9375 10.8125 9.9375 11.0625 10.1875L15.875 15L11.0625 19.8125C10.9375 19.9375 10.8125 20 10.625 20Z" fill="#BFD1E8"></path>
+    </svg>
+  </div>   
+</div>
+  <ng-container *ngIf="products&&isShowProducts">
+    <app-CarouselListing [slidesStore]="products | SpiltProducts:8"  [responsive]="false" nav="true"
+    (OnProductClick)="ONProductClickChanged($event.index,$event.category_sename,$event.data)">
+    </app-CarouselListing>
+  </ng-container>
+  <div class="SizeAttributeConatiner" *ngIf="showSizediv&&SelectedProduct?.navAttributes" fxLayout="column" fxLayoutAlign="center center">
+    <h1>Nice choice! Please select a color.</h1>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <ng-container *ngFor="let value of SelectedProduct?.navAttributes.attribute_values; index as NavIndex; first as isFirst; last as isLast">
+      <div  (click)="selectNavigatingAttrValue(value)">
+        <ng-container *ngIf="value.imageSrc">
+          <picture> 
+             <img [src]="value.imageSrc" [alt]="value.imageSrc" width="98" height="98">
+          </picture>
+        </ng-container>
+
+      </div>
+    </ng-container>
+    </div>
+    <div class="back-choice" (click)="BackToChoice()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
+      <path d="M5.5 1C5.6 1 5.7 1 5.8 1.1C6 1.3 6 1.6 5.8 1.8L2.5 5L5.8 8.1C6 8.3 6 8.6 5.8 8.8C5.6 9 5.3 9 5 8.8L1 5L5.1 1.1C5.2 1 5.3 1 5.5 1Z" fill="#BBD1EA" stroke="#BFD1E8" stroke-width="0.5"/>
+      </svg>
+      <span> Back to choice</span>
+    </div>
+  </div>  
+</div>
+<div class="loaderY bg-logo" *ngIf="previewLoading">
+</div>

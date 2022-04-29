@@ -1,0 +1,42 @@
+<ng-container>
+  <div class="fullScreen" *ngIf="storyStage === 1 && (polls || intro)">
+    <ng-container *ngIf="polls">
+      <ng-container *ngIf="pollStage===0">
+        <app-polling [IsBlur]="IsBlur" [PreviousPoll]="polls[polls.length-1]" [NextPoll]="polls[pollStage+1]"  [progressValue]="(100/polls.length)*(pollStage+1)" [pollState]="pollStage" [poll]="polls[pollStage]" (backButtonClickEvent)="backToPollAnswer($event)" (selectAnswerEvent)="selectAnswer($event)"></app-polling>
+      </ng-container>
+      <ng-container *ngIf="pollStage===(polls.length - 1)">
+        <app-polling [IsBlur]="IsBlur" [PreviousPoll]="polls[pollStage-1]" [NextPoll]="polls[0]"  [progressValue]="(100/polls.length)*(pollStage+1)" [pollState]="pollStage" [poll]="polls[pollStage]" (backButtonClickEvent)="backToPollAnswer($event)" (selectAnswerEvent)="selectAnswer($event)"></app-polling>
+      </ng-container>  
+      <ng-container *ngIf="pollStage!==0&&(pollStage!== (polls.length - 1))">
+        <app-polling [IsBlur]="IsBlur" [PreviousPoll]="polls[pollStage-1]" [NextPoll]="polls[pollStage+1]"  [progressValue]="(100/polls.length)*(pollStage+1)" [pollState]="pollStage" [poll]="polls[pollStage]" (backButtonClickEvent)="backToPollAnswer($event)" (selectAnswerEvent)="selectAnswer($event)"></app-polling>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="routerScreen" *ngIf="storyStage !== 4 && storyStage !== 1">
+    <router-outlet></router-outlet>
+  </div>
+  <div *ngIf="storyStage === 4">
+    <div class="createYourOwnStory" fxLayout="column" fxLayoutAlign="space-around center">
+      <div class="title">
+        <h1>tell <br> <span class="title_part">me y</span></h1>
+      </div>
+      <div class="btn">
+        <a class="create_your_own_btn rounded_btn" title="Create Your Own" (click)="viewResult()">View Result</a>
+      </div>
+    </div>
+  </div>
+</ng-container> 
+<!-- <div *ngIf="showViewResult">
+  <div class="createYourOwnStory" fxLayout="column" fxLayoutAlign="space-around center">
+    <div class="title">
+      <h1>tell <br> <span class="title_part">me y</span></h1>
+    </div>
+    <div class="btn">
+      <a class="create_your_own_btn rounded_btn" title="Create Your Own" (click)="viewResult()">View Result</a>
+    </div>
+    <div class="btn">
+      <a class="create_your_own_btn rounded_btn" title="Create Your Own" (click)="TryAgain()">Try Again</a>
+    </div>
+  </div>
+</div> -->
+ 

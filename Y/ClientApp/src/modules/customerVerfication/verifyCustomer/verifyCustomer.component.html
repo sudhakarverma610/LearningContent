@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>verify Account</h1>
+<div mat-dialog-content>
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start" *ngIf="step === 1">
+    <mat-form-field fxFlex="100" fxFlex.gt-sm="100">
+      <input matInput type="text" placeholder="Mobile" [(ngModel)]="mobile_number">
+      <mat-hint *ngIf="showMsg">
+        {{Msg}}
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start" *ngIf="step === 2">
+    <mat-form-field fxFlex="100" fxFlex.gt-sm="100">
+      <input matInput type="text" placeholder="OTP" [(ngModel)]="otp">
+    </mat-form-field>
+    <mat-hint *ngIf="showMsg">
+      {{Msg}}
+    </mat-hint>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="primary" *ngIf="step === 1" (click)="sendOTP()" cdkFocusInitial>Send Otp</button>
+  <button mat-button color="primary" *ngIf="step === 2" (click)="verifyOtp()" cdkFocusInitial>Verify</button>
+  <button mat-button color="secondary" (click)="onNoClick()">Cancel</button>
+</div>

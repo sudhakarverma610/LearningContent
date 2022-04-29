@@ -1,0 +1,115 @@
+<div class="chainOfCharmsContainer" fxLayout="column" fxLayoutAlign="start center">
+  <div class="banner w-100" fxLayout="column" fxLayoutAlign="center center">
+    <h1>
+      chain of care
+    </h1>
+  </div>
+  <div class="w-100" fxLayout="column" fxLayoutAlign="start center">
+    <h3 class="max450 mb20">
+      convert your network into cash
+    </h3>
+    <img class=" mb20" src="https://files.y.jewelry/assets/img/community-chain/group.svg" />
+    <div class="imageFooter mb20" fxLayout="row" fxLayoutAlign="space-around start">
+      <div>Invite <br /> friends</div>
+      <img src="https://files.y.jewelry/assets/img/community-chain/arrow.svg" />
+      <div>Friend creates <br /> an account</div>
+      <img src="https://files.y.jewelry/assets/img/community-chain/arrow.svg" />
+      <div>Both get <br /> &#8377; 500*</div>
+    </div>
+    <img class="img4 mb20" src="https://files.y.jewelry/assets/img/community-chain/4.svg">
+    <iframe class="max450 p0 m0 allUnset mb20" style="border: none" [src]='frmasrc'></iframe>
+    <p class="max450 mt5">Your entire network contribute to your credits each time they buy something on our website</p>
+    <div class="invite-friends mb-11 mb20">
+      <h3 class="uppercase">begin now!</h3>
+      <h4 *ngIf="linkCopied">Link copied</h4>
+      <a class="btn btn-blue mb-11" (click)="openLoginPanier()" *ngIf="!loggedIn">Login Please</a>
+
+      <ul class="links_list" *ngIf="loggedIn">
+        <li>
+          <a class="wp_icon"
+            href="https://wa.me/?text=Hey%2C%20we%20are%20sure%20you%20wil%20love%20Y%20Jewelry.%20Sign%20up%20with%20this%20link%2C%20and%20you%20will%20get%20INR%20500%20credited%20on%20your%20account%27%20COC%20link%3A%20{{url}}"
+            target="_blank" rel="noopener"
+            onclick="open(this.href, 'social_share', 'height=400,width=600');return false">
+            <img src="https://files.y.jewelry/assets/img/community-chain/wa.svg" alt="whatsapp" title="whatsapp" />
+          </a>
+        </li>
+        <li>
+          <a class="messenger_icon" href="http://www.facebook.com/sharer/sharer.php?u={{url}}&amp;display=popup&quote=Hey%2C%20we%20are%20sure%20you%20will%20love%20Y%20Jewelry.%20Sign%20up%20with%20this%20link%2C%20and%20you%20will%20get%20INR%20500%20credited%20on%20your%20account%27" target="_blank"
+            rel="noopener" onclick="open(this.href, 'social_share', 'height=400,width=600');return false">
+            <img src="https://files.y.jewelry/assets/img/community-chain/fb.svg" alt="messager" title="messgaer" />
+          </a>
+        </li>
+        <li>
+          <a class="email_icon" [routerLink]="['/chain-of-charms/email']">
+            <img src="https://files.y.jewelry/assets/img/community-chain/email.svg" alt="mail" title="mail" />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <p class=" mb20">* You get ₹500 credited on your Y account when your friend signs up. <br />Your friend also gets ₹500 credited on
+      her Y
+      account.</p>
+
+    <h3 class="uppercase mb20">faq</h3>
+    <div id="accordion1" class="max450 mb20">
+      <h3>How many friends can I invite? </h3>
+      <div>
+        <p>You are free to invite as many friends as you like. In fact, the more you invite, the more cash back you
+          receive when each of your friends creates an account. So, it’s limitless! </p>
+      </div>
+      <h3> How much cash back do I receive when my friends place orders? </h3>
+      <div>
+        <p>You will receive 5% cash back in your account every time your friend places an order. Not only that, when
+          your friend’s friend places an order, you will 2.5% cash back in your account and so on. So, Chain of Care
+          is an opportunity to earn cash back not only from your network of friends, but from your friends network of
+          friends too! </p>
+      </div>
+      <h3>Is there a maximum to how much cash back I can earn?</h3>
+      <div>
+        <p>There is no limit to the cash back you can earn. The more you earn, the more you can redeem!
+        </p>
+      </div>
+      <h3>Can I redeem the cash back for real cash? </h3>
+      <div>
+        <p>You can only redeem the cash back to get discounts on purchases made from our website. You will have the
+          possibility to redeem up to 25% of the order value (including any other promotions) every time you check out.
+          So, each purchase you make can be a bargain! </p>
+      </div>
+      <h3>Where can I see my cash back balance? </h3>
+      <div>
+        <p>You can login to your account on the website and visit your profile page to view your cash back balance under
+          the ‘Credits’ tab. This will show cash back earned and cash back redeemed, so it’s an account statement of
+          your Chain of Care program. </p>
+      </div>
+      <h3>Are the Credits in my account equal to cash back available for redemption? </h3>
+      <div>
+        <p>The credits available in your account are converted to cash back in a ratio of 4:1. SO, if you have 8000
+          credits in your account, it is equal to INR 2000 cash back. The number of Credits available in your account
+          and its corresponding value in INR is stated in the ‘Credits’ tab of your profile page on the website. </p>
+      </div>
+      <h3> How long does it take for cash back to get updated in my account? </h3>
+      <div>
+        <p>As soon as someone you invite creates and account, the cash back gets updated automatically in your account.
+          Similarly, as soon as anyone from your network places an order on our website and the order gets delivered,
+          the cash back gets updated automatically in your account. It’s a seamless process, and you can enjoy benefits
+          perpetually simply by starting the chain to invite friends and ensuring they sign up! </p>
+      </div>
+      <h3>Can I see my network of friends?</h3>
+      <div>
+        <p>Your entire network can be viewed by logging in to your account on the website and visiting your profile page
+          under the ‘Credits’ tab.</p>
+      </div>
+      <h3>Can I delete a friend I have added to my network or remove myself from a friend’s network? </h3>
+      <div>
+        <p>At this point, it is not possible to either delete friends from your chain once you have added them or to
+          delete yourself from a friend’s chain once they have added you. However, it is possible to delete your account
+          from the website, in case you would not like to continue.</p>
+      </div>
+      <h3>How can I reach you if I have further queries regarding the Chain of Care program? </h3>
+      <div>
+        <p>Please feel free to Email us on contact@y.jewelry or Whatsapp (messages only) on 98102 30784. We will be
+          happy to serve you!:)</p>
+      </div>
+    </div>
+  </div>
+</div>

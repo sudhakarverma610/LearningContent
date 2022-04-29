@@ -1,0 +1,173 @@
+.error {
+  color: #b54747;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.error_msg {
+  color: #b54747;
+}
+
+h1 {
+  color: #090954;
+}
+.cardDiv, .normal {
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px 5px 5px 5px;
+  color: #090954;
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+
+  >div {
+    width: calc(100% - 20px);
+  }
+
+  &.newCard {
+    background: transparent;
+    border: 2px solid #ffffff;
+  }
+
+  .card-heading {
+    font-family: Apercu;
+    font-size: 8px;
+    line-height: 10px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+
+    span {
+      margin-right: 10px;
+    }
+
+    &.link:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .card-image {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+
+  .card-body {
+    font-family: Apercu;
+    font-size: 14px;
+    line-height: 20px;
+    margin-right: 10px;
+
+    img {
+      width: 14px;
+    }
+
+    .order-image {
+      overflow-x: auto;
+      width: 100%;
+
+      img {
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        margin-right: 1px;
+      }
+    }
+  }
+}
+
+.error_message {
+  color: #b54747;
+}
+
+.creditsContainer {
+  max-width: 1000px;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-100-20 {
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.normal {
+  font-family: Apercu;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  color: #090954 !important;
+}
+
+.mat-mini-fab {
+  width: 20px !important;
+  height: 20px !important;
+  background: white;
+  color: #090954;
+  border: 2px solid #BFD1E8;
+  font-size: 20px;
+  line-height: 0px;
+  box-shadow: none !important;
+}
+
+.w-48 {
+  width: 48%;
+  max-width: 48%;
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
+}
+
+.headings {
+  font-family: Apercu;
+  font-size: 8px;
+  line-height: 10px;
+  text-transform: uppercase;
+  color: #BFD1E8;
+
+  .col1,
+  .col2 {
+    width: 100px;
+  }
+
+  .col2 {
+    text-align: right;
+  }
+}
+
+.data {
+  font-family: Apercu;
+  font-size: 14px;
+  line-height: 18px;
+  color: #090954;
+  margin-bottom: 10px;
+
+  .col2 {
+    text-align: right;
+
+  }
+
+}
+
+a {
+  text-decoration: underline;
+}
+
+.mr20 {
+  >div {
+    margin-right: 20px;
+  }
+}
+.mat-tab-group{
+  width: 100%;
+}

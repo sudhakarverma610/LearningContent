@@ -1,0 +1,331 @@
+<div class="ProductDetailsContainer" fxLayout="column" fxLayoutAlign="center center" itemscope
+  itemtype="http://schema.org/Product">
+  <div class="MainDetailsContainer w-100" fxLayout.gt-sm="row" fxLayout="column" fxLayoutAlign="start start">
+    <div id="productimageid" class="ProductPictureContainerMobile" fxFill fxShow.sm fxHide.gt-sm>
+      <button class="btn btn-light-blue btn-configurator" (click)="addToConfigurator()" *ngIf="!data.isSet">
+        <div class="bg-configuratorAdd"></div>
+      </button>
+      <img class="cursorPointer btn-back" src="https://files.y.jewelry/assets/img/icons/back.svg" (click)="back()"
+        alt="back" />
+        <div class="top-productName">
+          <span>{{data.name}}</span>
+        </div>
+      <img class="sticker" src="https://files.y.jewelry/assets/img/sticker.svg" alt="configuratorAdd" *ngIf="sticker" />
+     <!--- <div class="leftNav" *ngIf="slides.length > 1" (click)="leftSlide()">
+        <img src="https://files.y.jewelry/assets/img/leftNav.png" alt="leftNav" />
+      </div>
+      -->
+      <div class="mobileImg" *ngIf="Vslide" (click)="rigthSlideEvent.emit();" (swipeleft)="rigthSlideEvent.emit();" (swiperight)="leftSlideEvent.emit();">
+        <picture>
+          <source [srcset]="Vslide.src | changeSrcExtension: '_375.webp'" type="image/webp">
+          <source [srcset]="Vslide.src | changeSrcExtension: '_375.png'">
+          <img itemprop="image" class="ProductThumbImageOnDetailMobilePage" id="productImg"
+            [src]="Vslide.src" [alt]="Vslide.alt">
+            <!---------not Required  (click)="zoomImage(Vslide.src)"-->
+        </picture>
+      </div>
+      
+    </div>
+    <div class="ProductPictureContainer" fxFill fxFlex.gt-sm="50" fxFlex="100" fxLayout="row" fxLayoutWrap
+      fxLayoutAlign="start start" fxHide fxShow.gt-sm>
+      <div fxFlex="100">
+        <button class="btn btn-light-blue btn-configurator" (click)="addToConfigurator()" *ngIf="isConfigurable">
+          <div class="bg-configuratorAdd"></div>
+        </button>
+        <img class="stickerDesktop" src="https://files.y.jewelry/assets/img/sticker.svg" alt="25off" *ngIf="sticker" />
+      </div>
+      <div class="thumbs" fxLayout="column" fxLayoutAlign="space-around start">
+        <ng-container  *ngFor="let slide of slides">
+          <div class="ProductThumbImageOnDetailPage" fxLayout="column" fxLayoutAlign="center center" [ngClass]="{'b-light-blue': slide.src === Vslide.src}">
+            <picture>
+              <source [srcset]="slide.altSrc ? (slide.altSrc | changeSrcExtension: '_180.png') : (slide.src | changeSrcExtension: '_100.webp')"
+                type="image/webp">
+              <source [srcset]="slide.altSrc ? (slide.altSrc | changeSrcExtension: '_180.png') : (slide.src | changeSrcExtension: '_100.png')">
+              <img *ngIf="slide.alt!=='COVER IMAGE'" itemprop="image" id="productImg"
+                [src]="slide.altSrc ? slide.altSrc : slide.src" [alt]="slide.alt" width="96" height="96"
+                (click)="viewImage(slide)">
+              <img itemprop="image" id="productImg" *ngIf="slide.alt==='COVER IMAGE'"
+                [src]="slide.altSrc ? slide.altSrc : slide.src" [alt]="slide.alt" width="96" height="96"
+                (click)="viewImage(slide)">
+            </picture>
+          </div>
+        </ng-container>
+      </div>
+      <div class="coverImage" *ngIf="Vslide.title === 'COVER IMAGE'"
+        [ngStyle]="{'background-image': 'url(' + Vslide.src + ')'}">
+      </div>
+      <div class="mainImage" *ngIf="Vslide.title !== 'COVER IMAGE'">
+        <img *ngIf="Vslide.title === 'CUSTOMIZATION IMAGE'" class="ProductImageOnDetailPage" [id]="'productMainImg'"
+          [src]="Vslide.src" [alt]="Vslide.alt" width="250" height="250" (click)="zoomImage(Vslide.src)" />
+        <ng-container *ngIf="Vslide.title !== 'CUSTOMIZATION IMAGE'">
+          <picture>
+            <source [srcset]="Vslide.src | changeSrcExtension: '_500.webp'" type="image/webp">
+            <source [srcset]="Vslide.src | changeSrcExtension: '_500.png'">
+            <img class="ProductImageOnDetailPage" [id]="'productMainImg'" [src]="Vslide.src" [alt]="Vslide.alt"
+              width="250" height="250">
+          </picture>
+        </ng-container>
+      </div>
+      <div id="dummy" class="displayNone"></div>
+    </div>
+    <div class="ProductDetails" fxFlex.gt-sm="50" fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+      <!-- <app-breadcrumb [breadcrumbList]="breadcrumbList"></app-breadcrumb> -->
+      <div class="Description text-center pX1em">
+        <h1 itemprop="name" id="producth1">{{data.name}}
+          <img class="" src="https://files.y.jewelry/assets/img/charmofMonth.svg" alt="charmofMonth"
+            *ngIf="charmOfMonth" />
+          <img class="" src="https://files.y.jewelry/assets/img/charmofWeek.svg" alt="charmofWeek"
+            *ngIf="charmOfWeek" />
+        </h1>
+        <div class="SpecIndicators"></div>
+        <p class="fullDescription" *ngIf="data.full_description" [innerHTML]="stripHtml(data.full_description)"
+          itemprop="description"></p>
+      </div>
+      <div class="material text-center" fxFill fxLayout="column" fxLayoutAlign="center center">
+        <ng-container *ngFor="let attr of data.attributeDetails">
+          <div class="productSpecsDIV" fxLayout="column" fxLayoutAlign="center center">
+            <div class="" fxLayout="column" fxLayoutAlign="center center">
+              <img [src]="attr.src" [alt]="attr.name" />
+              <div>{{attr.name}}</div>
+            </div>
+          </div>
+        </ng-container>
+        <div class="productSpecsDIV" fxLayout="column" fxLayoutAlign="center center">
+          <div  fxLayout="column" fxLayoutAlign="center center" fxHide.gt-sm>
+            <button class="btn-favorate"  (click)="addToConfigurator()" *ngIf="!data.isSet">            
+              <svg  fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+                <path  d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20Z" fill="#FBF4F1"></path>
+                <path  d="M10 1C15 1 19 5 19 10C19 15 15 19 10 19C5 19 1 15 1 10C1 5 5 1 10 1ZM10 0C4.5 0 0 4.5 0 10C0 15.5 4.5 20 10 20C15.5 20 20 15.5 20 10C20 4.5 15.5 0 10 0Z" fill="#BFD1E8"></path>
+                <path  d="M13 9.5H10.5V7C10.5 6.7 10.3 6.5 10 6.5C9.7 6.5 9.5 6.7 9.5 7V9.5H7C6.7 9.5 6.5 9.7 6.5 10C6.5 10.3 6.7 10.5 7 10.5H9.5V13C9.5 13.3 9.7 13.5 10 13.5C10.3 13.5 10.5 13.3 10.5 13V10.5H13C13.3 10.5 13.5 10.3 13.5 10C13.5 9.7 13.3 9.5 13 9.5Z" fill="#090954"></path>
+              </svg>
+              <span>Save selection into curator</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="priceAndSize w-100 text-center"  fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="33"></div>
+        <div class="priceAndSizeMain" fxFlex="33" fxLayout="column" fxLayoutAlign="start start" *ngIf="data.price_model">
+          <div class="price w-100 ApercuMedium" fxHide fxShow.gt-sm itemprop="offers" itemscope
+               itemtype="http://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="INR" />
+            <span *ngIf="!data.price_model.price_with_discount_without_formatting" [ngClass]="{ stripe: data.price_model.price_with_discount }" itemprop="price"
+                  [attr.content]="data.price_model.price_without_formatting|ToFixed:2">
+              <span>{{data.price_model.price}}</span>
+            </span><br />
+            <span *ngIf="data.price_model.price_with_discount_without_formatting" [ngClass]="{ stripe: data.price_model.price_with_discount }" >
+              <span>{{data.price_model.price}}</span>
+            </span><br />
+            <span *ngIf="data.price_model.price_with_discount_without_formatting" itemprop="price"
+            [attr.content]="data.price_model.price_with_discount_without_formatting|ToFixed:2">{{ data.price_model.price_with_discount }}</span>
+            <link itemprop="availability" href="http://schema.org/InStock" *ngIf="!outOfStock" />
+          </div>
+          <div class="attributes w-100" *ngIf="data.attributes && data.attributes.length > 0" fxHide fxShow.gt-sm>
+            <ng-container *ngFor="let attr of data.attributes; index as attrIndex">
+              <ng-container *ngIf="attr.product_attribute_name.substring(0, 11) !== 'Association'">
+                <div class="attr" *ngIf="attr.attribute_control_type_name === 'DropdownList'" fxLayout="row" fxLayoutWrap
+                  fxLayoutAlign="start start">
+                  <mat-form-field fxFlex="100" fxFlex.gt-sm="40">
+                    <mat-select [placeholder]="'SELECT YOUR SIZE'" [(ngModel)]="attr.attributeInputSelected"
+                      (selectionChange)="selectSimpleAttrValue(attrIndex, $event)">
+                      <mat-option [value]=""></mat-option>
+                      <mat-option *ngFor="let item of attr.attribute_values; index as attrValueIndex" [value]="item">
+                        {{ item.name }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div *ngIf="attr.attribute_control_type_name === 'TextBox'" fxLayout="row" fxLayoutWrap
+                  fxLayoutAlign="space-between start">
+                  <mat-form-field fxFlex="100" fxFlex.gt-sm="100">
+                    <input matInput [(ngModel)]="attr.textBoxInput" type="text" [placeholder]="attr.text_prompt" />
+                  </mat-form-field>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+          <!-- <div class="size w-100" *ngIf="customizationAttributes && customizationAttributes.length > 0">
+            <ng-container *ngFor="let attr of customizationAttributes; index as attrIndex">
+              <div *ngIf="attr.attribute_control_type_name === 'DropdownList'" fxLayout="row" fxLayoutWrap
+                fxLayoutAlign="start start">
+                <mat-form-field fxFlex="100" fxFlex.gt-sm="40">
+                  <mat-select [placeholder]="attr.product_attribute_name" [(ngModel)]="attr.attributeInputSelected"
+                    (selectionChange)="selectCustomizationAttrValue(attrIndex, $event)">
+                    <mat-option *ngFor="let item of attr.attribute_values; index as attrValueIndex" [value]="item">
+                      {{ item.name }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div *ngIf="attr.attribute_control_type_name === 'TextBox'" fxLayout="row" fxLayoutWrap
+                fxLayoutAlign="space-between start">
+                <mat-form-field fxFlex="100" fxFlex.gt-sm="100">
+                  <input matInput (focusout)="customize()" [(ngModel)]="attr.textBoxInput" type="text"
+                    [placeholder]="attr.text_prompt" [maxlength]="attr.validationMaxLength + ''" />
+                </mat-form-field>
+              </div>
+            </ng-container>
+          </div> -->
+          <div class="error" *ngIf="availableForPreOrder">This design is on back order. Delivery by 15 Oct 2020.</div>
+          <div class="error" *ngIf="sizeSelectionError">Please Select the Size of the Product.</div>
+          <div class="totalNav" fxHide.gt-sm fxShow.sm>
+            <div class="price w-100 ApercuMedium" *ngIf="data.price_model">
+              <span [ngClass]="{ stripe: data.price_model.price_with_discount }">
+                {{data.price_model.price}}
+              </span>
+              {{ data.price_model.price_with_discount }}
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start">
+              <ng-container *ngIf="data.attributes && data.attributes.length > 0">
+                <ng-container *ngFor="let attr of data.attributes; index as attrIndex">
+                  <ng-container *ngIf="attr.product_attribute_name === 'Size in cm'">
+                    <div class="attributes mobileSize">
+                      <div class="attr" *ngIf="attr.attribute_control_type_name === 'DropdownList'" fxLayout="row" fxLayoutWrap
+                        fxLayoutAlign="start start">
+                        <mat-form-field fxFlex="100" fxFlex.gt-sm="40">
+                          <mat-select [placeholder]="'SELECT YOUR SIZE'" [(ngModel)]="attr.attributeInputSelected"
+                            (selectionChange)="selectSimpleAttrValue(attrIndex, $event)">
+                            <mat-option [value]=""></mat-option>
+                            <mat-option *ngFor="let item of attr.attribute_values; index as attrValueIndex"
+                              [value]="item">
+                              {{ item.name }}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <a class="btn btn-square-blue btn-half w-50" title="Add to cart" (click)="addToCart()"
+                      *ngIf="availableForPreOrder">
+                      <img src="https://files.y.jewelry/assets/img/addToCart-light.png" width="20" height="20"
+                        alt="add To Cart" /> PreOrder
+                    </a>
+                    <a class="btn btn-square-blue btn-half w-50" title="Add to cart" (click)="addToCart()"
+                      *ngIf="!availableForPreOrder && !outOfStock">
+                      <img src="https://files.y.jewelry/assets/img/addToCart-light.png" width="20" height="20"
+                        alt="add To Cart" /> Add to cart
+                    </a>
+                    <a class="btn btn-square-blue btn-half w-50" title="Add to cart"
+                      *ngIf="!availableForPreOrder && outOfStock">
+                      <img src="https://files.y.jewelry/assets/img/addToCart-light.png" width="20" height="20"
+                        alt="add To Cart" /> Out Of Stock
+                    </a>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+              <ng-container *ngIf="!isSizeSelector">
+                <a class="btn btn-square-blue w-100" title="Add to cart" (click)="addToCart()"
+                  *ngIf="availableForPreOrder">
+                  <img src="https://files.y.jewelry/assets/img/addToCart-light.png" width="20" height="20"
+                    alt="add To Cart" /> PreOrder
+                </a>
+                <a class="btn btn-square-blue w-100" title="Add to cart" (click)="addToCart()"
+                  *ngIf="!availableForPreOrder && !outOfStock">
+                  <img src="https://files.y.jewelry/assets/img/addToCart-light.png" width="20" height="20"
+                    alt="add To Cart" /> Add to cart
+                </a>
+                <a class="btn btn-square-blue w-100" title="Add to cart" *ngIf="!availableForPreOrder && outOfStock">
+                  <img src="https://files.y.jewelry/assets/img/addToCart-light.png" width="20" height="20"
+                    alt="add To Cart" /> Out Of Stock
+                </a>
+              </ng-container>
+            </div>
+          </div>
+          <div class="addToCart w-100" fxHide fxShow.gt-sm>
+            <a class="btn btn-blue w-100" title="Add to cart" (click)="addToCart()" *ngIf="availableForPreOrder">
+              <img src="https://files.y.jewelry/assets/img/addToCart-light.png" width="20" height="20"
+                alt="add To Cart" /> PreOrder
+            </a>
+            <a class="btn btn-blue w-100" title="Add to cart" (click)="addToCart()"
+              *ngIf="!availableForPreOrder && !outOfStock">
+              <img src="https://files.y.jewelry/assets/img/addToCart-light.png" width="20" height="20"
+                alt="add To Cart" /> Add to cart
+            </a>
+            <a class="btn btn-blue w-100" title="Add to cart" *ngIf="!availableForPreOrder && outOfStock">
+              <img src="https://files.y.jewelry/assets/img/addToCart-light.png" width="20" height="20"
+                alt="add To Cart" /> Out Of Stock
+            </a>
+          </div>
+        </div>
+        <div class="sizeGuide" fxFlex="33">
+          <ng-container *ngIf="data.attributes && data.attributes.length > 0">
+            <ng-container *ngFor="let attr of data.attributes; index as attrIndex">
+              <ng-container *ngIf="attr.product_attribute_name === 'Size in cm'">
+                <div [ngClass]="{'mb-36': sizeSelectionError, 'mb-21': !sizeSelectionError}">
+                  <a [routerLink]="['/', 'info', 'sizeguide']">Not sure abour your size?
+                    Check out our bracelet size guide.</a>
+                </div>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+      <div class="SpecAttributes text-center" fxFill fxLayout="column" fxLayoutAlign="center center">
+        <div class="productSpecsDIV" *ngIf="parentCategory === 'charms'" fxLayout="row"
+          fxLayoutAlign="space-between start">
+          <div class="firstSpecDiv">Dimensions</div>
+          <div>&nbsp;:&nbsp;</div>
+          <div class="lastSpecDiv">
+            {{ data.length }}
+            <span *ngIf="data.width">x</span> {{ data.width }}
+            <span *ngIf="data.height">x</span> {{ data.height }} ({{
+                        data.dimensionUnits
+                      }})
+          </div>
+        </div>
+        <div></div>
+        <div class="productSpecsDIV" fxLayout="row" fxLayoutAlign="space-between start">
+          <div class="firstSpecDiv">Warranty</div>
+          <div>:</div>
+          <div class="lastSpecDiv">
+            1 year
+          </div>
+        </div>
+        <div></div>
+        <ng-container *ngFor="let attr of data.productSpecs">
+          <div class="productSpecsDIV" fxLayout="row" *ngIf="attr.name != 'Material'"
+            fxLayoutAlign="space-between start">
+            <div class="firstSpecDiv">{{attr.name}}</div>
+            <div> : </div>
+            <div class="lastSpecDiv"><span
+                *ngFor="let attrValue of attr.list">{{ attrValue.custom_value || attrValue.attribute_option_name }}
+              </span></div>
+          </div>
+          <div *ngIf="attr.name != 'Material'"></div>
+        </ng-container>
+      </div>
+      <div class="NavigationSpecAttributes" *ngIf="data.navAttributes" fxLayout="row" fxLayoutAlign="center center">
+        <div class="text-heading">other materials</div>
+      </div>
+      <div class="NavigationSpecAttributes" *ngIf="data.navAttributes" fxLayout="row" fxLayoutAlign="center center">
+        <ng-container
+          *ngFor="let value of data.navAttributes.attribute_values; index as NavIndex; first as isFirst; last as isLast">
+          <div *ngIf="!value.is_pre_selected" (click)="selectNavigatingAttrValue(value)">
+            <ng-container *ngIf="value.imageSrc">
+              <picture>
+                <!-- <source [srcset]="value.imageSrc | changeSrcExtension: '_180.webp'" type="image/webp"> -->
+                <source [srcset]="value.imageSrc | changeSrcExtension: '_180.png'">
+                <img [src]="value.imageSrc" [alt]="Vslide.alt" width="110" height="110">
+              </picture>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div fxHide.gt-sm  style="padding: 10px">
+    <app-pagesHomeSlider [isTopRadiusneed]="true"></app-pagesHomeSlider>
+    </div>
+  <div fxHide.gt-sm class="parallax h-300" style="display: none;
+  position: relative;">
+  <img class="img-lookbook" src="https://files.y.jewelry/assets/img/image%2B28%2B(1).png" alt="lookbook" loading="lazy">
+    <div class="text-lookbook" [routerLink]="['lookbook/ibiza']">discover the lookbook</div>
+  </div>
+</div>
+<!-- <div *ngIf="IsProductCustomizable">
+  <div id="main-container" style="position: absolute; width: 360px; top: 80px;background: white;margin: auto;">
+    <div id="product-customization-stage"
+      class="fpd-container fpd-shadow-2 fpd-topbar fpd-tabs fpd-tabs-side fpd-top-actions-centered fpd-bottom-actions-centered fpd-views-inside-left">
+      <div class="fpd-product" title="Shirt Front" data-thumbnail="/images/default-avatar.jpg">
+        <img [src]="customizationImageSrc" alt="customizationImage" title="main"
+          data-parameters='{"left": 180, "top": 250}' />
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,69 @@
+.blogContainer {
+    width: 100%;
+    max-width: 100vw;
+    background: #FEFCFB;
+    .header {
+        background-image: url("https://files.y.jewelry/assets/img/blogCover.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        min-height: 30vh;
+        min-height: 340px;
+        background-position: center;
+        h1 {
+            text-align: center;
+            font-family: BelweSansLight;
+            color: #ffffff;                        
+            font-weight: 300;
+            font-size: 36px;
+            line-height: 30px;
+        }
+    }
+    .body {
+        width: 100%;
+        max-width: 478px;
+        padding: 30px 20px;
+        color: #090954;
+
+        h3 {
+            cursor: pointer;
+            font-family: BelweSansLight;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 36px;
+            line-height: 30px;
+            text-align: center;
+            color: #090954;
+            margin-bottom: 6px;            
+        }
+
+        .details {
+            font-family: ApercuLight;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: center;            
+             margin-bottom: 5px;
+        }
+        .details-pic{
+            min-height: 220px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 100%; 
+        }
+
+        .overview {  
+            width: 100%;
+            font-family: Apercu;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: justify;
+            margin-bottom: 28px;
+            margin-top: 16px; 
+        }
+    }
+}

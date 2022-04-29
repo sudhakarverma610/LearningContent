@@ -1,0 +1,189 @@
+@import '../../../stylesConstants.scss';
+
+.chainOfCharmsContainer {
+  font-family: Apercu;
+  text-align: center;
+  min-height: 90vh;
+  margin-bottom: 25px;
+  width: 100%;
+
+  .banner {
+    background: url("https://files.y.jewelry/assets/img/chainOfCharms/cover.jpeg");
+    background-size: cover;
+    min-height: 50vh;
+    background-position: center;
+  }
+
+  .max450 {
+    max-width: 450px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 80vw;
+  }
+
+  .cover {
+    width: 320px;
+    max-width: 80vw;
+  }
+
+  h1 {
+    font-family: Belvue;
+    font-size: 72px;
+    line-height: 60px;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  h3 {
+    font-family: Belvue;
+    font-size: 36px;
+    line-height: 40px;
+    text-align: center;
+  }
+
+  p {
+    font-family: ApercuLight;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .numerical {
+    width: 30px;
+  }
+
+  .btn {
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 180px;
+    margin: auto;
+    text-transform: uppercase;
+    font-family: BelweSansLight;
+
+    img {
+      width: 36px;
+      height: 35px;
+      float: left;
+      margin: 2px -3px;
+      background: #ffffff;
+      border-radius: 50%;
+    }
+  }
+
+  .mb-11 {
+    margin-bottom: 11px;
+  }
+
+  .btn-blue {
+    background-color: #090945;
+    color: $background-color-main;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+#url {
+  margin: 0;
+  height: 0;
+}
+
+.links_list {
+  max-width: 320px;
+  margin: auto;
+  display: block;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: .5em;
+
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  }
+}
+
+.rounded-btn {
+  background-color: #BFD1E8;
+  color: #090954;
+  height: 38px;
+  line-height: 38px;
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: belvue;
+
+  &:hover {
+    color: #090954;
+    background-color: #BFD1E8;
+    text-decoration: none;
+  }
+}
+
+.imageFooter {
+  font-size: 18px;
+  font-family: Apercu;
+  line-height: 20px;
+  width: 460px;
+  max-width: 90vw;
+}
+
+.m0 {
+  margin: 0 !important;
+}
+
+.p0 {
+  padding: 0 !important;
+}
+
+.img4 {
+  margin-left: -350px !important;
+  margin-bottom: -20px !important;
+  z-index: 9 !important;
+}
+
+#accordion1 {
+  p {
+    text-align: justify;
+  }
+}
+
+@media only screen and (max-width: 652px) {
+
+  .chainOfCharmsContainer {
+    margin-bottom: 25px !important;
+  }
+
+  iframe {
+    width: 350px !important;
+    height: 190px !important;
+  }
+}
+
+iframe {
+  width: 450px !important;
+  height: 245px !important;
+}
+
+.allUnset {
+  all: unset;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mt5 {
+  margin-top: 5px;
+}

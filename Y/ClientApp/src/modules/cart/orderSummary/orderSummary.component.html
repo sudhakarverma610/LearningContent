@@ -1,0 +1,192 @@
+<div fxLayout="column" fxLayoutAlign="start start">
+  <div class="orderSummaryContainer mat-elevation-z0 mb20" fxLayout="column" fxLayoutAlign="start start">
+    <div fxLayout="column" fxLayoutAlign="start start" class="w-100">
+      <div class="subTitle w-100 mb5" fxLayout="row" fxLayoutAlign="space-between start">
+        <div>Your cart</div>
+        <div>{{ orderTotal.orderTotals.SubTotal }}</div>
+      </div>
+      <div class="details mb5">{{ total }} items</div>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start start" class="w-100" *ngIf="!isGift">
+      <ng-container *ngIf="checkoutAttribute!==undefined&&checkoutAttribute?.length>0">
+        <ng-container *ngFor="let item of checkoutAttribute[0]?.CheckoutAttributeValues">
+          <div *ngIf="item.Name==='True'" class="subTitle w-100 mb5" fxLayout="row" fxLayoutAlign="space-between start">
+            <div>
+              <label class="fancy-checkbox">
+                <input type="checkbox" id="check-mail" [ngModel]="item.IsPreSelected"
+                  (change)="GiftBoxValueChanged($event.target.checked,checkoutAttribute[0].Id,item.Id)" />
+                <span class="checked-Icon checked float-l">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M10.1 8L15.05 3.05C15.65 2.45 15.65 1.55 15.05 0.95C14.45 0.35 13.55 0.35 12.95 0.95L8 5.9L3.05 0.95C2.45 0.35 1.55 0.35 0.95 0.95C0.35 1.55 0.35 2.45 0.95 3.05L5.9 8L0.95 12.95C0.35 13.55 0.35 14.45 0.95 15.05C1.25 15.35 1.55 15.5 2 15.5C2.45 15.5 2.75 15.35 3.05 15.05L8 10.1L12.95 15.05C13.25 15.35 13.55 15.5 14 15.5C14.45 15.5 14.75 15.35 15.05 15.05C15.65 14.45 15.65 13.55 15.05 12.95L10.1 8Z"
+                      fill="#090954" />
+                  </svg>
+                </span>
+                <span class="unchecked unchecked-Icon float-l">
+                </span>
+                <span class="text float-l ml-12">Add a gift box</span>
+              </label>
+            </div>
+            <div class="giftboxprice">
+              <span>₹ {{item.PriceAdjustment}}</span>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+
+
+      <div class="subTitle w-100 mb5" fxLayout="row" fxLayoutAlign="space-between start">
+        <div>Delivery</div>
+        <div>
+          <span *ngIf="orderTotal.orderTotals.Shipping === '₹ 0'">Free</span>
+          <span *ngIf="orderTotal.orderTotals.Shipping !== '₹ 0'">{{
+            orderTotal.orderTotals.Shipping
+          }}</span>
+        </div>
+      </div>
+      <div class="details mb5" *ngIf="orderTotal.orderTotals.Shipping !== '₹ 0'">
+        We offer Free Shipping on all orders above ₹1000 (before tax). The
+        Shipping Fee on order value below ₹1000 (before tax) is ₹150.
+      </div>
+    </div>
+    <div class="hr" *ngIf="!isGift"></div>
+    <div fxLayout="column" fxLayoutAlign="start start" class="w-100" *ngIf="!isGift">
+      <div class="subTitle w-100 mb5" fxLayout="row" fxLayoutAlign="space-between start">
+        <div>Discount code, Gift Voucher</div>
+        <div>
+          <span *ngIf="orderTotal.orderTotals.SubTotalDiscount">{{
+            orderTotal.orderTotals.SubTotalDiscount
+          }}</span>
+          <span class="close cursorPointer" (click)="removeDiscounts()"
+            *ngIf="orderTotal.orderTotals.SubTotalDiscount && notPayments">
+            <img src="https://files.y.jewelry/assets/img/Close.svg" alt="close" title="close" />
+          </span>
+          <span *ngIf="!discountApplied && !orderTotal.orderTotals.SubTotalDiscount">
+            &#8377; 0</span>
+        </div>
+      </div>
+      <div class="details mb5 fg-light-blue w-100 upperCase"
+        *ngFor="let discount of orderTotal.orderTotals.appliedDiscount" fxLayout="row"
+        fxLayoutAlign="space-between start">
+        <div>{{ discount.name }}</div>
+        <div *ngIf="discount.requiresCouponCode">
+          <span class="close cursorPointer" (click)="removeDiscountsById(discount.couponCode)" *ngIf="notPayments">
+            <img src="https://files.y.jewelry/assets/img/Close.svg" alt="close" title="close" />
+          </span>
+        </div>
+      </div>
+      <div class="subTitle mb5 w-100" fxLayout="row" fxLayoutAlign="space-between start" *ngIf="notPayments && !isGift">
+        <mat-form-field class="mr20 text-center">
+          <input matInput type="text" [placeholder]="
+              discountApplied
+                ? couponInputPlaceholder2
+                : 'Code'
+            " maxlength="50" [(ngModel)]="couponInput" (focus)="couponInputErrorStatus = false" />
+          <button mat-button *ngIf="couponInput" matSuffix mat-icon-button aria-label="Clear"
+            (click)="couponInput = ''">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-hint *ngIf="couponInputErrorStatus">
+            {{ couponInputError }}</mat-hint>
+        </mat-form-field>
+        <button class="btn btn-light-blue mr20" id="btn-ok" (click)="applyDiscount()">
+          Ok
+        </button>
+      </div>
+      <div class="subTitle w-100 mb5" fxLayout="row" fxLayoutAlign="space-between start" *ngIf="
+          notPayments &&
+          couponInputError &&
+          couponInputError ===
+            'The account is not verified. Please verify your account.'
+        ">
+        <div class="mr20"></div>
+        <button class="btn btn-light-blue floatRight mr20" id="btn-redeem" (click)="verifyUser()">
+          verify
+        </button>
+      </div>
+    </div>
+    <div class="hr" *ngIf="!isGift"></div>
+    <div fxLayout="column" fxLayoutAlign="start start" class="w-100"
+      *ngIf="!isGuest && charmingCreditsAvailable > 0 && notPayments && !isGift && eligibleRewardAmount !== '0'">
+      <div class="subTitle w-100 mb5" fxLayout="row" fxLayoutAlign="space-between start">
+        <div>
+          Redemption<button class="infoToolTip"
+            matTooltip="Use your Charming Credits in the limit of a total discount (including other promotions) of 25% of the order value."
+            aria-label="Button that displays a tooltip when focused or hovered over" mat-button [disableRipple]="true">
+            <img src="https://files.y.jewelry/assets/img/info.png" width="14px" />
+          </button>
+        </div>
+        <div>
+          {{ orderTotal.orderTotals.RedeemedRewardPointsAmount }}
+          <span class="close cursorPointer" (click)="setRewardPointsCheckoutAttribute()" *ngIf="
+              customer &&
+              customer.isActive &&
+              orderTotal.orderTotals.RedeemedRewardPoints > 0
+            ">
+            <img src="https://files.y.jewelry/assets/img/Close.svg" alt="close" title="close" />
+          </span>
+        </div>
+      </div>
+      <div class="details mb5" *ngIf="customer && customer.isActive">
+        <ng-container *ngIf="!redeemRewards && eligibleRewardAmount !== '0'">
+          You are eligible for a redemption of
+          {{ eligibleRewardAmount }} on this order.
+        </ng-container>
+        <ng-container *ngIf="
+            redeemRewards && eligibleRewardAmount === '0' && !(orderTotal.orderTotals.RedeemedRewardPoints > 0)
+          ">
+          You have claimed the maximum discount.
+        </ng-container>
+      </div>
+      <div class=" mb5" *ngIf="customer && !customer.isActive">
+        Verify your mobile phone to redeem &#8377;
+        {{ charmingCreditsAvailable / 4 }} mobile.
+      </div>
+      <div class="w-100 mb5" *ngIf="notPayments && eligibleRewardAmount !== '0'">
+        <button class="btn btn-light-blue floatRight" id="btn-redeem" (click)="setRewardPointsCheckoutAttribute()"
+          *ngIf="
+            customer &&
+            customer.isActive &&
+            orderTotal.orderTotals.RedeemedRewardPoints === 0
+          ">
+          Redeem
+        </button>
+        <button class="btn btn-light-blue floatRight" id="btn-redeem" (click)="verifyUser()"
+          *ngIf="customer && !customer.isActive">
+          verify
+        </button>
+      </div>
+    </div>
+    <div class="hr" *ngIf="!isGuest && charmingCreditsAvailable > 0 && notPayments && eligibleRewardAmount !== '0'">
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start start" class="w-100">
+      <div class="title w-100 mb5" fxLayout="row" fxLayoutAlign="space-between start">
+        <div>TOTAL</div>
+        <div>{{ orderTotal.orderTotals.OrderTotal }}</div>
+      </div>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start start" class="w-100">
+      <div class="subTitle w-100 mb5" fxLayout="row" fxLayoutAlign="space-between start">
+        <div>Including GST Tax</div>
+        <div>{{ orderTotal.orderTotals.Tax }}</div>
+      </div>
+    </div>
+    <button class="btn btn-blue mx-11" *ngIf="button1" fxShow.gt-sm fxHide (click)="checkoutAnalytics()">
+      <img src="https://files.y.jewelry/assets/img/lock.png" alt="lock" />
+      Checkout securely
+    </button>
+    <button class="btn btn-blue mx-11" *ngIf="button2" fxShow.gt-sm fxHide (click)="goToPay()">
+      Proceed to checkout
+    </button>
+  </div>
+  <div class="cashBackText mb20" fxLayout="row" fxLayoutWrap fxLayoutAlign="start center"
+    *ngIf="!isGuest && notPayments">
+    <img src="https://files.y.jewelry/assets/img/cashBack.svg" alt="cashBack" width="20" height="20" />
+    <span class="subTitle mx1em basicTypo">&nbsp; Cash back</span><br />
+    <span class="details Apercu" fxFlex="100">
+      With this order, you will get ₹
+      {{ (orderTotal.orderTotals.WillEarnRewardPoints / 4)|ToFixed }} cash
+      back for next orders
+    </span>
+  </div>
+</div>

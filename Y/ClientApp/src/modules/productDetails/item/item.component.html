@@ -1,0 +1,68 @@
+<div class="productConatiner">
+  <app-discount-popup></app-discount-popup>
+  <div>
+    <app-singleproduct [data]='product' [category]="category" [url]="url"
+    [CurrentImage]="Vslide"
+    (rigthSlideEvent)="rightSlide();StartTimmer();"
+    (leftSlideEvent)="leftSlide();StartTimmer();"    
+    >
+    </app-singleproduct>
+    <div class="dotNav" fxLayout="row" fxLayoutAlign="space-between center"
+      *ngIf="(Vslide&&slides&&slides.length > 1)" fxShow.sm fxHide.gt-sm>
+      <ng-container *ngFor="let slide of slides">
+        <div class="dot {{slide.id === Vslide.id?'active':'inactive'}}"  [style.opacity]="!(slide.id <= Vslide.id)?'1':'1'"
+         [style.width]="'calc(100% - ' + slides.length*7 +'px)'">
+        <div class="display-none">
+          Counter={{counterTimmer}}<br>
+          Active ={{slide.id === Vslide.id}}
+      </div> 
+         <ng-container *ngIf="(slide.id === Vslide.id)">  
+          <div class="inner-dot-active" [style.width]="counterTimmer+'%'">
+          </div>
+         </ng-container>     
+         <ng-container *ngIf="(slide.id < Vslide.id)"> 
+          <div class="inner-dot-previous">
+          </div>            
+         </ng-container>  
+          <ng-container *ngIf="(slide.id > Vslide.id)"> 
+            <div class="inner-dot-remaining">
+            </div> 
+           </ng-container>  
+        </div> 
+      </ng-container>
+</div>
+    <section class="container">
+      <h2 class="Belvue text-center w-100 title">you may also like</h2>
+      <ng-container *ngIf="!relatedProductLoader">
+        <div class="MobileRelatedProducts" fxShow.sm fxHide.gt-sm>
+          <div class="relatedProductsContainer" fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between center">
+            <ng-container *ngFor="let item of relatedProducts; index as productIndex;">
+              <div fxFlex="50" fxFlex.gt-xs="25" fxFlex.gt-md="15" fxLayoutGap="20px">
+                <app-product-list-item-view [product]="{ category_sename: item.category_sename, data: item.product }"
+                [index]="productIndex" [listType]="listType">
+              </app-product-list-item-view>         
+              </div> 
+            </ng-container>             
+          </div>
+        </div>
+        <div class="relatedProductsContainer" fxFill fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around start" fxHide
+          fxShow.gt-xs> 
+          <div *ngFor="let item of relatedProducts; index as productIndex"
+           fxFlex="50" 
+           fxFlex.gt-xs="25"
+           fxFlex.gt-md="15">
+            <app-product-list-item-view [product]="{ category_sename: item.category_sename, data: item.product}"
+              [index]="productIndex" [listType]="listType">
+            </app-product-list-item-view>
+          </div>
+        </div>
+      </ng-container>
+      <div *ngIf="relatedProductLoader" class="CategoryLoaderDiv" fxFill>
+        <div class="CategoryLoader bg-logo">
+          
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<ngx-json-ld [json]="schema"></ngx-json-ld>

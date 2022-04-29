@@ -1,0 +1,134 @@
+.circleBorder {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 2px;
+  float: right;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.previewContainer {
+  text-align: center;
+  overflow: hidden;
+  min-height: 90px;
+  width: 100%;
+  font-family: Apercu;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0px;
+  color: #090954;
+  overflow-y: auto;
+
+  :before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute; 
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #BFD1E8;
+    right: 30px;
+    bottom: 58px;
+  }
+  :after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute; 
+    border-bottom: 14px solid transparent;
+    border-right: 14px solid #FFFFFF;
+    right: 31px;
+    bottom: 60px;
+  }
+}
+
+.w100 {
+  width: 100%;
+}
+
+.heading {
+  font-family: Apercu;
+  font-size: 14px;
+  line-height: 20px;
+  color: #090954;
+  font-weight: bold;
+
+  :before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffffff;
+    right: 70px;
+    bottom: 50px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.btn {
+  height: 38px;
+  line-height: 38px;
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: BelweSansLight;
+  cursor: pointer;
+}
+
+.btn-link { 
+  border: none !important;
+  background: transparent !important;
+  font-family: Apercu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #BFD1E8;
+  text-transform: none !important;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.btn-light-blue {
+  color: #090954;
+  background: #BFD1E8;
+  width: 250px;
+  margin: 10px;
+}
+
+.whatappIcon {
+  margin-right: 10px;
+}
+
+.notificationItem {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #bbd1ea;
+}
+.share-whatapp{  
+  font-family: 'ApercuMedium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px; 
+  color: #090954;
+  margin-top: 11px;
+  margin-bottom: 3px;
+
+}

@@ -1,0 +1,194 @@
+@import '../../../stylesConstants.scss';
+
+.addressSetupContainer,
+.billingAddressSetupContainer {
+  margin: 2em 1em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn-link {
+  color: #090954;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.orderSummaryAddressSetupContainer {
+  border-radius: 3em;
+  padding: 1em;
+  border: 1px solid #BFD1E8;
+
+  .contactInfo {
+    padding-bottom: 1em;
+    border-bottom: 2px solid #BFD1E8;
+  }
+
+  .shippingAddress {
+    padding-top: 1em;
+  }
+}
+
+.text-primary {
+  color: #090954;
+}
+
+.text-secondary {
+  color: #BFD1E8;
+}
+
+.text-gray {
+  color: #aaa;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.text-dark {
+  color: #000000;
+}
+
+.example-radio-button {
+  flex-direction: column;
+  display: inline-flex;
+  padding: 1em 0;
+}
+
+@media only screen and (min-width: 300px) {
+  .example-radio-group1 {
+    flex-direction: column;
+    display: inline-flex;
+    padding: 1em 0;
+  }
+}
+
+@media only screen and (min-width: 660px) {
+  .example-radio-group1 {
+    flex-direction: row;
+    display: inline-flex;
+    padding: 1em 0;
+  }
+}
+
+.mat-radio-label {
+  white-space: unset !important;
+}
+
+.p-1 {
+  padding: 1em;
+}
+
+.btn_link {
+  all: unset;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: #090954;
+    text-decoration: underline;
+  }
+}
+
+.Belvue {
+  font-family: Belvue;
+}
+
+.floatRight {
+  float: right;
+}
+
+.link {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.error {
+  color: #b54747;
+}
+
+.w-100 {
+  min-width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.firstTd {
+  padding-right: 1em;
+}
+
+.loaderY {
+  margin: auto;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: calc(50vh - 25px);
+  left: calc(50vw - 25px);
+  background-size: contain;
+  animation: playloader 1.96s infinite;
+}
+
+@keyframes playloader {
+  to {
+    transform: rotateY(1turn);
+  }
+}
+
+.btn {
+  height: 38px;
+  line-height: 38px;
+  display: block;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  width: 200px;
+  text-transform: uppercase;
+  font-family: BelweSansLight;
+}
+
+.btn-blue {
+  background-color: #090945;
+  color: $background-color-main;
+}
+
+.underline {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.floatLeft {
+  float: left;
+}
+
+
+.lineTitle {
+  color: #090954;
+  font-family: Apercu;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.customerId {
+  margin-bottom: 30px;
+}
+
+.mat-mini-fab {
+  width: 20px !important;
+  height: 20px !important;
+  background: white;
+  color: #090954;
+  border: 2px solid #BFD1E8;
+  font-size: 20px;
+  line-height: 0px;
+  box-shadow: none !important;
+}

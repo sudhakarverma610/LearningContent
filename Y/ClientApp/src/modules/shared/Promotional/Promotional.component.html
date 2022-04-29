@@ -1,0 +1,14 @@
+<div class="Promotional" fxLayout="column" fxLayoutAlign="center center" >
+ <a [routerLink]="['/'+promotionData.link]" routerLinkActive="router-link-active" >
+  <div class="imgContainer">
+    <picture> 
+      <img itemprop="image"  class="promImg" 
+        [src]="promotionData.src" [alt]="promotionData.alt">
+    </picture>
+  </div>
+  <div class="heading" [innerHTML]="promotionData.heading | sanitizehtml"> 
+  </div>
+  <div class="subheading" [innerHTML]="promotionData.subheading | sanitizehtml"> 
+  </div>
+ </a>
+</div>

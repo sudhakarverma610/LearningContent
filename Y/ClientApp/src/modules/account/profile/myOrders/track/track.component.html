@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Shipment Tracking</h1>
+<div mat-dialog-content>
+  <div class="cardDiv w-100" fxLayout="column" fxLayoutAlign="space-between start">
+    
+<mat-tab-group mat-align-tabs="start"> 
+  
+  <mat-tab label="# {{item.trackingNumber}}"  *ngFor="let item of data.value;">
+   <div class="card" fxLayout="row" fxLayoutAlign="start start">
+      <img class="card-image" src="https://files.y.jewelry/assets/img/profile/credits.png" alt="credits" />
+      <div fxLayout="column" fxLayoutAlign="start start">
+        <div class="w-100" fxLayout="row" fxLayoutAlign="space-between start">
+          <div class="card-heading">Tracking Number - {{item.trackingNumber}}</div>
+        </div>
+        <div class="w-100 card-body">
+          <h4>Products:</h4>
+          <div class="products" *ngFor="let productname of item.productsName;first as isFirst; last as isLast;">
+              <span>{{productname}}</span>
+              <span *ngIf="!isLast">,</span>
+          </div> 
+          <div class="headings mr20" fxLayout="row" fxLayoutAlign="space-between start">
+            <div class="col1">DATE</div>
+            <div class="col2">EVENT</div>
+            <div class="col3" fxHide fxShow.gt-sm>LOCATION</div>
+          </div>
+          <div class="data mr20" fxLayout="row" fxLayoutAlign="space-between start"
+            *ngFor="let node of item.shippingStatusEvents">
+            <div class="col1">{{node.date | date: 'dd MMM yyyy' }}</div>
+            <div class="col2">{{node.eventName}}</div>
+            <div class="col3" fxHide fxShow.gt-sm>{{node.location}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab> 
+</mat-tab-group>
+
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="secondary" (click)="onNoClick()">Close</button>
+</div>

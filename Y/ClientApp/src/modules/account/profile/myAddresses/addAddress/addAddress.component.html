@@ -1,0 +1,80 @@
+<h1 mat-dialog-title>Add Address</h1>
+<div mat-dialog-content [formGroup]="form">
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+    <mat-form-field fxFlex="100" fxFlex.gt-sm="45">
+      <input matInput type="text" placeholder="First Name*" formControlName="first_name">
+      <mat-hint class="error">
+        <span *ngIf="!form.get('first_name').valid && form.get('first_name').touched">Please enter First Name</span>
+      </mat-hint>
+    </mat-form-field>
+    <mat-form-field fxFlex="100" fxFlex.gt-sm="45">
+      <input matInput type="text" placeholder="Last Name*" formControlName="last_name">
+      <mat-hint class="error">
+        <span *ngIf="!form.get('last_name').valid && form.get('last_name').touched">Please enter Last Name</span>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+    <mat-form-field fxFlex="100">
+      <input matInput type="text" placeholder="Email*" formControlName="email">
+      <mat-hint class="error">
+        <span *ngIf="!form.get('email').valid && form.get('email').touched">Please enter valid Email</span>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+    <mat-form-field fxFlex="100">
+      <input matInput type="text" placeholder="Address*" formControlName="address1">
+      <mat-hint class="error">
+        <span *ngIf="!form.get('address1').valid && form.get('address1').touched">Please enter Address</span>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+    <mat-form-field fxFlex="100">
+      <input matInput type="text" placeholder="Apartment, suite, etc. (optional)" formControlName="address2">
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+    <mat-form-field fxFlex="100">
+      <input matInput type="text" placeholder="Zip Postal Code*" formControlName="zip_postal_code">
+      <mat-hint class="error">
+        <span *ngIf="!form.get('zip_postal_code').valid && form.get('zip_postal_code').touched">Enter valid Postal
+          Code.</span>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+    <mat-form-field fxFlex="100" fxFlex.gt-sm="45"> 
+      <input matInput type="text" placeholder="City" formControlName="city">
+      
+      <mat-hint class="error">
+        <span *ngIf="!form.get('city').valid && form.get('city').touched">Please enter City</span>
+      </mat-hint>
+    </mat-form-field>
+    <mat-form-field fxFlex="100" fxFlex.gt-sm="45" class="readonly-wrapper customdropDownList "> 
+      <mat-select   placeholder="State" formControlName="state_province_id"   class="readonly-block" [disabled]="IsStateReadOnly">
+         <mat-option *ngFor="let state of this.states" [value]="state.id">
+          {{state.name}} 
+        </mat-option>
+      </mat-select>
+      <span *ngIf="!form.get('state_province_id').valid && form.get('state_province_id').touched">Please Select State</span>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+    <mat-form-field fxFlex="100" fxFlex.gt-sm="45">
+      <input matInput type="text" placeholder="Country" formControlName="country" [attr.disabled]="true">
+    </mat-form-field>
+    <mat-form-field fxFlex="100" fxFlex.gt-sm="45">
+      <input matInput type="text" placeholder="Phone Number*" formControlName="phone_number">
+      <mat-hint class="error">
+        <span *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">Please enter Phone
+          Number</span>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="saveAddress()" cdkFocusInitial>Save</button>
+  <button mat-button color="secondary" (click)="onNoClick()">Cancel</button>
+</div>

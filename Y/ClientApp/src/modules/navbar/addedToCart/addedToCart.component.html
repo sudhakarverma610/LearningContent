@@ -1,0 +1,38 @@
+<div class="heading w100" mat-dialog-header fxLayout="row" fxLayoutAlign="space-between start">
+  <div>This product has been added to cart:</div>
+  <div>
+    <img class="cursorPointer" (click)="onNoClick()" src="https://files.y.jewelry/assets/img/configurator/closeIcon.png"
+      width="20" height="20" alt="close" />
+  </div>
+</div>
+<div mat-dialog-content class="previewContainer" fxLayout="column" fxLayoutAlign="start end">
+  <div class="cartItem" fxLayout.gt-xs="row" fxLayout="column" fxLayoutAlign="space-between center">
+    <div>
+      <a [routerLink]="['/', data.item.product.se_name]"><img class="cursorPointer lazy mb-6"
+          [src]="data.item.product.images[0].src | changeSrcExtension: '_100.jpeg'"
+          [alt]="data.item.product.images[0].alt" [title]="data.item.product.images[0].title" width="200"
+          height="200" /></a>
+    </div>
+    <div class="productDetails" fxLayout="column" fxLayoutAlign="space-around start">
+      <div class="productName"><a [routerLink]="['/', data.item.product.se_name]">{{data.item.product.name}}</a></div>
+      <div class="error" *ngIf="availableForPreOrder" >This design is on back order. Delivery by 15 Oct 2020.</div>
+      <div class="product_price w100 nowrap" *ngIf="data.item.product && data.item.product.available_for_pre_order">
+        {{data.item.product.price_model.price}}</div>
+      <div class="product_price w100 nowrap" *ngIf="data.item.product && !data.item.product.available_for_pre_order">
+        <span
+          [ngClass]="{'priceWithoutDiscount': data.item.product.price_model.price_with_discount}">{{data.item.product.price_model.price}}</span><br />
+        {{data.item.product.price_model.price_with_discount}}</div>
+    </div>
+    <div class="px19" fxLayout="row" fxLayoutAlign="start center">
+      <img src="https://files.y.jewelry/assets/img/minus.png" class="qty-btn cursorPointer" alt="minus"
+        (click)="decreaseQuantity(data.item)" />
+      <span class="quantityNumber">{{data.item.quantity}}</span>
+      <img src="https://files.y.jewelry/assets/img/plus.png" class="qty-btn cursorPointer" height="33" alt="plus"
+        (click)="increaseQuantity(data.item)" />
+    </div>
+  </div>
+</div>
+<div mat-dialog-footer class="mt-12" fxLayout="row" fxLayoutAlign="space-between start">
+  <button class="btn btn-link" (click)="onNoClick()">Continue Shopping</button>
+  <a class="btn btn-light-blue" [routerLink]="['/cart']" (click)="onNoClick()">Checkout</a>
+</div>

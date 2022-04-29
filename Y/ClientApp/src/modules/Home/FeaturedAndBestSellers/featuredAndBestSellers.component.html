@@ -1,0 +1,42 @@
+<div class="bannersDivContainer maxW800 paddingY3em" fxFill fxLayout="column" fxLayoutAlign="center center">
+  <div class="bestsellerHeading">
+    <span>
+      trending
+    </span>
+  </div>
+  <div class="categories" fxLayout="row" fxLayoutAlign="center center">
+    <div *ngFor="let item of products" (click)="selectCategory(item.category_sename)"
+      [ngClass]="{active: item.category_sename === visibleCategory.category_sename}">
+      {{item.category_name}}
+    </div>
+  </div>
+  <div class="bestsellerBody" fxFill fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around start">
+    <ng-container *ngFor="let product of visibleCategory.products; index as productIndex">
+    <div *ngIf="productIndex<ItemsToShow"
+      fxFlex="50" fxFlex.gt-xs="25" fxFlex.gt-md="15">     
+      <app-product-list-item-view [index]="productIndex" [listType]="listType"
+        [product]="{ category_sename: visibleCategory.category_sename, data: product }" [IsShowHome]="true">
+      </app-product-list-item-view>
+    </div>
+  </ng-container>
+  </div>
+  <div class="bestsellerBody" fxFill fxLayout="row" fxLayoutWrap fxLayoutAlign="center center"
+    *ngIf="visibleCategory.products.length == 0">
+    <div class="loaderY bg-logo1"> 
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+        <path d="M25 0C11.2133 0 0 11.2133 0 25C0 38.7867 11.2133 50 25 50C38.7867 50 50 38.7867 50 25C50 11.2133 38.7867 0 25 0ZM38.8733 5.41L26.6467 31.3267L12.37 4.58333C16.0433 2.3 20.37 0.98 25 0.98C30.1667 0.98 34.9533 2.62667 38.8733 5.41ZM0.98 25C0.98 18.18 3.84 12.02 8.42 7.64667L24.11 36.7167L18.7033 48.18C8.50333 45.4033 0.98 36.0667 0.98 25ZM25 49.02C24.0033 49.02 23.02 48.95 22.0533 48.8333L41.6067 7.67333C46.17 12.05 49.02 18.1967 49.02 25.0033C49.02 38.2433 38.2433 49.02 25 49.02Z" fill="#090954"/>
+      </svg>     
+    </div>
+  </div>
+  <div class="marginTop1em" fxLayout="row" fxLayoutAlign="center center">
+    <div (click)="showAll()"  class="discovercat">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none" style="margin-right: 5px;">
+          <path d="M5.5 0C2.5 0 0 2.5 0 5.5C0 8.5 2.5 11 5.5 11C8.5 11 11 8.5 11 5.5C11 2.5 8.5 0 5.5 0ZM5.5 10C3 10 1 8 1 5.5C1 3 3 1 5.5 1C8 1 10 3 10 5.5C10 8 8 10 5.5 10Z" fill="#090954"></path>
+          <path d="M7.5 4.99999H6V3.49994C6 3.19993 5.8 2.99993 5.5 2.99993C5.2 2.99993 5 3.19993 5 3.49994V4.99999H3.5C3.2 4.99999 3 5.19999 3 5.5C3 5.80001 3.2 6.00001 3.5 6.00001H5V7.50006C5 7.80007 5.2 8.00007 5.5 8.00007C5.8 8.00007 6 7.80007 6 7.50006V6.00001H7.5C7.8 6.00001 8 5.80001 8 5.5C8 5.19999 7.8 4.99999 7.5 4.99999Z" fill="#090954"></path>
+        </svg>Discover all {{visibleCategory.category_name}}
+      </div>     
+    </div>
+  </div>
+</div>
+<ngx-json-ld [json]="schema"></ngx-json-ld>

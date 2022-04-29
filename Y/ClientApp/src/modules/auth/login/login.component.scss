@@ -1,0 +1,170 @@
+@import '../../../stylesConstants.scss';
+
+.loginContainer {
+  color: #090954;
+  margin: auto;
+  padding: 0px 10px;
+  min-height: 80vh;
+  .title {
+    font-family: BelweSansLight;
+    font-size: 36px;
+    line-height: 40px;
+    text-align: center;
+    margin: 29px 0px 41px 0px;
+  }
+  .subTitle {
+    font-family: BelweSansLight;
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 11px;
+  }
+
+  .details {
+    font-family: Apercu;
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    min-height: 40px;
+    line-height: 38px;
+    display: block;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: BelweSansLight;
+    font-size: 14px;
+
+    img {
+      width: 36px;
+      height: 36px;
+      float: left;
+      margin: 2px -3px;
+    }
+  }
+  .btn-blue {
+    background-color: #090945;
+    color: $background-color-main;
+  }
+
+  .matForm {
+    margin: 0px !important;
+  }
+
+  @media only screen and (min-width: 300px) {
+    .btn {
+      width: 100%;
+    }
+   }
+
+  @media only screen and (min-width: 660px) {
+    .btn {
+      width: 180px !important;
+      max-width: 180px !important;
+    }
+
+    .matForm {
+      max-width: 180px !important;
+      min-width: 180px !important;
+    }
+  }
+
+  .hr {
+    border-bottom: 1px solid #BFD1E8;
+    margin: 10px 0px;
+  }
+
+  .mb-11 {
+    margin-bottom: 11px;
+  }
+
+  .fancy {
+    line-height: 0.5;
+    text-align: center;
+    font-size: 12px;
+    margin: 10px 0px;
+    color: #BFD1E8;
+  }
+
+  .fancy span {
+    display: inline-block;
+    position: relative;
+  }
+
+  .fancy span:before,
+  .fancy span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-top: 1px solid #BFD1E8;
+    top: 0;
+    width: 100%;
+  }
+
+  .fancy span:before {
+    right: 100%;
+    margin-right: 5px;
+  }
+
+  .fancy span:after {
+    left: 100%;
+    margin-left: 5px;
+  }
+
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.mxAuto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error_message {
+  color: #b54747;
+}
+
+.allUnset { 
+  border: none;
+  background: transparent;
+}
+
+.mt-2 {
+  margin-top: 2em;
+}
+
+.gender {
+  margin-bottom: 1.25em;
+}
+
+.underlineHover {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+@media only screen and (min-width: 660px) {
+  .loginContainer {
+    max-width: 80%;
+  }
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}

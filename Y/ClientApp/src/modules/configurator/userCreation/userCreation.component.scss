@@ -1,0 +1,33 @@
+.usercreation{
+    background: #FBF4F1;
+    border-radius: 5px;
+    position: relative;
+    width: 100%;
+    .img-creation{
+        cursor: pointer;
+    }
+    .fb-wa-icon{    
+        position: absolute;
+        bottom: 40px;
+       
+        .wp_icon{
+            margin-left: 10px;
+        }
+        .fb_icon{
+            margin-left: 10px;
+        }
+      }
+}
+.icon-share{
+    position: relative;
+}
+
+.share{
+    position:absolute;
+    display: none;
+}
+
+.usercreation-footer{
+    min-height: 47px;
+    width: 100%;
+}

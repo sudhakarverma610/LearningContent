@@ -1,0 +1,14 @@
+.error_msg {
+  color: #b54747;
+}
+
+h1 {
+  color: #090954;
+}
+.readonly-wrapper {
+  cursor: not-allowed;
+}
+
+.readonly-wrapper .readonly-block {
+  pointer-events: none;
+}

@@ -1,0 +1,72 @@
+<div class="filterContainer" [@enterAnimation]>
+  <div class="filterFlexDIV" fxLayout="row" fxLayoutWrap fxLayoutAlign="center start">
+    <div class="mr40">
+      <div class="filterTitle">Collection</div>
+      <div fxLayout="row" fxLayoutAlign="start start">
+        <ng-container *ngFor="let it of splitArr(category, 1)">
+          <div class="mr20" fxLayout="column" fxLayoutAlign="start start">
+            <ng-container *ngFor="let item of it">
+              <mat-checkbox class="mb10" color="primary" [(ngModel)]="item.selected" (change)="count()">{{item.name}}
+              </mat-checkbox>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <ng-container *ngFor="let filter of Filters; index as i">
+      <div class="mr40">
+        <div class="filterTitle">{{ filter.name }}</div>
+        <div fxLayout="row" fxLayoutAlign="start start">
+          <ng-container *ngFor="let it of splitArr(filter.list, 20 + i)">
+            <div class="mr20" fxLayout="column" fxLayoutWrap fxLayoutAlign="start start">
+              <ng-container *ngFor="let item of it; index as filterIndex">
+                <mat-checkbox class="mb10" color="primary" [(ngModel)]="item.selected" (change)="count()">
+                  {{item.attribute_option_name}}
+                </mat-checkbox>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <div class="mr40" *ngIf="categoryPriceRange.range.length > 0">
+      <div class="filterTitle">Price</div>
+      <div class="w250" fxLayout="row" fxLayoutAlign="start start">
+        <ng5-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ng5-slider>
+      </div>
+    </div>
+  </div>
+  <div class="filterFlexDIV1" fxLayout="column" fxLayoutAlign="start start">
+    <div class="w-100" fxLayout="column" fxLayoutAlign="start start" *ngIf="category.length > 0">
+      <div class="w-100 bg-light-blue text-center">Collection</div>
+      <div class="w-100" fxLayout="row" fxLayoutWrap fxLayoutAlign="start start">
+        <ng-container *ngFor="let item of category; last as isLast">
+          <div fxFlex="50" class="b-light-blue" [ngClass]="{'b-bottom-none': isLast}">
+            <mat-checkbox color="primary" [(ngModel)]="item.selected" (change)="count()">
+              {{item.name}}
+            </mat-checkbox>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="w-100" fxLayout="column" fxLayoutAlign="start start" *ngFor="let filter of Filters; index as i">
+      <div class="w-100 bg-light-blue text-center">{{ filter.name }}</div>
+      <div class="w-100" fxLayout="row" fxLayoutWrap fxLayoutAlign="start start">
+        <ng-container *ngFor="let item of filter.list; index as filterIndex; last as isLast">
+          <div fxFlex="50" class="b-light-blue" [ngClass]="{'b-bottom-none': isLast}">
+            <mat-checkbox color="primary" [(ngModel)]="item.selected" (change)="count()">
+              {{item.attribute_option_name}}
+            </mat-checkbox>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="w-100" fxLayout="column" fxLayoutAlign="start start" *ngIf="categoryPriceRange.range.length > 0">
+      <div class="w-100 bg-light-blue text-center">Price</div>
+      <div class="slider w-100" fxLayout="row" fxLayoutWrap fxLayoutAlign="start start">
+        <ng5-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ng5-slider>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-blue mx-11" fxShow.gt-sm fxHide (click)="show()">Show Products</button>
+</div>

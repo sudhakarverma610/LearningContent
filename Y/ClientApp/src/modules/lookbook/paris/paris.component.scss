@@ -1,0 +1,28 @@
+.displayNone {
+    display: none !important;
+  }
+  
+  .displayBlock {
+    display: block !important;
+  }
+  
+  .lookbookSection {
+    min-height: calc(100vh - 80px);
+    width: 100vw;
+    margin: 60px 0 0 0;
+  }
+  
+  .video-background {
+    width: 100%;
+  }
+  
+  .speaker {
+    width: 48px;
+    right: 49vw;
+    position: fixed;
+    top: 49vh;
+    background: #090954;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  

@@ -1,0 +1,37 @@
+<div class="addressContainer" fxLayout.gt-sm="row" fxLayoutWrap fxLayout="column" fxLayoutAlign="center start">
+  <div class="cardDiv m-b-20" fxLayout="column" fxLayoutAlign="space-between start" fxFlex.gt-sm="35"
+   fxFlex="80" *ngFor="let item of allAddresses; index as AddressIndex">
+    <div class="card m-b-20" fxLayout="row" fxLayoutAlign="start start">
+      <img class="card-image" src="https://files.y.jewelry/assets/img/profile/address.png" alt="profile" />
+      <div fxLayout="column" fxLayoutAlign="start start">
+        <div class="w-100" fxLayout="row" fxLayoutAlign="space-between start">
+          <div class="card-heading">Address #{{AddressIndex + 1}}</div>
+          <div class="card-heading link cursorPointer">
+            <span (click)="editAddress(item)">MODIFY</span>
+            <span class="error_message" (click)="deleteAddress(item)">DELETE</span>
+          </div>
+        </div>
+        <div class="w-100 card-body">
+          {{ item.last_name }}
+          {{ item.first_name }} <br />
+          {{ item.address1 }} <br />
+          {{ item.address2 }} <br />
+          {{ item.city }},
+          {{ item.province }}<br />
+          {{ item.zip_postal_code }}<br />
+          {{ item.phone_number }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cardDiv" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="35" fxFlex="80">
+    <div class="card newcard" fxLayout="row" fxLayoutAlign="start start">
+      <button class="card-image" mat-mini-fab (click)="addAddress()">+</button>
+      <div fxLayout="column" fxLayoutAlign="start start">
+        <div class="w-100" fxLayout="row" fxLayoutAlign="center start">
+          <div class="card-heading normal cursorPointer" (click)="addAddress()">Add a new address</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

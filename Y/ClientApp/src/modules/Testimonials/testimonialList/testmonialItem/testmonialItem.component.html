@@ -1,0 +1,35 @@
+<div class="ReviewContainer" fxLayout="column" fxLayoutAlign="center center">
+     <div class="content-container">
+      <mat-card>
+        <ng-container *ngIf="model.review_Image !== undefined &&model.review_Image!==null&&model.review_Image!=''">
+          <img mat-card-image class="h-201" width="355" [src]="model.review_Image" alt="Photo of a Shiba Inu">
+ 
+        </ng-container>
+        <mat-card-content>
+          <div class="rating-start">
+            <div *ngFor="let item of model.review_number|ratingMapping" class="mr-4">
+              <svg *ngIf="item" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M21.515 9.17605C21.6412 8.92448 21.6412 8.67291 21.6412 8.54712C21.515 8.29555 21.3888 8.16976 21.1365 8.16976L14.9545 7.28926H14.576V6.78612L11.9266 1.25152C11.6743 0.874166 11.0434 0.874166 10.7911 1.25152L8.01552 6.78612L7.88935 7.03769H7.51086L1.32886 7.91819C0.950365 7.91819 0.8242 8.16976 0.8242 8.29555C0.698037 8.54712 0.824203 8.79869 0.950366 8.92448L5.36609 13.2012L5.61841 13.4528V13.8301L4.48294 20.1194C4.35678 20.7484 5.11376 21.1257 5.49225 20.8742L11.0434 17.9811L11.2958 17.8553L11.5481 17.9811L16.9731 21C17.6039 21.2515 17.9824 20.7484 17.9824 20.2452L16.9731 14.0817V13.7044L17.2254 13.4528L21.515 9.17605Z"
+                 fill="#090954"/>
+              </svg>
+              <svg *ngIf="!item" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M21.515 9.17605C21.6412 8.92448 21.6412 8.67291 21.6412 8.54712C21.515 8.29555 21.3888 8.16976 21.1365 8.16976L14.9545 7.28926H14.576V6.78612L11.9266 1.25152C11.6743 0.874166 11.0434 0.874166 10.7911 1.25152L8.01552 6.78612L7.88935 7.03769H7.51086L1.32886 7.91819C0.950365 7.91819 0.8242 8.16976 0.8242 8.29555C0.698037 8.54712 0.824203 8.79869 0.950366 8.92448L5.36609 13.2012L5.61841 13.4528V13.8301L4.48294 20.1194C4.35678 20.7484 5.11376 21.1257 5.49225 20.8742L11.0434 17.9811L11.2958 17.8553L11.5481 17.9811L16.9731 21C17.6039 21.2515 17.9824 20.7484 17.9824 20.2452L16.9731 14.0817V13.7044L17.2254 13.4528L21.515 9.17605Z"
+                 fill="#BFD1E8"/>
+              </svg> 
+             </div>
+          </div>
+          <div class="text" *ngIf="model.review_text&&model.review_text.length>0">
+              <span>
+                “{{model.review_text}}”
+              </span>
+          </div>
+          <div class="by">
+            {{model.display_name}} 
+          </div>
+          <div  class="date" *ngIf="model.createdOnDate"> 
+            {{model.createdOnDate | date: 'dd MMM yyyy'}}
+          </div>
+        </mat-card-content> 
+      </mat-card>  
+    </div> 
+</div>   

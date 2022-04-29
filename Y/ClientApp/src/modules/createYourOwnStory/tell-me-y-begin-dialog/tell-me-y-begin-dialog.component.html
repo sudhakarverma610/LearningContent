@@ -1,0 +1,17 @@
+<div class="dialog-container" *ngIf="data?.id===1">
+	<div class="heading"> Tell me y</div>
+	<div class="sub-heading">  It seems it is time to find <br>yourself back.</div>
+  <div class="content"> We have 12 questions to ask.<br> In the end, we should be able to show you some produts you could fall in love with, but we reserve you a little surprise too. Shall we begin?</div>
+   <button (click)="closeBegin(!data.tryAgain?data.id:-1);">Begin</button> 
+   <ng-container *ngIf="data.tryAgain">
+     <div class="result-text">We detected you already answered our 12 questions.</div>
+     <button class="show-lastResult" (click)="closeBegin(-2)">show Last results</button>
+   </ng-container>
+
+</div>
+<div class="dialog-container1" *ngIf="data?.id===2">
+	<div class="heading">we are done</div>
+	<div class="sub-heading"> You seem to be this kind of person</div>
+  <div class="content"> We found 10 products that should fit your taste. Ready to discover them?</div>
+   <button (click)="closeBegin(data?.id);">yes, indeed!</button> 
+</div>

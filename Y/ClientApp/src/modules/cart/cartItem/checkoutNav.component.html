@@ -1,0 +1,16 @@
+<div class="checkoutNavContainer">
+  <mat-button-toggle-group class="navToggle" #group="matButtonToggleGroup" [ngClass]="{'bg-white': !activeAtShipping}">
+    <mat-button-toggle value="left" aria-label="Text align left" (click)="gotoCart()">
+      <mat-icon class="checkoutIcon">check_circle</mat-icon> <span class="navText">your cart</span>
+    </mat-button-toggle>
+    <mat-button-toggle value="center" aria-label="Text align center" (click)="gotoShipping()"
+      [ngClass]="{'active': !activeAtShipping}">
+      <mat-icon class="checkoutIcon" *ngIf="activeAtShipping">check_circle</mat-icon>
+      <button *ngIf="!activeAtShipping" mat-mini-fab>2</button>
+      <span class="navText"> Address</span>
+    </mat-button-toggle>
+    <mat-button-toggle value="right" aria-label="Text align right" [ngClass]="{'active': activeAtShipping}">
+      <button mat-mini-fab>3</button> <span class="navText"> Payment</span>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

@@ -1,0 +1,43 @@
+@import '../stylesConstants.scss'; 
+.container {
+  // background-color: $background-color-main;
+  width: 100%;
+  height: calc(100vh - 80px);
+  max-width: 100vw;
+}
+
+.loaderContainer {
+  width: 100%;
+  max-width: 100vw;
+  height: 100vh;
+  background-color: white;
+  opacity: 1.9;
+}
+.loaderY {
+  position: fixed; 
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+  margin: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: playloader 1.96s infinite;
+}
+
+.loaderMsg {
+  position: fixed;
+  left: calc(50% - 150px);
+  top: calc(50% + 100px);
+  width: 300px;
+  height: auto;
+  text-align: center;
+}
+
+.displayNone {
+  display: none;
+}
+
+@keyframes playloader {
+  to {
+    transform: rotateY(1turn);
+  }
+}

@@ -1,0 +1,18 @@
+<div class="sortContainer" [@enterAnimation]>
+  <div class="sortFlexDIV1" fxLayout="column" fxLayoutAlign="start start">
+    <div class="w-100" fxLayout="column" fxLayoutAlign="start start">
+      <div class="w-100 bg-light-blue sort-by text-center">sort by</div>
+      <div class="w-100" fxLayout="row" fxLayoutWrap fxLayoutAlign="start start"> 
+        <div fxFlex="100" class="b-light-blue">          
+          <mat-radio-group 
+          class="sort-radio-group"
+          [(ngModel)]="selectedValue" (change)="RadioButtonChangedEvent($event)">
+          <mat-radio-button fxFlex="100" class="b-light-blue primary sort-radio-button" *ngFor="let sort of Sorts" [value]="sort.value">
+            {{sort.text}}
+          </mat-radio-button>
+        </mat-radio-group>  
+        </div>
+      </div>
+    </div> 
+  </div> 
+</div>

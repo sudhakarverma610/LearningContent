@@ -1,0 +1,200 @@
+ <!-- /*mobile  -->
+<div class="MainDetailsContainer w-100" id="textView" fxShow.sm fxHide.gt-sm fxLayout="column" fxLayoutAlign="start start">
+  <div class="aboutPictureContainerMobile ">
+    <div [class]="'mobileImg ' + Vslide.class" (click)="rightSlide();StartTimmer();" (swipeleft)="rightSlide();StartTimmer();" (swiperight)="leftSlide();StartTimmer();">
+      <ng-container *ngFor="let item of slides">
+        <ng-container *ngIf="item.id === Vslide.id">
+          <video class="slideimg" id="v-{{Vslide.id}}" playsinline loop [muted]="'muted'" preload="auto" muted="muted" 
+            inViewport [inViewportOptions]="{ threshold: [0, 0.65], partial: true }"
+            (inViewportAction)="onIntersection($event)">
+            <source [src]="item.src" type="video/mp4">
+          </video>
+          <div *ngIf="item.id" class="slide-number">
+            <div class="number">{{item.id}}</div>
+            <span class="text">{{item.title}}</span>
+          </div>
+          <img *ngIf="item.img1Src" class="img1 img-shadow" [src]="item.img1Src" alt="alt">
+          <img *ngIf="item.img2Src" class="img2 img-shadow" [src]="item.img2Src" alt="alt">
+          <img *ngIf="item.img3Src" class="img3 img-shadow" [src]="item.img3Src" alt="alt">
+          <img *ngIf="item.id > 0" (click)="scrollToText($event,'v-'+Vslide.id);" class="up-arrow img-shadow" src="https://files.y.jewelry/assets/img/2020/uparrow.svg" alt="alt">
+          <div *ngIf="item.footer" class="footer">
+            <div class="footer-text">{{ item.footer }}</div>
+          </div>
+          <button *ngIf="item.button" class="btn" (click)="rightSlide();StartTimmer();">{{ item.button.text }}</button>
+        </ng-container>
+      </ng-container>
+    </div> 
+    <div class="dotNav" fxLayout="row" fxLayoutAlign="space-between center"  *ngIf="slides.length > 1">
+      <ng-container *ngFor="let slide of slides">
+        <div class="dot {{slide.id === Vslide.id?'active':'inactive'}}"  [style.opacity]="!(slide.id <= Vslide.id)?'1':'1'"
+         [style.width]="'calc(100% - ' + slides.length*7 +'px)'" (click)="Vslide = slide;StartTimmer();">
+        <div class="display-none">
+          Counter={{counterTimmer}}<br>
+          Active ={{slide.id === Vslide.id}}
+      </div> 
+         <ng-container *ngIf="(slide.id === Vslide.id)">  
+          <div class="inner-dot-active" [style.width]="counterTimmer+'%'">
+          </div>
+         </ng-container>     
+         <ng-container *ngIf="(slide.id < Vslide.id)"> 
+          <div class="inner-dot-previous">
+          </div>            
+         </ng-container>  
+          <ng-container *ngIf="(slide.id > Vslide.id)"> 
+            <div class="inner-dot-remaining">
+            </div> 
+           </ng-container>  
+
+        </div> 
+      </ng-container>
+    </div>
+    <div *ngIf="textVisible" class="Details" fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+      <h2 class="h2 mb20">{{Vslide.content.h1}}</h2>
+      <div class="sub-heading">{{Vslide.content.subh1}}</div>
+      <ng-container *ngIf="Vslide.content.isImageUp">
+        <div class="image-container">
+          <img [src]="Vslide.content.imgUrl" alt="alt">          
+        </div>
+        <div class="content"> 
+          {{Vslide.content.text}}
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!Vslide.content.isImageUp">       
+        <div class="content mt20"> 
+          {{Vslide.content.text}}
+        </div>
+        <div class="image-container">
+          <img [src]="Vslide.content.imgUrl" alt="alt">          
+        </div>
+      </ng-container> 
+      <div class="image-container" *ngIf="Vslide.id===2">
+        <img alt="alt" class="img3" src="https://files.y.jewelry/assets/img/2020/about-us/image28.png">
+        <img alt="alt" class="img4" src="https://files.y.jewelry/assets/img/2020/about-us/image32.png">
+      </div>
+      <!-- <div class="image-container" style="height: 370px;">
+        <img class="img1" src="https://files.y.jewelry/assets/img/2020/image 24.jpg" alt="alt">
+        <img class="img2" src="https://files.y.jewelry/assets/img/2020/image 25.png" alt="alt">
+
+      </div>
+      <div class="content">
+        Then, our team makes the firsts concept designs to urna, at iaculis sem tristique at. Nulla pellentesque sem sit
+        amet lectus aliquet sollicitudin. Nam condimentum risus eu molestie faucibus. Sed suscipit lacus eget elit
+        dignissim interdum.
+      </div>
+      <div class="image-container" style="height: 462px;">
+        <img class="img3" src="https://files.y.jewelry/assets/img/2020/image 26.png" alt="alt">
+        <img class="img4" src="https://files.y.jewelry/assets/img/2020/image 27.png" alt="alt">
+
+      </div> -->
+      <!-- <div class="content">
+        Our prototypes allow us to ensure feugiat et enim vitae, semper scelerisque mauris. Aenean eros metus, tincidunt
+        sed velit et, dignissim porta turpis. Morbi interdum metus eros, id finibus est pretium eget.
+      </div> -->
+      <!-- <div>
+        <img class="mr-t-20" src="https://files.y.jewelry/assets/img/2020/image 28.png" alt="alt">
+      </div> -->
+      <!-- <div class="footer">
+        And a new product is born! Nulla id euismod magna. Maecenas fringilla lectus vel congue viverra!
+      </div> -->
+      <button [routerLink]="[Vslide.content.buttonUrl]" class="shopbtn mt20 mb20">{{Vslide.content.buttontext}}</button>
+    </div>
+  </div>
+</div>
+<div class="MainDetailsContainer w-100" id="textView" fxHide fxShow.gt-sm fxLayout="column" fxLayoutAlign="start start">
+  <div fxLayout="row" fxLayoutAlign="start start">
+    <div class="aboutPictureContainerMobile">
+      <div [class]="'mobileImgPrevious blure ' + PreviousVslide.class" (click)="leftSlide();StartTimmer();">             
+            <ng-container *ngFor="let item of slides">
+              <ng-container *ngIf="item.id === PreviousVslide.id">
+                <picture  id="vp-{{PreviousVslide.id}}">
+                <img class="preimg" [src]="item.posterImage">
+                 </picture>   
+             </ng-container>
+            </ng-container>
+      </div>   
+    </div>
+    <div class="aboutPictureContainerMobile">
+      <div [class]="'mobileImg ' + Vslide.class" (swipeleft)="rightSlide();StartTimmer();" (swiperight)="leftSlide();StartTimmer();">
+        <ng-container *ngFor="let item of slides">
+          <ng-container *ngIf="item.id === Vslide.id">
+            <video class="slideimg" id="v1-{{Vslide.id}}" playsinline loop [muted]="'muted'" preload="auto" muted="muted" 
+              inViewport [inViewportOptions]="{ threshold: [0, 0.65], partial: true }"
+              (inViewportAction)="onIntersection($event)">
+              <source [src]="item.src" type="video/mp4">
+            </video>
+            <div *ngIf="item.id" class="slide-number">
+              <div class="number">{{item.id}}</div>
+              <span class="text">{{item.title}}</span>
+            </div>
+            <img *ngIf="item.img1Src" class="img1 img-shadow" [src]="item.img1Src" alt="alt">
+            <img *ngIf="item.img2Src" class="img2 img-shadow" [src]="item.img2Src" alt="alt">
+            <img *ngIf="item.img3Src" class="img3 img-shadow" [src]="item.img3Src" alt="alt">
+            <img *ngIf="item.id > 0" (click)="scrollToText($event,'v1-'+Vslide.id)" class="up-arrow img-shadow" src="https://files.y.jewelry/assets/img/2020/uparrow.svg" alt="alt">
+            <div *ngIf="item.footer" class="footer">
+              <div class="footer-text">{{ item.footer }}</div>
+            </div>
+            <button *ngIf="item.button" class="btn" (click)="rightSlide();StartTimmer();">{{ item.button.text }}</button>
+          </ng-container>
+        </ng-container>
+      </div> 
+      <div class="dotNav1" fxLayout="row" fxLayoutAlign="space-between center"  *ngIf="slides.length > 1">
+        <ng-container *ngFor="let slide of slides">
+          <div class="dot {{slide.id === Vslide.id?'active':'inactive'}}"  [style.opacity]="!(slide.id <= Vslide.id)?'1':'1'"
+           [style.width]="'calc(100% - ' + slides.length*7 +'px)'" (click)="Vslide = slide;StartTimmer();">
+           
+           <ng-container *ngIf="(slide.id === Vslide.id)">  
+            <div class="inner-dot-active" [style.width]="counterTimmer+'%'">
+            </div>
+           </ng-container>     
+           <ng-container *ngIf="(slide.id < Vslide.id)"> 
+            <div class="inner-dot-previous">
+            </div>            
+           </ng-container>  
+            <ng-container *ngIf="(slide.id > Vslide.id)"> 
+              <div class="inner-dot-remaining">
+              </div> 
+             </ng-container>  
+  
+          </div> 
+        </ng-container>
+      </div>
+      <div *ngIf="textVisible" class="Details" fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+        <h2 class="h2 mb20">{{Vslide.content.h1}}</h2>
+        <div class="sub-heading">{{Vslide.content.subh1}}</div>
+        <ng-container *ngIf="Vslide.content.isImageUp">
+          <div class="image-container">
+            <img [src]="Vslide.content.imgUrl" alt="alt">          
+          </div>
+          <div class="content"> 
+            {{Vslide.content.text}}
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!Vslide.content.isImageUp">       
+          <div class="content mt20"> 
+            {{Vslide.content.text}}
+          </div>
+          <div class="image-container">
+            <img [src]="Vslide.content.imgUrl" alt="alt">          
+          </div>
+        </ng-container> 
+        <div class="image-container" *ngIf="Vslide.id===2">
+          <img alt="alt" class="img3" src="https://files.y.jewelry/assets/img/2020/about-us/image28.png">
+          <img alt="alt" class="img4" src="https://files.y.jewelry/assets/img/2020/about-us/image32.png">
+        </div> 
+        <button [routerLink]="[Vslide.content.buttonUrl]" class="shopbtn mt20 mb20">{{Vslide.content.buttontext}}</button>
+      </div>
+    </div>
+    <div class="aboutPictureContainerMobile">
+      <div [class]="'mobileImgnext blure ' + NextVslide.class"  (click)="rightSlide();StartTimmer();">
+        <ng-container *ngFor="let item of slides">
+          <ng-container *ngIf="item.id === NextVslide.id">
+            <picture class="slideimg" id="vn-{{NextVslide.id}}">
+            <img class="nextimg" [src]="item.posterImage">
+          </picture>     
+         </ng-container>
+        </ng-container>
+            
+      </div>   
+    </div>
+  </div> 
+</div>

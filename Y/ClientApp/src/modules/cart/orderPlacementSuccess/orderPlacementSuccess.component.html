@@ -1,0 +1,51 @@
+<div class="OrderConfirmationContainer" fxLayout="column" fxLayoutAlign="start center">
+  <div class="title">thank you for your order</div>
+  <div fxHide.gt-sm fxShow.sm>
+    <img src="https://files.y.jewelry/assets/img/thanks1.png" alt="thanks">
+  </div>
+  <div class="loaderY bg-logo" *ngIf="loader"></div>
+  <div class="details">
+    Dear {{customer.first_name}}, the whole Y team thanks you for your order #{{orderId}} You will soon receive a
+    confirmation email.
+    Please take 5 seconds to rate your shopping experience on our website. Have a great day!
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxHide fxShow.gt-sm>
+      <img src="https://files.y.jewelry/assets/img/thanks2.png" width="198" alt="thanks">
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start center">
+      <div class="rating cursorPointer" fxLayout="row" fxLayoutAlign="center center">
+        <img src="https://files.y.jewelry/assets/img/fullStar.png" alt="ratings" *ngIf="rating > 0"
+          (click)="rating = 1;">
+        <img src="https://files.y.jewelry/assets/img/emptyStart.png" alt="ratings" *ngIf="rating === 0"
+          (click)="rating = 1;">
+        <img src="https://files.y.jewelry/assets/img/fullStar.png" alt="ratings" *ngIf="rating > 1"
+          (click)="rating = 2;">
+        <img src="https://files.y.jewelry/assets/img/emptyStart.png" alt="ratings" *ngIf="2 > rating"
+          (click)="rating = 2;">
+        <img src="https://files.y.jewelry/assets/img/fullStar.png" alt="ratings" *ngIf="rating > 2"
+          (click)="rating = 3;">
+        <img src="https://files.y.jewelry/assets/img/emptyStart.png" alt="ratings" *ngIf="3 > rating"
+          (click)="rating = 3;">
+        <img src="https://files.y.jewelry/assets/img/fullStar.png" alt="ratings" *ngIf="rating > 3"
+          (click)="rating = 4;">
+        <img src="https://files.y.jewelry/assets/img/emptyStart.png" alt="ratings" *ngIf="4 > rating"
+          (click)="rating = 4;">
+        <img src="https://files.y.jewelry/assets/img/fullStar.png" alt="ratings" *ngIf="rating > 4"
+          (click)="rating = 5;">
+        <img src="https://files.y.jewelry/assets/img/emptyStart.png" alt="ratings" *ngIf="5 > rating"
+          (click)="rating = 5;">
+      </div>
+      <mat-form-field class="inputReview" class="w-300">
+        <textarea matInput placeholder="Add a comment (optional)" [(ngModel)]="text"></textarea>
+        <mat-error class="error" *ngIf="errorMsg">
+          Please select rating between 0 and 5.
+        </mat-error>
+      </mat-form-field>
+      <button class="btn btn-blue" (click)="review()">Submit Rating</button>
+    </div>
+    <div fxHide fxShow.gt-sm>
+      <img src="https://files.y.jewelry/assets/img/thanks3.png" width="136" alt="thanks">
+    </div>
+  </div>
+</div>
