@@ -1,0 +1,14 @@
+http://www.sqlservertutorial.net/
+
+https://www.tutorialspoint.com/ms_sql_server/
+
+https://en.wikipedia.org/wiki/Microsoft_SQL_Server
+
+https://docs.microsoft.com/en-us/sql/?view=sql-server-2017
+
+https://docs.microsoft.com/en-us/sql/sql-server/sql-server-technical-documentation?view=sql-server-2017
+
+https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-2017
+
+https://docs.microsoft.com/en-us/sql/t-sql/language-reference?view=sql-server-2017
+
